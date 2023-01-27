@@ -3,7 +3,9 @@
 export const example = () => {
   return 'example';
 };
-
+function comer(comida) {
+  
+}
 export const anotherExample = () => {
   return 'OMG';
 };
