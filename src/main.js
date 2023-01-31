@@ -6,13 +6,8 @@ import data from './data/pokemon/pokemon.js';
 //construirás una página web para visualizar un conjunto (set) de datos
 //se adecúe a lo que descubras que tu usuario necesita.
 
-//Asegúrate de incluir la definición de terminado (definition of done) y los Criterios 
-//de Aceptación para cada una.
-
 //(Cumple con Definición de Terminado + Criterios de Aceptación).
 // https://blog.hubspot.es/marketing/pruebas-usabilidad
-
-
 
 // Usa VanillaJS.
 //visualizar la data ==>API ==> JSON,
@@ -40,9 +35,12 @@ import data from './data/pokemon/pokemon.js';
 // TODO: Pruebas unitarias cubren un mínimo del 70% de statements, functions y lines y branches.
 
 // README:
-// TODO: Incluye Definición del producto clara e informativa.
-//  TODO:Incluye historias de usuario.
-//  TODO:Incluye sketch de la solución (prototipo de baja fidelidad).
+// Incluye Definición del producto clara e informativa.
+/*  Incluye historias de usuario.
+Asegúrate de incluir la definición de terminado (definition of done) y los Criterios 
+de Aceptación para cada una */
+
+//  Incluye sketch de la solución (prototipo de baja fidelidad).
 //  TODO:Incluye Diseño de la Interfaz de Usuario (prototipo de alta fidelidad). ==> Figma
 // TODO: Incluye el listado de problemas que detectaste a través de tests de usabilidad.
 
