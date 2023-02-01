@@ -1,5 +1,10 @@
 import { example, anotherExample } from '../src/data.js';
 
+//Testeo
+//  TODO:Pasa linter (npm run pretest)
+//  TODO: Crear testsssss
+//  TODO:Pasa tests (npm test)
+// TODO: Pruebas unitarias cubren un mínimo del 70% de statements, functions y lines y branches.
 
 describe('example', () => {
   it('is a function', () => {
