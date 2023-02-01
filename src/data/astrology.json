@@ -1,0 +1,51 @@
+{
+    "status": "ok",
+    "data": {
+        "nakshatra": {
+            "id": 5,
+            "name": "Ardra",
+            "lord": {
+                "id": 101,
+                "name": "Rahu",
+                "vedic_name": "Rahu"
+            },
+            "pada": 3
+        },
+        "chandra_rasi": {
+            "id": 2,
+            "name": "Mithuna",
+            "lord": {
+                "id": 2,
+                "name": "Mercury",
+                "vedic_name": "Budha"
+            }
+        },
+        "soorya_rasi": {
+            "id": 8,
+            "name": "Dhanu",
+            "lord": {
+                "id": 5,
+                "name": "Jupiter",
+                "vedic_name": "Guru"
+            }
+        },
+        "zodiac": {
+            "id": 9,
+            "name": "Capricorn"
+        },
+        "additional_info": {
+            "deity": "Rudra",
+            "ganam": "Manushya",
+            "symbol": "Teardrop (The human head)",
+            "animal_sign": "Dog",
+            "nadi": "Vata",
+            "color": "Green",
+            "best_direction": "West",
+            "syllables": "Ku, Gha, Ing, Chh",
+            "birth_stone": "Hessonite",
+            "gender": "Female",
+            "planet": "Rahu",
+            "enemy_yoni": "Deer"
+        }
+    }
+}
