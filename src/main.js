@@ -47,14 +47,14 @@ const data = {
 
 console.log(example, data); */
 document.addEventListener("click", showBirthChart);
-// document.getElementById("details").innerHTML = 
 function showBirthChart() {
   fetch("/data/astrology.json")
     .then((res) => {
       return res.json();
     })
-    .then((data) => console.log("Data nakshatra vedic name: " + data["data"]["nakshatra"]["lord"]["vedic_name"] 
-    + ". Data chandra rasi vedic name: " + data["data"]["chandra_rasi"]["lord"]["vedic_name"]));
+    .then((data) => document.getElementById("details").innerHTML = "Data nakshatra vedic name: " + data["data"]["nakshatra"]["lord"]["vedic_name"] 
+    + ". Data chandra rasi vedic name: " + data["data"]["chandra_rasi"]["lord"]["vedic_name"]); 
+
   //  LISTA   info[1]
   // Dicc info["data"][1]   ||  info.data[1]  ==> pada: 3
 }
