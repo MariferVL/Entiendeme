@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Text field</h2>
+<p>The <strong>input type="text"</strong> defines a one-line text input field:</p>
+
+<form action="/action_page.php">
+
+  <input type="date" id= "in1">
+  <br><br>
+<input id= "in2" type="datetime-local">
+<br><br>
+<button onclick="show()" > CLICK</button>
+
+</form>
+
+<p id= "input">Note that the form itself is not visible.</p>
+<p id= "input2">Also note that the default width of a text field is 20 characters.</p>
+
+<script type="text/javascript">
+	function show(){
+
+      document.getElementById("input").innerHTML = "Fecha: " + document.getElementById("in1").value
+      document.getElementById("input2").innerHTML = "Fecha compuesta: " + document.getElementById("in2").value
+      document.getelementID
+}
+</script>
+
+
+</body>
+</html>
