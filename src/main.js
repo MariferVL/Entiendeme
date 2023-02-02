@@ -36,7 +36,9 @@
 
 // TODO: data de forma dinámica ==> JSON por medio de fetch ==>src/data contiene .js y una .json
 
-/*
+
+
+
 const url = "https://api.prokerala.com/v2/astrology/birth-details";
 const data = {
   "ayanamsa": "1",
@@ -45,24 +47,50 @@ const data = {
   "la": "en",
 };
 
- fetch(url, {
+const tokens = {
+  "Client ID": "38d679a7-f362-4f48-948e-8a96b28f82a2",
+  "Client Secret": "G1adGxWCUcuLm40UeE3toMqkowfdrSTUF6Ncl0p0",
+}
+
+
+fetch(url + new URLSearchParams(data),)
+  .then((res) => res.json())
+  .catch((error) => console.error("Error:", error))
+  .then((response) => console.log("Success:", response.json()));
+
+
+// Notas
+// https://github.com/zalando-stups/oauth2-client-js ¿?
+//https://www.webtips.dev/solutions/send-query-params-in-get-and-post-in-javascript
+// https://es.stackoverflow.com/questions/381268/fetch-api-con-javascript-token
+
+/*
+
+fetch(url + new URLSearchParams(data), {
   method: "GET", // or 'PUT'
-  body: JSON.stringify(data), // data can be `string` or {object}!
+  body: JSON.stringify(tokens), // data can be `string` or {object}!
   headers: {
     "Content-Type": "application/json",
     // "Grant Type": "Client Credentials",
     "Access Token URL": "https://api.prokerala.com/token",
-    "Client ID": "38d679a7-f362-4f48-948e-8a96b28f82a2",
-    "Client Secret": "G1adGxWCUcuLm40UeE3toMqkowfdrSTUF6Ncl0p0",
     "Client Authentication": "Send client credentials in body",
   },
 })
   .then((res) => res.json())
   .catch((error) => console.error("Error:", error))
-  .then((response) => console.log("Success:", response));
+  .then((response) => console.log("Success:", response.json())); */
 
-console.log(example, data); */
-document.addEventListener("click", showBirthChart);
+
+// (async () => {
+//   const response = await fetch(url + new URLSearchParams(data))
+
+//   const data = await response.json()
+
+//   console.log(data)
+// })()
+
+
+/* document.addEventListener("click", showBirthChart);
 function showBirthChart() {
   fetch("/data/astrology.json")
     .then((res) => {
@@ -73,5 +101,5 @@ function showBirthChart() {
 
   //  LISTA   info[1]
   // Dicc info["data"][1]   ||  info.data[1]  ==> pada: 3
-}
+} */
 
