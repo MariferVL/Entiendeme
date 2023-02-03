@@ -1,15 +1,15 @@
-const url = "https://api.prokerala.com/v2/astrology/birth-details";
-const data = {
-  "ayanamsa": "1",
-  "coordinates": "19.800904,-99.0627642",
-  "datetime": "1996-01-05T01:11:00-06:00",
-  "la": "en",
-};
+// const url = "https://api.prokerala.com/v2/astrology/birth-details";
+//const data = {
+//  "ayanamsa": "1",
+  //"coordinates": "19.800904,-99.0627642",
+  //"datetime": "1996-01-05T01:11:00-06:00",
+  //"la": "en",
+//};
 
-const tokens = {
-  "Client ID": "38d679a7-f362-4f48-948e-8a96b28f82a2",
-  "Client Secret": "G1adGxWCUcuLm40UeE3toMqkowfdrSTUF6Ncl0p0",
-}
+//const tokens = {
+  //"Client ID": "38d679a7-f362-4f48-948e-8a96b28f82a2",
+  //"Client Secret": "G1adGxWCUcuLm40UeE3toMqkowfdrSTUF6Ncl0p0",
+//}
 
 
 fetch(url + new URLSearchParams(data),)
