@@ -7,8 +7,8 @@
 //};
 
 //const tokens = {
-  //"Client ID": "38d679a7-f362-4f48-948e-8a96b28f82a2",
-  //"Client Secret": "G1adGxWCUcuLm40UeE3toMqkowfdrSTUF6Ncl0p0",
+  //"Client ID": "aqui va el token",
+  //"Client Secret": "aqui va el token",
 //}
 
 

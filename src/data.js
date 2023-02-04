@@ -8,29 +8,52 @@
 //TODO: ordenar la data
 // TODO:hacer algún cálculo agregado.
 
-const water = [cancer, pisces, scorpio];
-const fire = [aries, sagitarius, leo];
-const air = [libra, aquarius, gemini];
-const earth = [capricorn, taurus, virgo];
+document.addEventListener("click", getData);
 
-function filterData(data, condition) {
-  if (signo == "Karka" || signo == "Meena" || signo == "Vrischika"){
+function getData() {
+  fetch("/data/astrology.json")
+    .then(result => result.json())
+    .then(data => {
+      console.log(data["data"]["zodiac"]["name"]);
+      return data
+      /* gfgf = data */
+      // ...show the stuff from `data`
+    });
+  
+  //.then((data) => document.getElementById("details").innerHTML = "Data nakshatra vedic name: " + data["data"]["nakshatra"]["lord"]["vedic_name"]
+  //  + ". Data chandra rasi vedic name: " + data["data"]["chandra_rasi"]["lord"]["vedic_name"]);
+}
+
+
+const data = getData()
+const zodiac = data["data"]["zodiac"]["name"];
+console.log("Este es el segundo " + zodiac);
+
+/* const water = "cancer, pisces, scorpio";
+const fire = "aries, sagitarius, leo";
+const air = "libra, aquarius, gemini";
+const earth = "capricorn, taurus, virgo";
+const zodiac = data["data"]["zodiac"]["name"];  */
+
+/* function filterData(data, condition) {
+  if (zodiac == "Cancer" || zodiac == "Pisces" || zodiac == "Scorpio") {
     return water;
   }
-  else if (signo == "Mesh" || signo == "Dhanur" || signo == "Simha") {
+  else if (zodiac == "Aries" || zodiac == "Sagitarius" || zodiac == "Leo") {
     return fire;
   }
-  else if (signo == "Tula" || signo == "Kumbha" || signo == "Mithuna") {
+  else if (zodiac == "Libra" || zodiac == "Aquarius" || zodiac == "Gemini") {
     return air;
   }
-  else if (signo == "Makara" || signo == "Varishabha" || signo == "Kanya") {
+  else if (zodiac == "Capricorn" || zodiac == "Taurus" || zodiac == "Virgo") {
     return earth;
-  } 
+  }
 }
 
 
 const actorsCancer = [];
 const singers = [];
+ */
 
 
 
@@ -52,11 +75,11 @@ const singers = [];
 
 
 
-
-export const example = () => {
+/* export const example = () => {
   return 'example';
 };
 
 export const anotherExample = () => {
   return 'OMG';
 };
+ */
