@@ -6,7 +6,7 @@
 
 // TODO:  Escoger fotos cartas reves
 // TODO:  Escoger fotos cartas derecho
-// TODO: Imagen Fondo 
+// TODO:  Imagen Fondo 
 
 // TODO:  chequear  date input
 // TODO:  slice e invertir date

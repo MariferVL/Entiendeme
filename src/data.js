@@ -8,26 +8,21 @@
 //TODO: ordenar la data
 // TODO:hacer algún cálculo agregado.
 
-document.addEventListener("click", getData);
+// document.addEventListener("click", getData);
 
-function getData() {
-  fetch("/data/astrology.json")
-    .then(result => result.json())
-    .then(data => {
-      console.log(data["data"]["zodiac"]["name"]);
-      return data
-      /* gfgf = data */
-      // ...show the stuff from `data`
-    });
-  
-  //.then((data) => document.getElementById("details").innerHTML = "Data nakshatra vedic name: " + data["data"]["nakshatra"]["lord"]["vedic_name"]
-  //  + ". Data chandra rasi vedic name: " + data["data"]["chandra_rasi"]["lord"]["vedic_name"]);
-}
+const astroData = fetch("/data/astrology.json")
+  .then((response) => response.json())
+  .then((info) => {
+    return info.data;
+  });
 
+const printData = async () => {
+  const a = await astroData;
+  console.log(a);
+};
 
-const data = getData()
-const zodiac = data["data"]["zodiac"]["name"];
-console.log("Este es el segundo " + zodiac);
+JSON.parse(printData());
+console.log("Fuera conJSON: " + JSON.parse(astroData));
 
 /* const water = "cancer, pisces, scorpio";
 const fire = "aries, sagitarius, leo";
