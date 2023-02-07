@@ -3,40 +3,42 @@
 //construirás una página web para visualizar un conjunto (set) de datos
 //se adecúe a lo que descubras que tu usuario necesita.
 
-
 // TODO:  Escoger fotos cartas reves
 // TODO:  Escoger fotos cartas derecho
-// TODO:  Imagen Fondo 
+// TODO:  Imagen Fondo
 
 // TODO:  chequear  date input
 // TODO:  slice e invertir date
-// TODO:  Time Input 
+// TODO:  Time Input
 // TODO:  Lugar ==> link long/lat
-// TODO:  Time Input 
+// TODO:  Time Input
 
+// document.addEventListener("click", getData);
 
+const astroData = fetch("/data/astrology.json")
+  .then((response) => response.json())
+  .then((info) => {
+    return info.data;
+  });
 
+const printData = async () => {
+  const a = await astroData;
 
+  //DOM
+ filterData(a,);
+  console.log(a);
+};  
 
+printData();
 
 // Usa VanillaJS.
 //visualizar la data ==>API ==> JSON,
 // TODO: conexión DOM ==> main.js
 //puedes usar más archivos y carpetas ==>estructura clara
 
-
-
 // TODO: data de forma dinámica ==> JSON por medio de fetch ==>src/data contiene .js y una .json
 
-
-
-
-
-
-
-
-
-/* document.addEventListener("click", showBirthChart);
+document.addEventListener("click", showBirthChart);
 function showBirthChart() {
   fetch("/data/astrology.json")
     .then((res) => {
@@ -47,5 +49,4 @@ function showBirthChart() {
 
   //  LISTA   info[1]
   // Dicc info["data"][1]   ||  info.data[1]  ==> pada: 3
-} */
-
+}
