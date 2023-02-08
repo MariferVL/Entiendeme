@@ -14,7 +14,9 @@ TODO: Incluye el listado de problemas que detectaste a través de tests de usabi
 (Cumple con Definición de Terminado + Criterios de Aceptación).
 https://blog.hubspot.es/marketing/pruebas-usabilidad -->
 
-<h1 align="center"><b>🌞¡Entiéndeme!🌚</br>Proyecto Data Lovers </br> < L > </b></h1>
+<h1 align="center"><b>🌞¡Entiéndeme!🌚</br></h1>
+<h2 align="center">Proyecto Data Lovers </br> < L > </b></h2>
+ <br/>
  <br/>
 
 <img src="https://user-images.githubusercontent.com/99364311/217434247-2929504e-4c4a-4538-b6e0-672c338a3d7f.png" alt="Logo" width="220px">
