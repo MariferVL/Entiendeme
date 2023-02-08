@@ -1,3 +1,4 @@
+import { getElements } from "./main.js";
 // data.js
 // filterData(data, condition): recibiría data, retornaría  datos que cumplan con condición.
 // sortData(data, sortBy, sortOrder): 1° parámetro nos entrega datos. 2ndo param refiere campo de data a ordenar.3er param indica==> ascendente o descendente.
@@ -10,12 +11,19 @@
 
 
 
-
 // Filter data by zodiac or generation
-function filterData(data, condition) {
+function filterData(zodiac, condition) { 
+  console.log("Zodiaco en data es: " + zodiac);
+  console.log("objeto en data es: " + condition);
+  if (condition === "element") {
+    console.log("Zodiaco en if es: " + zodiac);
+    console.log("objeto en if es: " + condition);
+    getElements(zodiac);
+  }
 
   
 }
+
 
 
 const actorsCancer = [];
@@ -41,7 +49,7 @@ const singers = [];
 
 
 
-
+export { filterData }
 /* export const example = () => {
   return 'example';
 };
