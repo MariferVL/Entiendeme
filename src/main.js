@@ -45,7 +45,7 @@ const air = ["Libra", "Geminis", "Acuario"];
 const water = ["Cancer", "Piscis", "Escorpio"];
 const fire = ["Aries", "Leo", "Sagitario"];
 
-// Te dice 
+// Te dice a qué elemento pertenece tu signo
 function getElements(zodiac) { 
   const msj = "Este signo pertenece al elemento de "
   const msj2 = " igual que:"
@@ -66,8 +66,32 @@ function getElements(zodiac) {
     console.log(msj + "fuego" + msj2);
     fire.forEach(sign => console.log(sign));
   }
-
 }
+
+function getGeneration() {
+  const msj = "De acuerdo a tu año de nacimiento perteneces a la generación: "
+  const date = document.getElementById("dateBirth").value;
+  const year = date.slice(0, 3);
+
+  if (year <= "1960" && year >= "1949") {
+    console.log(msj + "Baby Boomer");
+
+  }
+  else if (year <= "1980" && year >= "1969") {
+    console.log(msj + "X");
+   
+  }
+  else if (year <= "1993" && year >= "1981") {
+    console.log(msj + "Millennial");
+  }
+  else if (year <= "2010" && year >= "1994") {
+    console.log(msj + "Z");
+  }
+  else if (year <= "2023" && year >= "2011") {
+    console.log(msj + "Alfa");
+  }
+}
+
 
 // Usa VanillaJS.
 //visualizar la data ==>API ==> JSON,
@@ -300,4 +324,4 @@ function pastPresentFuture() {
 //  }
 //}
 
-export { getElements };
+export { getElements, getGeneration };

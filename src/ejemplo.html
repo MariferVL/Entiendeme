@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Local Date Field</h2>
+
+    <p>The <strong>input type="datetime-local"</strong> specifies a date and time input field, with no time zone.</p>
+
+    <form action="/action_page.php">
+        <label for="birthdaytime">Birthday (date and time):</label>
+        <input type="datetime-local" id="birthdaytime" name="birthdaytime">
+        <input type="submit">
+        <div id="imprimirResultado"> </div>
+    </form>
+
+    <p><strong>Note:</strong> type="datetime-local" is not supported in Internet Explorer 11 or prior Safari 14.1.</p>
+    <script type="text/javascript">
+        document.addEventListener("click", getTimeZone);
+
+        /* function getDateTime() {
+        const dateTime = document.getElementById("birthdaytime").value;
+        const date = new Date(dateTime);
+        const utc = date.getUTCDate();
+        document.getElementById("imprimirResultado").innerHTML = dateTime;
+        document.getElementById("imprimirResultado").innerHTML = "Resultado final" + utc;
+        console.log(new Intl.DateTimeFormat().format(dateTime));
+        } */
+
+        // Función para obtener zona horaria
+        function getTimeZone() {
+            const dateTime = document.getElementById("birthdaytime").value;
+            var offset = new Date(dateTime).getTimezoneOffset(), o = Math.abs(offset);
+            return (offset < 0 ? "+" : "-") + ("00" + Math.floor(o / 60)).slice(-2) + ":" + ("00" + (o % 60)).slice(-2);
+        }
+
+
+
+    </script>
+
+</body>
+
+</html>
