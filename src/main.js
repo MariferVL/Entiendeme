@@ -45,7 +45,8 @@ const air = ["Libra", "Geminis", "Acuario"];
 const water = ["Cancer", "Piscis", "Escorpio"];
 const fire = ["Aries", "Leo", "Sagitario"];
 
-function getElements(zodiac) {
+// Te dice 
+function getElements(zodiac) { 
   const msj = "Este signo pertenece al elemento de "
   const msj2 = " igual que:"
   if (zodiac === "Capricorn" || zodiac === "Virgo" || zodiac === "Taurus") {
