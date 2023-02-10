@@ -56,7 +56,6 @@ body {
 }
 
 #register{
-
   color: #6A1B9A;
 }
 
@@ -117,7 +116,7 @@ button:focus{
 
 
 .all-steps{
-      text-align: center;
+    text-align: center;
     margin-top: 30px;
     margin-bottom: 30px;
     width: 100%;
@@ -126,7 +125,7 @@ button:focus{
 }
 
 .step {
-       height: 40px;
+    height: 40px;
     width: 40px;
     margin: 0 2px;
     background-color: #bbbbbb;

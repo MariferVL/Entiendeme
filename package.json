@@ -21,7 +21,7 @@
     "htmlhint": "^1.0.0",
     "jest": "^27.0.1",
     "opener": "^1.5.1",
-    "serve": "^13.0.2"
+    "serve": "^14.2.0"
   },
   "engines": {
     "node": ">=16.x"
@@ -30,5 +30,8 @@
     "createdAt": "2023-01-23T17:26:33.888Z",
     "version": "5.5.0",
     "commit": "cfda4de1f41e0c3000c47f91ce20a1bfe5281b4a"
+  },
+  "dependencies": {
+    "@googlemaps/js-api-loader": "^1.15.1"
   }
 }

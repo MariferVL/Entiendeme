@@ -15,13 +15,25 @@ import { filterData } from "./data.js";
 
 // document.addEventListener("click", getData);
 
+
+
+
+
 const obj = { // Seleccionar el valor del filter (elemento, generacion)
   getOption: function () {
     return document.getElementById("options").value;
   }
 };
 
+let latLong;
+function getLatLng(location) {
+  latLong = location;
+  console.log("LatLong en main fuera de fn:" + latLong);
 
+}
+console.log("LatLong en main fuera de fn:" + latLong);
+
+// API Conection
 const astroData = fetch("/data/astrology.json")
   .then((response) => response.json())
   .then((info) => {
@@ -46,7 +58,7 @@ const water = ["Cancer", "Piscis", "Escorpio"];
 const fire = ["Aries", "Leo", "Sagitario"];
 
 // Te dice a qué elemento pertenece tu signo
-function getElements(zodiac) { 
+function getElements(zodiac) {
   const msj = "Este signo pertenece al elemento de "
   const msj2 = " igual que:"
   if (zodiac === "Capricorn" || zodiac === "Virgo" || zodiac === "Taurus") {
@@ -79,7 +91,7 @@ function getGeneration() {
   }
   else if (year <= "1980" && year >= "1969") {
     console.log(msj + "X");
-   
+
   }
   else if (year <= "1993" && year >= "1981") {
     console.log(msj + "Millennial");
@@ -91,7 +103,6 @@ function getGeneration() {
     console.log(msj + "Alfa");
   }
 }
-
 
 // Usa VanillaJS.
 //visualizar la data ==>API ==> JSON,
@@ -120,7 +131,7 @@ function showBirthChart() {
 
 
 
-//global variables
+/* //global variables
 var deck = {};
 var rank = "";
 var suit = "";
@@ -310,7 +321,7 @@ function pastPresentFuture() {
       $("#rev-" + b).html('<p id="rev"><i>Reversed</i></p>');
     }
   }
-}
+} */
 
 
 
@@ -324,4 +335,4 @@ function pastPresentFuture() {
 //  }
 //}
 
-export { getElements, getGeneration };
+export { getElements, getGeneration, getLatLng };
