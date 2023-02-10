@@ -99,8 +99,9 @@ TODO: Seguir fundamentos de visual design. -->
              
             </div>
             <div class="tab">
+              <!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/datetime-local -->
               <h6>Cuándo y a qué hora naciste</h6>
-              <p><input type="datetime-local" id="birthdaytime" name="birthdaytime" oninput="this.className = ''"></p>
+              <p><input type="datetime-local" id="birthdaytime" name="birthdaytime" min="1923-01-01T00:00" oninput="this.className = ''"></p>
             </div>
 
             <div class="thanks-message text-center" id="text-message"> <img src="https://i.imgur.com/O18mJ1K.png" width="100" class="mb-4">
