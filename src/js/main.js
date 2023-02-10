@@ -8,23 +8,23 @@ import { filterData } from "./data.js";
 // TODO:  Imagen Fondo
 
 // TODO:  chequear  date input
-// TODO:  slice e invertir date
 // TODO:  Time Input
 // TODO:  Lugar ==> link long/lat
 // TODO:  Time Input
 
 // document.addEventListener("click", getData);
+//TODO: 
 
 
 
-
-
-const obj = { // Seleccionar el valor del filter (elemento, generacion)
+// Select value of filter (element, generation)
+const obj = {
   getOption: function () {
     return document.getElementById("options").value;
   }
 };
 
+// Get lat & long
 let latLong;
 function getLatLng(location) {
   latLong = location;
@@ -33,10 +33,45 @@ function getLatLng(location) {
 }
 console.log("LatLong en main fuera de fn:" + latLong);
 
+
+// Set max date of input
+let today = new Date();
+let dd = today.getDate();
+let mm = today.getMonth() + 1; //January is 0!
+const yyyy = today.getFullYear();
+if (dd < 10) {
+  dd = '0' + dd
+}
+if (mm < 10) {
+  mm = '0' + mm
+}
+
+today = yyyy + '-' + mm + '-' + dd;
+document.getElementById("birthdaytime").setAttribute("max", today);
+
 //TODO: API se llama solo con click confirmación formulario
 
 // API Conection
-const astroData = fetch("/data/astrology.json")
+const myHeaders = new Headers();
+myHeaders.append("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJmNDdiN2Y0Ni1kN2E0LTQwNjUtYWQxMy0xNGJjZWY4ZmNjZWMiLCJqdGkiOiIxODcxODJiNjEzNGQ3MmZiYmM0YjQ5YTE0ZjUwZWUwMjNjYmMyMDNiZTM4ZGQ1MzI5OGU1ODQ2ZmMyYTgyOTY4ZjhkMjY4ODBlOWM4MGEwYSIsImlhdCI6MTY3NjA1Njk1My41NTU2OTEsIm5iZiI6MTY3NjA1Njk1My41NTU2OTUsImV4cCI6MTY3NjA2MDU1My41NTU0NjUsInN1YiI6IjJkNzA0ZjA2LTY5YTAtNDk3ZC1iNGE0LTkxNjlmZGU5NWE4ZSIsInNjb3BlcyI6W10sImNyZWRpdHNfcmVtYWluaW5nIjo0OTAwLCJyYXRlX2xpbWl0cyI6W3sicmF0ZSI6NSwiaW50ZXJ2YWwiOjYwfV19.wDSJE0jWsIN9YsTdjALctmhC4xUgvj--KvGeWFOvuojcY8Ztgj3Q8lldtoY0dCFtTteSQQOXeCsgVZkG1dis9qDkZwTOmAD926wyB9AGQoeqs_X1_2XhACvPpz-S7axaocvFUlzEl0G5OxX1jLdQMwe1JTYyU9Q6desk4PJrrjdFqHy90wNlbbpX3s76B7WbuEcGZNLzmPKdq2VYIJBbtZW4uoXEOQaRjIDcB8CQfpIQH2vWkMz-Pk9byxvOSSF3oZKQxEIcw2yY0xQLjmJJuLxUl3cF6-7PcCcOyBXJRghCXrTfvnbGyylGqoaSmsgF8fz8qAgMWFv377MSIvd9ew", "Access-Control-Allow-Origin", "*")
+
+
+const requestOptions = {
+  method: 'GET',
+  headers: myHeaders,
+  redirect: 'follow'
+};
+
+fetch("https://api.prokerala.com/v2/astrology/birth-details?ayanamsa=1&coordinates=19.800904,-99.0627642&datetime=1996-01-05T01:11:00-06:00&la=en", requestOptions)
+  .then(response => response.text())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
+
+
+
+
+
+/* const astroData = fetch("/data/astrology.json")
   .then((response) => response.json())
   .then((info) => {
     return info.data;
@@ -50,23 +85,23 @@ const printData = async () => {
 
   //DOM
   filterData(zodiac, option);
-};
+}; */
 
 // document.querySelector("#condition").addEventListener("click", printData);
 
+// Const of elements
 const earth = ["Capricornio", "Tauro", "Virgo"];
 const air = ["Libra", "Geminis", "Acuario"];
 const water = ["Cancer", "Piscis", "Escorpio"];
 const fire = ["Aries", "Leo", "Sagitario"];
 
-// Te dice a qué elemento pertenece tu signo
+// Get element of sign
 function getElements(zodiac) {
   const msj = "Este signo pertenece al elemento de "
   const msj2 = " igual que:"
   if (zodiac === "Capricorn" || zodiac === "Virgo" || zodiac === "Taurus") {
     console.log(msj + "tierra" + msj2);
     earth.forEach(sign => console.log(sign));
-
   }
   else if (zodiac === "Libra" || zodiac === "Gemini" || zodiac === "Aquarius") {
     console.log(msj + "aire" + msj2);
@@ -82,6 +117,7 @@ function getElements(zodiac) {
   }
 }
 
+// Get generation
 function getGeneration() {
   const msj = "De acuerdo a tu año de nacimiento perteneces a la generación: "
   const date = document.getElementById("dateBirth").value;
