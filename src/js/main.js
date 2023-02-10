@@ -28,10 +28,12 @@ const obj = { // Seleccionar el valor del filter (elemento, generacion)
 let latLong;
 function getLatLng(location) {
   latLong = location;
-  console.log("LatLong en main fuera de fn:" + latLong);
+  console.log("LatLong en main en fn:" + latLong);
 
 }
 console.log("LatLong en main fuera de fn:" + latLong);
+
+//TODO: API se llama solo con click confirmación formulario
 
 // API Conection
 const astroData = fetch("/data/astrology.json")
@@ -50,7 +52,7 @@ const printData = async () => {
   filterData(zodiac, option);
 };
 
-document.querySelector("#condition").addEventListener("click", printData);
+// document.querySelector("#condition").addEventListener("click", printData);
 
 const earth = ["Capricornio", "Tauro", "Virgo"];
 const air = ["Libra", "Geminis", "Acuario"];

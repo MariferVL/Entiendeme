@@ -1,4 +1,4 @@
-import { getElements, getGeneration } from "./main.js";
+import { getElements } from "./main.js";
 // data.js
 // filterData(data, condition): recibiría data, retornaría  datos que cumplan con condición.
 // sortData(data, sortBy, sortOrder): 1° parámetro nos entrega datos. 2ndo param refiere campo de data a ordenar.3er param indica==> ascendente o descendente.
@@ -20,10 +20,8 @@ function filterData(zodiac, condition) {
     console.log("objeto en if es: " + condition);
     getElements(zodiac);
   }
-  else if (condition === "generation") {
-    console.log("Entro a generación");
-    getGeneration();
-  }
+
+  
 }
 
 

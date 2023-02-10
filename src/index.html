@@ -10,7 +10,7 @@
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   
   <!-- CSS -->
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="css/style.css" />
 
 </head>
 
@@ -29,7 +29,7 @@ TODO: Seguir fundamentos de visual design. -->
       <!-- Navbar -->
       <nav class="navbar navbar-expand-md navbar-dark">
         <div class="container-fluid " id="home">
-          <a class="navbar-brand d-flex " href="index.html">triviatón</a>
+          <a class="navbar-brand d-flex " href="index.html">entiéndeme</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
             aria-label="Toggle navigation">
@@ -101,8 +101,12 @@ TODO: Seguir fundamentos de visual design. -->
             <div class="tab">
               <h6>Cuándo y a qué hora naciste</h6>
               <p><input type="datetime-local" id="birthdaytime" name="birthdaytime" oninput="this.className = ''"></p>
-
             </div>
+
+            <div class="thanks-message text-center" id="text-message"> <img src="https://i.imgur.com/O18mJ1K.png" width="100" class="mb-4">
+              <h3>¡Ya tenemos tus Datos!</h3> <span>Estamos interpretando tu carta para mostrarte tus resultados.</span>
+          </div>
+
             <div style="overflow:auto;" id="nextprevious">
               <div style="float:right;">
                 <button type="button" id="prevBtn" onclick="nextPrev(-1)"><i
@@ -221,8 +225,8 @@ TODO: Seguir fundamentos de visual design. -->
     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
 <!-- JS -->
-<script src="main.js" type="module"></script>
-<script src="form.js" type="text/javascript"></script>
+<script src="js/main.js" type="module"></script>
+<script src="js/form.js" type="text/javascript"></script>
 
 </body>
 

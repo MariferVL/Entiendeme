@@ -59,6 +59,14 @@ body {
   color: #6A1B9A;
 }
 
+#text-message {
+  margin: 1rem auto;
+  font-family: Raleway;
+  padding: 40px;
+  border-radius: 10px;
+  width: 100;
+}
+
 h1 {
     text-align: center
 }
