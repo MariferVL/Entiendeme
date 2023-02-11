@@ -35,7 +35,7 @@ console.log("LatLong en main fuera de fn:" + latLong);
 
 
 // Set max date of input
-let today = new Date();
+/* let today = new Date();
 let dd = today.getDate();
 let mm = today.getMonth() + 1; //January is 0!
 const yyyy = today.getFullYear();
@@ -47,7 +47,7 @@ if (mm < 10) {
 }
 
 today = yyyy + '-' + mm + '-' + dd;
-document.getElementById("birthdaytime").setAttribute("max", today);
+document.getElementById("birthdaytime").setAttribute("max", today); */
 
 //TODO: API se llama solo con click confirmación formulario
 
