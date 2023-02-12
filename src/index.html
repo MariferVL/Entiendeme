@@ -72,8 +72,64 @@ TODO: Seguir fundamentos de visual design. -->
 
   
   <section id="form">
-    <div id="map"></div>
 
+    <div class="container mt-5">
+    <div class="row d-flex justify-content-center align-items-center">
+        <div class="col-md-8">
+            <form id="regForm">
+                <h1 id="register">Survey Form</h1>
+                <div class="all-steps" id="all-steps"> 
+                  <span class="step"><i class="fa fa-user"></i></span> 
+                  <span class="step"><i class="fa fa-map-marker"></i></span>
+                  <span class="step"><i class="fa fa-shopping-bag"></i></span>
+                  <span class="step"><i class="fa fa-car"></i></span>
+                  <span class="step"><i class="fa fa-spotify"></i></span>
+                  <span class="step"><i class="fa fa-mobile-phone"></i></span>
+                </div>
+
+                <div class="tab">
+                  <h6>What's your name?</h6>
+                    <p>
+                      <input placeholder="Name..." oninput="this.className = ''" name="fname"></p>
+                    
+                </div>
+                <div class="tab">
+                  <h6>What's your city?</h6>
+                    <p><input placeholder="City" oninput="this.className = ''" name="dd"></p>
+                    
+                </div>
+                <div class="tab">
+                    <h6>What's your Favourite Shopping site?</h6>
+                    <p><input placeholder="Favourite Shopping site" oninput="this.className = ''" name="email"></p>
+                 
+                </div>
+                <div class="tab">
+                    <h6>What's your Favourite car?</h6>
+                    <p><input placeholder="Favourite car" oninput="this.className = ''" name="uname"></p>
+                </div>
+
+                <div class="tab">
+                    <h6>What's your Favourite Song?</h6>
+                    <p><input placeholder="Favourite Song" oninput="this.className = ''" name="uname"></p>
+                </div>
+
+
+                <div class="tab">
+                    <h6>What's your Favourite Mobile brand?</h6>
+                    <p><input placeholder="Favourite Mobile Brand" oninput="this.className = ''" name="uname"></p>
+                </div>
+                <div class="thanks-message text-center" id="text-message"> <img src="https://i.imgur.com/O18mJ1K.png" width="100" class="mb-4">
+                    <h3>Thankyou for your feedback!</h3> <span>Thanks for your valuable information. It helps us to improve our services!</span>
+                </div>
+                <div style="overflow:auto;" id="nextprevious">
+                    <div style="float:right;">
+                      <button type="button" id="prevBtn" onclick="nextPrev(-1)"><i class="fa fa-angle-double-left"></i></button> 
+                      <button type="button" id="nextBtn" onclick="nextPrev(1)"><i class="fa fa-angle-double-right"></i></button> </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
     <div class="container mt-5">
       <div class="row d-flex justify-content-center align-items-center">
         <div class="col-md-8">
@@ -94,8 +150,8 @@ TODO: Seguir fundamentos de visual design. -->
             </div>
             <div class="tab">
               <h6>Dónde naciste</h6>
+              <p><input oninput="this.className = ''" name="dd"></p>
               <a href="map.html" class="btn btn-warning" target="_blank"><i class="fas fa-map-marked-alt"></i></a>
-              <!-- <p><input placeholder="Ciudad" oninput="this.className = ''" name="dd"></p> -->
              
             </div>
             <div class="tab">
