@@ -72,64 +72,6 @@ TODO: Seguir fundamentos de visual design. -->
 
   
   <section id="form">
-
-    <div class="container mt-5">
-    <div class="row d-flex justify-content-center align-items-center">
-        <div class="col-md-8">
-            <form id="regForm">
-                <h1 id="register">Survey Form</h1>
-                <div class="all-steps" id="all-steps"> 
-                  <span class="step"><i class="fa fa-user"></i></span> 
-                  <span class="step"><i class="fa fa-map-marker"></i></span>
-                  <span class="step"><i class="fa fa-shopping-bag"></i></span>
-                  <span class="step"><i class="fa fa-car"></i></span>
-                  <span class="step"><i class="fa fa-spotify"></i></span>
-                  <span class="step"><i class="fa fa-mobile-phone"></i></span>
-                </div>
-
-                <div class="tab">
-                  <h6>What's your name?</h6>
-                    <p>
-                      <input placeholder="Name..." oninput="this.className = ''" name="fname"></p>
-                    
-                </div>
-                <div class="tab">
-                  <h6>What's your city?</h6>
-                    <p><input placeholder="City" oninput="this.className = ''" name="dd"></p>
-                    
-                </div>
-                <div class="tab">
-                    <h6>What's your Favourite Shopping site?</h6>
-                    <p><input placeholder="Favourite Shopping site" oninput="this.className = ''" name="email"></p>
-                 
-                </div>
-                <div class="tab">
-                    <h6>What's your Favourite car?</h6>
-                    <p><input placeholder="Favourite car" oninput="this.className = ''" name="uname"></p>
-                </div>
-
-                <div class="tab">
-                    <h6>What's your Favourite Song?</h6>
-                    <p><input placeholder="Favourite Song" oninput="this.className = ''" name="uname"></p>
-                </div>
-
-
-                <div class="tab">
-                    <h6>What's your Favourite Mobile brand?</h6>
-                    <p><input placeholder="Favourite Mobile Brand" oninput="this.className = ''" name="uname"></p>
-                </div>
-                <div class="thanks-message text-center" id="text-message"> <img src="https://i.imgur.com/O18mJ1K.png" width="100" class="mb-4">
-                    <h3>Thankyou for your feedback!</h3> <span>Thanks for your valuable information. It helps us to improve our services!</span>
-                </div>
-                <div style="overflow:auto;" id="nextprevious">
-                    <div style="float:right;">
-                      <button type="button" id="prevBtn" onclick="nextPrev(-1)"><i class="fa fa-angle-double-left"></i></button> 
-                      <button type="button" id="nextBtn" onclick="nextPrev(1)"><i class="fa fa-angle-double-right"></i></button> </div>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
     <div class="container mt-5">
       <div class="row d-flex justify-content-center align-items-center">
         <div class="col-md-8">
@@ -144,20 +86,22 @@ TODO: Seguir fundamentos de visual design. -->
             <div class="tab">
               <h6>Cómo te llamas</h6>
               <p>
-                <input placeholder="Nombre" oninput="this.className = ''" name="fname">
+                <input placeholder="Nombre" oninput="this.className = ''" name="fName">
               </p>
 
             </div>
             <div class="tab">
               <h6>Dónde naciste</h6>
-              <p><input oninput="this.className = ''" name="dd"></p>
-              <a href="map.html" class="btn btn-warning" target="_blank"><i class="fas fa-map-marked-alt"></i></a>
+              <p><input  placeholder="Click en Mapa" id="location" oninput="this.className = ''" name="location" required></p>
+              <a href="map.html"  class="btn btn-warning" target="_blank"><i class="fas fa-map-marked-alt"></i></a>
              
             </div>
             <div class="tab">
               <!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/datetime-local -->
               <h6>Cuándo y a qué hora naciste</h6>
-              <p><input type="datetime-local" id="birthdaytime" name="birthdaytime" min="1923-01-01T00:00" max="2023-02-20T00:00" oninput="this.className = ''"></p>
+              <p><input type="datetime-local" id="DateOB" oninput="this.className = ''" name="dob" 
+                min="1923-01-01T00:00"  required 
+                pattern="(?:19|20)\[0-9\]{2}-(?:(?:0\[1-9\]|1\[0-2\])-(?:0\[1-9\]|1\[0-9\]|2\[0-9\])|(?:(?!02)(?:0\[1-9\]|1\[0-2\])-(?:30))|(?:(?:0\[13578\]|1\[02\])-31))"></p>
             </div>
 
             <div class="thanks-message text-center" id="text-message"> <img src="https://i.imgur.com/O18mJ1K.png" width="100" class="mb-4">
@@ -284,6 +228,7 @@ TODO: Seguir fundamentos de visual design. -->
 <!-- JS -->
 <script src="js/main.js" type="module"></script>
 <script src="js/form.js" type="text/javascript"></script>
+
 
 </body>
 

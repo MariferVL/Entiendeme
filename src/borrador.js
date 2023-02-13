@@ -8,6 +8,9 @@
   //"la": "en",
 //};
 
+// ¡Dale click en tu ciudad de nacimiento!
+
+
 //const tokens = {
   //"Client ID": "aqui va el token",
   //"Client Secret": "aqui va el token",

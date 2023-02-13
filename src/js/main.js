@@ -3,18 +3,63 @@ import { filterData } from "./data.js";
 //construirás una página web para visualizar un conjunto (set) de datos
 //se adecúe a lo que descubras que tu usuario necesita.
 
-// TODO:  Escoger fotos cartas reves
-// TODO:  Escoger fotos cartas derecho
-// TODO:  Imagen Fondo
 
-// TODO:  chequear  date input
-// TODO:  Time Input
-// TODO:  Lugar ==> link long/lat
-// TODO:  Time Input
 
-// document.addEventListener("click", getData);
-//TODO: 
 
+
+function initMap() {
+  const myLatlng = { lat: -14.6306, lng: -57.4633 }; 
+  const map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 4,
+    center: myLatlng,
+  });
+  // Create the initial InfoWindow.
+  let infoWindow = new google.maps.InfoWindow({
+    content: "¡Dale click en tu ciudad de nacimiento!",
+    position: myLatlng,
+  });
+
+  infoWindow.open(map);
+  // Configure the click listener.
+  map.addListener("click", (mapsMouseEvent) => {
+    // Close the current InfoWindow.
+    infoWindow.close();
+    // Create a new InfoWindow.
+    infoWindow = new google.maps.InfoWindow({
+      position: mapsMouseEvent.latLng,
+    });
+    infoWindow.setContent(
+      getLatLng(mapsMouseEvent.latLng),
+      JSON.stringify(mapsMouseEvent.latLng.toJSON(), null, 2)
+    );
+    infoWindow.open(map);
+  });
+}
+
+window.initMap = initMap;
+
+// Get lat & long
+//"19.800904,-99.0627642"
+function getLatLng(location) {
+  const latLong = JSON.stringify(location).replace(/"lat":|"lng":|/gi, "");
+  document.getElementById("location").value = latLong; 
+
+
+}
+
+// Set max date of input
+//1923-01-01T00:00 https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_input_date_max
+const today = new Date().toLocaleString("sv-SE").replace(' ','T');
+
+function updateHTML(elmId, value) {
+  const elem = document.getElementById(elmId);
+  if(typeof elem !== 'undefined' && elem !== null) {
+    elem.setAttribute("max", value);
+
+  }
+}
+
+updateHTML("DateOB", today)
 
 
 // Select value of filter (element, generation)
@@ -24,52 +69,10 @@ const obj = {
   }
 };
 
-// Get lat & long
-let latLong;
-function getLatLng(location) {
-  latLong = location;
-  console.log("LatLong en main en fn:" + latLong);
-
-}
-console.log("LatLong en main fuera de fn:" + latLong);
-
-
-// Set max date of input
-/* let today = new Date();
-let dd = today.getDate();
-let mm = today.getMonth() + 1; //January is 0!
-const yyyy = today.getFullYear();
-if (dd < 10) {
-  dd = '0' + dd
-}
-if (mm < 10) {
-  mm = '0' + mm
-}
-
-today = yyyy + '-' + mm + '-' + dd;
-document.getElementById("birthdaytime").setAttribute("max", today); */
-
 //TODO: API se llama solo con click confirmación formulario
 
 // API Conection
 // https://stackoverflow.com/questions/43871637/no-access-control-allow-origin-header-is-present-on-the-requested-resource-whe
-/* const myHeaders = new Headers();
-myHeaders.append("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJmNDdiN2Y0Ni1kN2E0LTQwNjUtYWQxMy0xNGJjZWY4ZmNjZWMiLCJqdGkiOiIxODcxODJiNjEzNGQ3MmZiYmM0YjQ5YTE0ZjUwZWUwMjNjYmMyMDNiZTM4ZGQ1MzI5OGU1ODQ2ZmMyYTgyOTY4ZjhkMjY4ODBlOWM4MGEwYSIsImlhdCI6MTY3NjA1Njk1My41NTU2OTEsIm5iZiI6MTY3NjA1Njk1My41NTU2OTUsImV4cCI6MTY3NjA2MDU1My41NTU0NjUsInN1YiI6IjJkNzA0ZjA2LTY5YTAtNDk3ZC1iNGE0LTkxNjlmZGU5NWE4ZSIsInNjb3BlcyI6W10sImNyZWRpdHNfcmVtYWluaW5nIjo0OTAwLCJyYXRlX2xpbWl0cyI6W3sicmF0ZSI6NSwiaW50ZXJ2YWwiOjYwfV19.wDSJE0jWsIN9YsTdjALctmhC4xUgvj--KvGeWFOvuojcY8Ztgj3Q8lldtoY0dCFtTteSQQOXeCsgVZkG1dis9qDkZwTOmAD926wyB9AGQoeqs_X1_2XhACvPpz-S7axaocvFUlzEl0G5OxX1jLdQMwe1JTYyU9Q6desk4PJrrjdFqHy90wNlbbpX3s76B7WbuEcGZNLzmPKdq2VYIJBbtZW4uoXEOQaRjIDcB8CQfpIQH2vWkMz-Pk9byxvOSSF3oZKQxEIcw2yY0xQLjmJJuLxUl3cF6-7PcCcOyBXJRghCXrTfvnbGyylGqoaSmsgF8fz8qAgMWFv377MSIvd9ew", "Access-Control-Allow-Origin", "*")
-
-
-const requestOptions = {
-  method: 'GET',
-  headers: myHeaders,
-  redirect: 'follow'
-};
-
-fetch("https://api.prokerala.com/v2/astrology/birth-details?ayanamsa=1&coordinates=19.800904,-99.0627642&datetime=1996-01-05T01:11:00-06:00&la=en", requestOptions)
-  .then(response => response.text())
-  .then(result => console.log(result))
-  .catch(error => console.log('error', error)); */
-
-
-
 
 
 const astroData = fetch("/data/astrology.json")
@@ -88,7 +91,8 @@ const printData = async () => {
   filterData(zodiac, option);
 };
 
-document.querySelector("#condition").addEventListener("click", printData);
+
+// document.querySelector("#condition").addEventListener("click", printData);
 
 // Const of elements
 const earth = ["Capricornio", "Tauro", "Virgo"];
@@ -121,7 +125,7 @@ function getElements(zodiac) {
 // Get generation
 function getGeneration() {
   const msj = "De acuerdo a tu año de nacimiento perteneces a la generación: "
-  const date = document.getElementById("birthdaytime").value;
+  const date = document.getElementById("dob").value;
   const year = date.slice(0, 3);
 
   if (year <= "1960" && year >= "1949") {
@@ -142,32 +146,6 @@ function getGeneration() {
     console.log(msj + "Alfa");
   }
 }
-
-// Usa VanillaJS.
-//visualizar la data ==>API ==> JSON,
-// TODO: conexión DOM ==> main.js
-//puedes usar más archivos y carpetas ==>estructura clara
-
-// TODO: data de forma dinámica ==> JSON por medio de fetch ==>src/data contiene .js y una .json
-
-/* document.addEventListener("click", showBirthChart);
-function showBirthChart() {
-  fetch("/data/astrology.json")
-    .then((res) => {
-      return res.json();
-    })
-    .then((data) => document.getElementById("details").innerHTML = "Data nakshatra vedic name: " + data["data"]["nakshatra"]["lord"]["vedic_name"]
-      + ". Data chandra rasi vedic name: " + data["data"]["chandra_rasi"]["lord"]["vedic_name"]);
-
-  //  LISTA   info[1]
-  // Dicc info["data"][1]   ||  info.data[1]  ==> pada: 3
-}
- */
-
-
-
-
-
 
 
 /* //global variables
@@ -374,4 +352,4 @@ function pastPresentFuture() {
 //  }
 //}
 
-export { getElements, getGeneration, getLatLng };
+export { getElements, getGeneration, getLatLng};
