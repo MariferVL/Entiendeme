@@ -3,12 +3,8 @@ import { filterData } from "./data.js";
 //construirás una página web para visualizar un conjunto (set) de datos
 //se adecúe a lo que descubras que tu usuario necesita.
 
-
-
-
-
 function initMap() {
-  const myLatlng = { lat: -14.6306, lng: -57.4633 }; 
+  const myLatlng = { lat: -14.6306, lng: -57.4633 };
   const map = new google.maps.Map(document.getElementById("map"), {
     zoom: 4,
     center: myLatlng,
@@ -42,38 +38,22 @@ window.initMap = initMap;
 //"19.800904,-99.0627642"
 function getLatLng(location) {
   const latLong = JSON.stringify(location).replace(/"lat":|"lng":|/gi, "");
-  document.getElementById("location").value = latLong; 
-
-
+  document.getElementById("location").value = latLong;
 }
 
-// Set max date of input
-//1923-01-01T00:00 https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_input_date_max
-const today = new Date().toLocaleString("sv-SE").replace(' ','T');
-
-function updateHTML(elmId, value) {
-  const elem = document.getElementById(elmId);
-  if(typeof elem !== 'undefined' && elem !== null) {
-    elem.setAttribute("max", value);
-
-  }
-}
-
-updateHTML("DateOB", today)
 
 
 // Select value of filter (element, generation)
 const obj = {
   getOption: function () {
     return document.getElementById("options").value;
-  }
+  },
 };
 
 //TODO: API se llama solo con click confirmación formulario
 
 // API Conection
 // https://stackoverflow.com/questions/43871637/no-access-control-allow-origin-header-is-present-on-the-requested-resource-whe
-
 
 const astroData = fetch("/data/astrology.json")
   .then((response) => response.json())
@@ -91,7 +71,6 @@ const printData = async () => {
   filterData(zodiac, option);
 };
 
-
 // document.querySelector("#condition").addEventListener("click", printData);
 
 // Const of elements
@@ -102,51 +81,53 @@ const fire = ["Aries", "Leo", "Sagitario"];
 
 // Get element of sign
 function getElements(zodiac) {
-  const msj = "Este signo pertenece al elemento de "
-  const msj2 = " igual que:"
+  const msj = "Este signo pertenece al elemento de ";
+  const msj2 = " igual que:";
   if (zodiac === "Capricorn" || zodiac === "Virgo" || zodiac === "Taurus") {
     console.log(msj + "tierra" + msj2);
-    earth.forEach(sign => console.log(sign));
-  }
-  else if (zodiac === "Libra" || zodiac === "Gemini" || zodiac === "Aquarius") {
+    earth.forEach((sign) => console.log(sign));
+  } else if (
+    zodiac === "Libra" ||
+    zodiac === "Gemini" ||
+    zodiac === "Aquarius"
+  ) {
     console.log(msj + "aire" + msj2);
-    air.forEach(sign => console.log(sign));
-  }
-  else if (zodiac === "Cancer" || zodiac === "Pisces" || zodiac === "Scorpio") {
+    air.forEach((sign) => console.log(sign));
+  } else if (
+    zodiac === "Cancer" ||
+    zodiac === "Pisces" ||
+    zodiac === "Scorpio"
+  ) {
     console.log(msj + "agua" + msj2);
-    water.forEach(sign => console.log(sign));
-  }
-  else if (zodiac === "Aries" || zodiac === "Leo" || zodiac === "Sagittarius") {
+    water.forEach((sign) => console.log(sign));
+  } else if (
+    zodiac === "Aries" ||
+    zodiac === "Leo" ||
+    zodiac === "Sagittarius"
+  ) {
     console.log(msj + "fuego" + msj2);
-    fire.forEach(sign => console.log(sign));
+    fire.forEach((sign) => console.log(sign));
   }
 }
 
 // Get generation
 function getGeneration() {
-  const msj = "De acuerdo a tu año de nacimiento perteneces a la generación: "
+  const msj = "De acuerdo a tu año de nacimiento perteneces a la generación: ";
   const date = document.getElementById("dob").value;
   const year = date.slice(0, 3);
 
   if (year <= "1960" && year >= "1949") {
     console.log(msj + "Baby Boomer");
-
-  }
-  else if (year <= "1980" && year >= "1969") {
+  } else if (year <= "1980" && year >= "1969") {
     console.log(msj + "X");
-
-  }
-  else if (year <= "1993" && year >= "1981") {
+  } else if (year <= "1993" && year >= "1981") {
     console.log(msj + "Millennial");
-  }
-  else if (year <= "2010" && year >= "1994") {
+  } else if (year <= "2010" && year >= "1994") {
     console.log(msj + "Z");
-  }
-  else if (year <= "2023" && year >= "2011") {
+  } else if (year <= "2023" && year >= "2011") {
     console.log(msj + "Alfa");
   }
 }
-
 
 /* //global variables
 var deck = {};
@@ -340,9 +321,6 @@ function pastPresentFuture() {
   }
 } */
 
-
-
-
 //Shows all cards (used in debugging)
 //function debug() {
 //  createDeck();
@@ -352,4 +330,4 @@ function pastPresentFuture() {
 //  }
 //}
 
-export { getElements, getGeneration, getLatLng};
+export { getElements, getGeneration, getLatLng };

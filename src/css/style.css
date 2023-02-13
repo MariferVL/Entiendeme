@@ -59,6 +59,27 @@ body {
   color: #6A1B9A;
 }
 
+#map{
+  width:400px; 
+  height:300px;
+}
+
+span::after {
+  padding-left: 5px;
+}
+
+input:invalid + span::after {
+  content: "✖";
+}
+
+input:valid + span::after {
+  content: "✓";
+}
+
+
+
+
+
 #text-message {
   margin: 1rem auto;
   font-family: Raleway;

@@ -12,6 +12,8 @@
   <!-- CSS -->
   <link rel="stylesheet" href="css/style.css" />
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
 </head>
 
 <body>
@@ -92,17 +94,19 @@ TODO: Seguir fundamentos de visual design. -->
             </div>
             <div class="tab">
               <h6>Dónde naciste</h6>
+              <div id="map"></div>
               <p><input  placeholder="Click en Mapa" id="location" oninput="this.className = ''" name="location" required></p>
-              <a href="map.html"  class="btn btn-warning" target="_blank"><i class="fas fa-map-marked-alt"></i></a>
+
+              <!-- <a href="map.html"  class="btn btn-warning" target="_blank"><i class="fas fa-map-marked-alt"></i></a> -->
              
             </div>
             <div class="tab">
               <!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/datetime-local -->
               <h6>Cuándo y a qué hora naciste</h6>
               <p><input type="datetime-local" id="DateOB" oninput="this.className = ''" name="dob" 
-                min="1923-01-01T00:00"  required 
-                pattern="(?:19|20)\[0-9\]{2}-(?:(?:0\[1-9\]|1\[0-2\])-(?:0\[1-9\]|1\[0-9\]|2\[0-9\])|(?:(?!02)(?:0\[1-9\]|1\[0-2\])-(?:30))|(?:(?:0\[13578\]|1\[02\])-31))"></p>
-            </div>
+                min="1923-01-01T00:00"  max="2023-02-23T00:00" required></p>
+                <span id="validity" class="validity"></span>            
+              </div>
 
             <div class="thanks-message text-center" id="text-message"> <img src="https://i.imgur.com/O18mJ1K.png" width="100" class="mb-4">
               <h3>¡Ya tenemos tus Datos!</h3> <span>Estamos interpretando tu carta para mostrarte tus resultados.</span>
@@ -228,6 +232,10 @@ TODO: Seguir fundamentos de visual design. -->
 <!-- JS -->
 <script src="js/main.js" type="module"></script>
 <script src="js/form.js" type="text/javascript"></script>
+
+<script  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvmmHgjdbKKPKI4UoK-TCLPcwsLOvduvA&callback=initMap&v=weekly" defer></script>
+<!-- Google Maps JavaScript API Loader umd package  -->
+<script src="https://unpkg.com/@googlemaps/js-api-loader@1.0.0/dist/index.min.js"></script>
 
 
 </body>

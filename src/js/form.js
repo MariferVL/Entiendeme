@@ -1,15 +1,10 @@
 let currentTab = 0;
 document.addEventListener("DOMContentLoaded", function (event) {
-  console.log("Curren tab " + currentTab);
-  console.log("evetn:" + event);
   showTab(currentTab);
 });
 
 function showTab(n) {
   const x = document.getElementsByClassName("tab");
-  console.log("Equis es igual a " + x);
-  console.log("Ene es igual " + n);
-  console.log("Equis ene es " + x[n]);
   x[n].style.display = "block";
   if (n === 0) {
     document.getElementById("prevBtn").style.display = "none";
@@ -36,8 +31,10 @@ function nextPrev(n) {
     document.getElementById("all-steps").style.display = "none";
     document.getElementById("register").style.display = "none";
     document.getElementById("text-message").style.display = "block";
+  } else {
+    //FIXME: fuera del else
+    showTab(currentTab);
   }
-  showTab(currentTab);
 }
 
 function validateForm() {
@@ -45,7 +42,7 @@ function validateForm() {
   const x = document.getElementsByClassName("tab");
   const y = x[currentTab].getElementsByTagName("input");
   for (i = 0; i < y.length; i++) {
-    if (y[i].value === "") {
+    if (y[i].value === "" ) {
       y[i].className += " invalid";
       valid = false;
     }
@@ -55,6 +52,21 @@ function validateForm() {
   }
   return valid;
 }
+
+// Set max date of input
+//1923-01-01T00:00 https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_input_date_max
+const today = new Date().toLocaleString("sv-SE").replace(" ", "T").slice(0,16);
+
+
+function updateHTML(elmId, value) {
+  const elem = document.getElementById(elmId);
+  if (typeof elem !== "undefined" && elem !== null) {
+    elem.setAttribute("max", value);
+    console.log("Max Value: " + value);
+  }
+}
+updateHTML("DateOB", today);
+const dob = document.getElementById("DateOB").value;
 
 function fixStepIndicator(n) {
   let i;
