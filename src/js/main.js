@@ -1,8 +1,10 @@
-import { filterData } from "./data.js";
+import { filterData } from "./data.js";  
+import celebrities from "../data/celebrities.js"; 
 
 //construirás una página web para visualizar un conjunto (set) de datos
 //se adecúe a lo que descubras que tu usuario necesita.
 
+// Show map for long/lat
 function initMap() {
   const myLatlng = { lat: -14.6306, lng: -57.4633 };
   const map = new google.maps.Map(document.getElementById("map"), {
@@ -68,10 +70,12 @@ const printData = async () => {
   const zodiac = a["zodiac"]["name"];
 
   //DOM
-  filterData(zodiac, option);
+  if(!filterData(zodiac, option)){
+    // Mensaje de "Opcion no válida"
+  }
 };
 
-// document.querySelector("#condition").addEventListener("click", printData);
+document.querySelector("#condition").addEventListener("click", printData);
 
 // Const of elements
 const earth = ["Capricornio", "Tauro", "Virgo"];
@@ -113,7 +117,7 @@ function getElements(zodiac) {
 // Get generation
 function getGeneration() {
   const msj = "De acuerdo a tu año de nacimiento perteneces a la generación: ";
-  const date = document.getElementById("dob").value;
+  const date = document.getElementById("DateOB").value;
   const year = date.slice(0, 3);
 
   if (year <= "1960" && year >= "1949") {
@@ -129,6 +133,17 @@ function getGeneration() {
   }
 }
 
+
+function getCelebrities(sign) {
+
+  const celebSign = celebrities["celebrities"]["sign"];
+  console.log(celebSign);
+  console.log(sign.slice(0,2));
+  if (sign.slice(0,5) === "Pisci" ) {
+    //
+  }
+
+}
 /* //global variables
 var deck = {};
 var rank = "";
@@ -330,4 +345,4 @@ function pastPresentFuture() {
 //  }
 //}
 
-export { getElements, getGeneration, getLatLng };
+export { getElements, getGeneration, getCelebrities };

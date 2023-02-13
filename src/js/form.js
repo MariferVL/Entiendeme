@@ -32,19 +32,41 @@ function nextPrev(n) {
     document.getElementById("register").style.display = "none";
     document.getElementById("text-message").style.display = "block";
   } else {
-    //FIXME: fuera del else
     showTab(currentTab);
   }
 }
 
 function validateForm() {
-  let  i, valid = true;
+  let i, valid = true;
   const x = document.getElementsByClassName("tab");
   const y = x[currentTab].getElementsByTagName("input");
   for (i = 0; i < y.length; i++) {
-    if (y[i].value === "" ) {
+    if (y[i].value === "") {
       y[i].className += " invalid";
       valid = false;
+    } else {
+      if (currentTab === 2) {
+        // this.addEventListener("input", function (event) {
+        //   const input = event.target.value;
+        const input = y[i].value;
+        const dateSplitted = input.split("-");
+        const userYear = dateSplitted[0];
+        const dateTimeRegex = /^\d{1,4}-\d{2}-\d{2}T\d{2}:\d{2}$/;
+        if (dateTimeRegex.test(input)) {
+          const year = input.substring(0, 4);
+          if (year <= new Date().getFullYear()) {
+            y[i].setCustomValidity("");
+          } else {
+            y[i].setCustomValidity(" ¡Ey!, ✋🏻⚠️ No tan rápido.\n Disfruta tu año, el " + userYear  + " ya llegará. 😉");
+            y[i].className += " invalid";
+            valid = false;
+          }
+        } else {
+          y[i].setCustomValidity("Wow 😲 ¿Vienes del futuro?\nEl año " + userYear  + " todavía no llega. 😅");
+          y[i].className += " invalid";
+          valid = false;
+        }
+      }
     }
   }
   if (valid) {
@@ -55,7 +77,7 @@ function validateForm() {
 
 // Set max date of input
 //1923-01-01T00:00 https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_input_date_max
-const today = new Date().toLocaleString("sv-SE").replace(" ", "T").slice(0,16);
+const today = new Date().toLocaleString("sv-SE").replace(" ", "T").slice(0, 16);
 
 
 function updateHTML(elmId, value) {
@@ -70,11 +92,9 @@ const dob = document.getElementById("DateOB").value;
 
 function fixStepIndicator(n) {
   let i;
-  const  x = document.getElementsByClassName("step");
+  const x = document.getElementsByClassName("step");
   for (i = 0; i < x.length; i++) {
     x[i].className = x[i].className.replace(" active", "");
   }
   x[n].className += " active";
 }
-
-
