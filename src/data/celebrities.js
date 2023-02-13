@@ -151,7 +151,7 @@ export default {
 		"DOB": "08 de Junio",
 		"sign": "Geminis",
 		"quote": "'Lo estoy haciendo bastante bien en lo que respecta a los genios. Soy como una máquina, como un robot'",
-		"category": ,
+		"category": "Canto" ,
 	},
 	{
 		"name": "Prince",
@@ -503,5 +503,4 @@ export default {
 	"quote": "'Los fracasos que tenemos son a veces educaciones caras.'",
 	"category": "Actuación",
 }]
-
-}
+};

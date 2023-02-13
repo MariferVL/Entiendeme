@@ -1,24 +1,26 @@
-import { getElements, getGeneration } from "./main.js";
+import { getElements, getGeneration, getCelebrities } from "./main.js";
 
 
 // Filter data by zodiac or generation
 function filterData(data, condition) { 
   console.log("Zodiaco en data es: " + data);
   console.log("objeto en data es: " + condition);
+  let valid = true
   if (condition === "element") {
-    console.log("Zodiaco en if es: " + data);
-    console.log("objeto en if es: " + condition);
     getElements(data);
   }
   else if (condition === "generation") {
-    console.log("Entro a generation")
     getGeneration()
   }
-  else {
-    console.log("Opcion no válida");
+  else if (condition === "celebrities"){
+    getCelebrities(data);
+  } else {
+    valid = false;
   }
-  
+  return valid;
 }
+
+
 
 const actorsCancer = [];
 const singers = [];

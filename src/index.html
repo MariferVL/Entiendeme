@@ -86,25 +86,25 @@ TODO: Seguir fundamentos de visual design. -->
             </div>
 
             <div class="tab">
-              <h6>Cómo te llamas</h6>
+              <label for="fName">¿Cómo te llamas? <span class="mandatory">*</span></label>
               <p>
-                <input placeholder="Nombre" oninput="this.className = ''" name="fName">
+                <input id="fName" placeholder="Nombre" oninput="this.className = ''" name="fName" required aria-required="true">
               </p>
 
             </div>
             <div class="tab">
-              <h6>Dónde naciste</h6>
+              <label for="location">¿Dónde naciste? <span class="mandatory">*</span></label>
               <div id="map"></div>
-              <p><input  placeholder="Click en Mapa" id="location" oninput="this.className = ''" name="location" required></p>
+              <p><input  placeholder="Click en Mapa" id="location" oninput="this.className = ''" name="location" required aria-required="true"></p>
 
               <!-- <a href="map.html"  class="btn btn-warning" target="_blank"><i class="fas fa-map-marked-alt"></i></a> -->
              
             </div>
             <div class="tab">
               <!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/datetime-local -->
-              <h6>Cuándo y a qué hora naciste</h6>
-              <p><input type="datetime-local" id="DateOB" oninput="this.className = ''" name="dob" 
-                min="1923-01-01T00:00"  max="2023-02-23T00:00" required></p>
+              <label for="DateOB">¿Cuándo y a qué hora naciste? <span class="mandatory">*</span></label>
+              <p><input type="datetime-local" id="DateOB" class="dob" oninput="this.className = ''" name="dob" 
+                min="1923-01-01T00:00"  max="2023-02-23T00:00" required aria-required="true"></p>
                 <span id="validity" class="validity"></span>            
               </div>
 
@@ -196,9 +196,10 @@ TODO: Seguir fundamentos de visual design. -->
       </div>
       <div id="selector">      
         <select class="form-select" id="options" aria-label="Default select example">
-          <option selected disabled>Open this select menu</option>
+          <option selected disabled>¿Qué quieres saber?</option>
           <option value="element">Elemento</option>
           <option value="generation">Generación</option>
+          <option value="celebrities">Celebridades</option>
         </select>
         <button id="condition">Aceptar</button>
       </div> 
@@ -233,8 +234,9 @@ TODO: Seguir fundamentos de visual design. -->
 <script src="js/main.js" type="module"></script>
 <script src="js/form.js" type="text/javascript"></script>
 
-<script  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvmmHgjdbKKPKI4UoK-TCLPcwsLOvduvA&callback=initMap&v=weekly" defer></script>
 <!-- Google Maps JavaScript API Loader umd package  -->
+<script  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvmmHgjdbKKPKI4UoK-TCLPcwsLOvduvA&callback=initMap&v=weekly" defer></script>
+
 <script src="https://unpkg.com/@googlemaps/js-api-loader@1.0.0/dist/index.min.js"></script>
 
 
