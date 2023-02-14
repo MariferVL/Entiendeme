@@ -1,5 +1,5 @@
-import { filterData } from "./data.js";  
-import celebrities from "../data/celebrities.js"; 
+import { filterData } from "./data.js";
+import celebrities from "../data/celebrities.js";
 
 //construirás una página web para visualizar un conjunto (set) de datos
 //se adecúe a lo que descubras que tu usuario necesita.
@@ -70,7 +70,7 @@ const printData = async () => {
   const zodiac = a["zodiac"]["name"];
 
   //DOM
-  if(!filterData(zodiac, option)){
+  if (!filterData(zodiac, option)) {
     // Mensaje de "Opcion no válida"
   }
 };
@@ -90,25 +90,14 @@ function getElements(zodiac) {
   if (zodiac === "Capricorn" || zodiac === "Virgo" || zodiac === "Taurus") {
     console.log(msj + "tierra" + msj2);
     earth.forEach((sign) => console.log(sign));
-  } else if (
-    zodiac === "Libra" ||
-    zodiac === "Gemini" ||
-    zodiac === "Aquarius"
+  } else if (zodiac === "Libra" || zodiac === "Gemini" || zodiac === "Aquarius"
   ) {
     console.log(msj + "aire" + msj2);
     air.forEach((sign) => console.log(sign));
-  } else if (
-    zodiac === "Cancer" ||
-    zodiac === "Pisces" ||
-    zodiac === "Scorpio"
-  ) {
+  } else if (zodiac === "Cancer" || zodiac === "Pisces" || zodiac === "Scorpio") {
     console.log(msj + "agua" + msj2);
     water.forEach((sign) => console.log(sign));
-  } else if (
-    zodiac === "Aries" ||
-    zodiac === "Leo" ||
-    zodiac === "Sagittarius"
-  ) {
+  } else if (zodiac === "Aries" || zodiac === "Leo" || zodiac === "Sagittarius") {
     console.log(msj + "fuego" + msj2);
     fire.forEach((sign) => console.log(sign));
   }
@@ -134,16 +123,35 @@ function getGeneration() {
 }
 
 
+
+// Show celebrities with the same sign
 function getCelebrities(sign) {
-
-  const celebSign = celebrities["celebrities"]["sign"];
-  console.log(celebSign);
-  console.log(sign.slice(0,2));
-  if (sign.slice(0,5) === "Pisci" ) {
-    //
-  }
-
+  const condition = document.getElementById("options").value;  
+  //Choose type of celebrity
+  if (condition === "celebrities") {    
+    document.getElementById("selector2").hidden = false;
+  } else {
+    document.getElementById("selector2").hidden = true;
+  } 
+  const option = document.getElementById("optionsCeleb").value;
+  console.log("Estas son las opciones " + option);
+ /*  celebrities["celebrities"].forEach(dictionary => {
+    if (sign.slice(0, 5) === dictionary["sign"].slice(0, 5)) {
+      console.log("Este es diccionario " + dictionary["category"])
+      if (option === dictionary["category"]) console.log("Este es el nombre con categoria  " + dictionary["name"])
+      //<option> dictionary["name"] </option>
+      // console.log("El nombre es " + dictionary["name"] + " Y su fecha de nacimiento es " + dictionary["DOB"])
+    }
+  });  */
 }
+
+
+
+
+
+
+
+
 /* //global variables
 var deck = {};
 var rank = "";
@@ -156,7 +164,7 @@ var backImg = "<img class='back' src='/images/carta.png' />"
 function createDeck() {
   deckArr = [];
 
-  function deckConst(name, displayName) {
+  function deckConst(forEach,dictionaryayName) {
     this.name = name;
     this.displayName = displayName;
   }
