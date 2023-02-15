@@ -262,6 +262,13 @@ Parte de este proceso implicó la aplicación de conocimiento del <b>DOM</b>, <b
  <br/>
 <p align="left"><a href="#volver">Volver</a></p>
  <br/>
+ 
+ ### Código
+<div align="center">
+<img width="400" alt="data-postman" src="https://user-images.githubusercontent.com/99364311/219038157-6e44b4db-34c3-4c3d-8248-0ffd005612ee.png">
+<img width="400" alt="params-postman" src="https://user-images.githubusercontent.com/99364311/219038173-113ad858-4d1a-4068-93d1-c2ae046c8772.png">
+<img width="400" alt="data-postman" src="https://user-images.githubusercontent.com/99364311/219038183-0fbce798-50a6-4611-a630-6e2a1b892858.png">
+</div>
 
 ## 4. Producto
 
