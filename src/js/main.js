@@ -122,27 +122,71 @@ function getGeneration() {
   }
 }
 
-
-
-// Show celebrities with the same sign
-function getCelebrities(sign) {
-  const condition = document.getElementById("options").value;  
-  //Choose type of celebrity
-  if (condition === "celebrities") {    
+// Show and hide selector with category of celebrities
+function hideSelector() {
+  const condition = document.getElementById("options").value;
+  if (condition === "celebrities") {
     document.getElementById("selector2").hidden = false;
   } else {
     document.getElementById("selector2").hidden = true;
-  } 
-  const option = document.getElementById("optionsCeleb").value;
-  console.log("Estas son las opciones " + option);
- /*  celebrities["celebrities"].forEach(dictionary => {
+  }
+}
+
+
+
+
+console.log("Estas son las opciones " + option);
+celebrities["celebrities"].forEach(dictionary => {
+  if (sign.slice(0, 5) === dictionary["sign"].slice(0, 5)) {
+    console.log("Este es diccionario " + dictionary["category"])
+    if (option === dictionary["category"]) console.log("Este es el nombre con categoria  " + dictionary["name"])
+    //<option> dictionary["name"] </option>
+    // console.log("El nombre es " + dictionary["name"] + " Y su fecha de nacimiento es " + dictionary["DOB"])
+  }
+});
+
+
+
+//Get selected option from Categories
+function getCategory(sign) {
+  const categoriesList = [];
+  celebrities["celebrities"].forEach(dictionary => {
+    if (sign.slice(0, 5) === dictionary["sign"].slice(0, 5)) {
+      categoriesList.add(dictionary["category"]);
+    }
+  })
+
+  const categoriesToPrint = categoriesList.filter((item, index) => categoriesList.indexOf(item) === index);
+  categoriesToPrint.forEach(element => {
+    const sel = document.getElementById("optionsCeleb");
+    const opt = document.createElement("option");
+    opt.value = element;
+    opt.text = element;
+    sel.add(opt);
+  })
+
+
+  const optionCategory = document.getElementById("optionsCeleb");
+  optionCategory.addEventListener("change", () => {
+    const category = optionCategory.options[optionCategory.selectedIndex].value;
+    getCelebrities(sign, category);
+  });
+}
+
+// Show celebrities with the same sign
+function getCelebrities(sign, category) {
+  //Choose type of celebrity
+  celebrities["celebrities"].forEach(dictionary => {
     if (sign.slice(0, 5) === dictionary["sign"].slice(0, 5)) {
       console.log("Este es diccionario " + dictionary["category"])
-      if (option === dictionary["category"]) console.log("Este es el nombre con categoria  " + dictionary["name"])
+      if (category === dictionary["category"]) {
+
+        console.log("Este es el nombre con categoria  " + dictionary["name"])
+      }
       //<option> dictionary["name"] </option>
       // console.log("El nombre es " + dictionary["name"] + " Y su fecha de nacimiento es " + dictionary["DOB"])
     }
-  });  */
+  });
 }
 
 
@@ -353,4 +397,4 @@ function pastPresentFuture() {
 //  }
 //}
 
-export { getElements, getGeneration, getCelebrities };
+export { getElements, getGeneration, getCategory, hideSelector };

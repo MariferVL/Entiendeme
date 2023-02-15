@@ -1,4 +1,4 @@
-import { getElements, getGeneration, getCelebrities } from "./main.js";
+import { getElements, getGeneration, getCategory, hideSelector } from "./main.js";
 
 
 // Filter data by zodiac or generation
@@ -7,13 +7,16 @@ function filterData(data, condition) {
   console.log("objeto en data es: " + condition);
   let valid = true
   if (condition === "element") {
+    hideSelector()
     getElements(data);
   }
   else if (condition === "generation") {
+    hideSelector()
     getGeneration()
   }
   else if (condition === "celebrities"){
-    getCelebrities(data);
+    hideSelector()
+    getCategory(data);
   } else {
     valid = false;
   }
