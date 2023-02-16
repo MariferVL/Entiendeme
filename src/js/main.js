@@ -1,4 +1,4 @@
-import { filterData } from "./data.js";
+import { filterData, sortData } from "./data.js";
 import celebrities from "../data/celebrities.js";
 
 //construirás una página web para visualizar un conjunto (set) de datos
@@ -135,7 +135,7 @@ function hideSelector() {
 
 
 
-console.log("Estas son las opciones " + option);
+/* console.log("Estas son las opciones " + option);
 celebrities["celebrities"].forEach(dictionary => {
   if (sign.slice(0, 5) === dictionary["sign"].slice(0, 5)) {
     console.log("Este es diccionario " + dictionary["category"])
@@ -143,7 +143,7 @@ celebrities["celebrities"].forEach(dictionary => {
     //<option> dictionary["name"] </option>
     // console.log("El nombre es " + dictionary["name"] + " Y su fecha de nacimiento es " + dictionary["DOB"])
   }
-});
+}); */
 
 
 
@@ -152,10 +152,10 @@ function getCategory(sign) {
   const categoriesList = [];
   celebrities["celebrities"].forEach(dictionary => {
     if (sign.slice(0, 5) === dictionary["sign"].slice(0, 5)) {
-      categoriesList.add(dictionary["category"]);
+      categoriesList.push(dictionary["category"]);
     }
   })
-
+  // Create new options in select
   const categoriesToPrint = categoriesList.filter((item, index) => categoriesList.indexOf(item) === index);
   categoriesToPrint.forEach(element => {
     const sel = document.getElementById("optionsCeleb");
@@ -165,30 +165,40 @@ function getCategory(sign) {
     sel.add(opt);
   })
 
-
+  // Listener with change for select option
   const optionCategory = document.getElementById("optionsCeleb");
   optionCategory.addEventListener("change", () => {
     const category = optionCategory.options[optionCategory.selectedIndex].value;
-    getCelebrities(sign, category);
+    const parent = document.getElementById("celebrity");
+    while (parent.firstChild) {
+      parent.removeChild(parent.firstChild);
+    }
+    sortData(sign, category, "ordenAlfabetico");
   });
 }
+
 
 // Show celebrities with the same sign
-function getCelebrities(sign, category) {
-  //Choose type of celebrity
-  celebrities["celebrities"].forEach(dictionary => {
-    if (sign.slice(0, 5) === dictionary["sign"].slice(0, 5)) {
-      console.log("Este es diccionario " + dictionary["category"])
-      if (category === dictionary["category"]) {
+function getCelebrities(celebritiesNames) {
+  // Create anchor for celebrities names
+  celebritiesNames.forEach(name =>  {
+    const divCeleb = document.getElementById("celebrity");
+    const anchor = document.createElement("a");
+    anchor.href = "#quoteCelebrity";
+    anchor.text = name;
+    divCeleb.appendChild(anchor);
+  })
 
-        console.log("Este es el nombre con categoria  " + dictionary["name"])
-      }
-      //<option> dictionary["name"] </option>
-      // console.log("El nombre es " + dictionary["name"] + " Y su fecha de nacimiento es " + dictionary["DOB"])
-    }
-  });
 }
 
+// llevarlo a data para sort
+
+
+
+// Print quotes of celebrities
+function printQuotes() {
+
+}
 
 
 
@@ -397,4 +407,4 @@ function pastPresentFuture() {
 //  }
 //}
 
-export { getElements, getGeneration, getCategory, hideSelector };
+export { getElements, getGeneration, getCategory, hideSelector, getCelebrities };
