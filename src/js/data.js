@@ -1,4 +1,5 @@
 import { getElements, getGeneration, getCategory, hideSelector, getCelebrities } from "./main.js";
+import celebrities from "../data/celebrities.js";
 
 
 // Filter data by zodiac or generation
@@ -39,20 +40,20 @@ function sortData(data, sortBy, sortOrder) {
       }
     }
   })
-  if (sortOrder === "ascendente") {
+  if (sortOrder === "A-Z") {
     names.sort()
-
+    
   }
-  else if (sortOrder === "descendente") {
+  else if (sortOrder === "Z-A") {
     names.sort().reverse()
 
   }
   getCelebrities(names)
 }
 
+
 // Show any chart just because.
 function computeStats(data) {
-
 }
 
 // function sortData(data, sortBy, sortOrder){

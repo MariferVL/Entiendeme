@@ -158,7 +158,7 @@ function getCategory(sign) {
   // Create new options in select
   const categoriesToPrint = categoriesList.filter((item, index) => categoriesList.indexOf(item) === index);
   categoriesToPrint.forEach(element => {
-    const sel = document.getElementById("optionsCeleb");
+    const sel = document.getElementById("sortBy");
     const opt = document.createElement("option");
     opt.value = element;
     opt.text = element;
@@ -166,13 +166,14 @@ function getCategory(sign) {
   })
 
   // Listener with change for select option
-  const optionCategory = document.getElementById("optionsCeleb");
+  const optionCategory = document.getElementById("sortBy");
   optionCategory.addEventListener("change", () => {
     const category = optionCategory.options[optionCategory.selectedIndex].value;
     const parent = document.getElementById("celebrity");
     while (parent.firstChild) {
       parent.removeChild(parent.firstChild);
     }
+
     sortData(sign, category, "ordenAlfabetico");
   });
 }
@@ -188,17 +189,21 @@ function getCelebrities(celebritiesNames) {
     anchor.text = name;
     divCeleb.appendChild(anchor);
   })
+  const optionOrder = document.getElementById("sortOrder");
+  optionOrder.addEventListener("click", (order) => {
+    sortData("sign", "category", order.value);
+  });
+} // ordenar pasos
 
-}
 
 // llevarlo a data para sort
 
 
 
 // Print quotes of celebrities
-function printQuotes() {
+/* function printQuotes() {
 
-}
+} */
 
 
 
