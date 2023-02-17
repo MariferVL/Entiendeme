@@ -129,7 +129,7 @@ TODO: Seguir fundamentos de visual design. -->
     </div>
   </section>
 
-  <section id="result">
+  <section id="cards">
     <div class="container">
       <div class="jumbotron">
         <h1>Three Card Tarot Reading</h1>
@@ -197,27 +197,46 @@ TODO: Seguir fundamentos de visual design. -->
 
       </div>
     </div>
-    <div id="selector">
-      <select class="form-select" id="options" aria-label="Seleccionar data por elemento, generacion y celebridades">
-        <option selected disabled>¿Qué quieres saber?</option>
-        <option value="element">Elemento</option>
-        <option value="generation">Generación</option>
-        <option value="celebrities">Celebridades</option>
-      </select>
-      <button id="condition">Aceptar</button>
+  </section>
+
+  <section id="filter-sort">
+    <ul class="nav">
+      <li class="nav-item" id="selector">
+        <select class="form-select form-select-lg mb-3" id="options" aria-label="Seleccionar data por elemento, generacion y celebridades">
+          <option selected disabled>¿Qué quieres saber?</option>
+          <option value="element">Elemento</option>
+          <option value="generation">Generación</option>
+          <option value="celebrities">Celebridades</option>
+        </select>
+        <!-- <button id="condition">Aceptar</button> -->
+        <!-- <a class="nav-link active" aria-current="page" href="#">Active</a> -->
+      </li>
+      <li class="nav-item" id="selector2">
+        <select class="form-select form-select-lg mb-3" id="sortBy" aria-label="Seleccionar celebridades por categorias">
+          <option selected disabled>Selecciona área de tu interés</option>
+        </select>
+      </li>
+      <!-- <div id="sortOrder"> -->
+
+      <li class="nav-item">
+        <a class="nav-link disabled" id="a-z" href="#">A-Z</a>
+      </li>
+      <li class="nav-item">  
+        <a class="nav-link disabled"  id="z-a" href="#">Z-A</a>
+      </li>
+    <!-- </div> -->
+
+    </ul>
+
+  <div id="celebrity"></div>
+
+    <!-- <div >
+
     </div>
 
     <div id="selector2" hidden>
-      <select class="form-select" id="sortBy" aria-label="Seleccionar celebridades por categorias">
-        <option selected disabled>Selecciona área de tu interés</option>
-      </select>
-    </div>
 
-    <div id="sortOrder">
-      <input type="button" id="a-z" value="A-Z">
-      <input type="button" id="z-a" value="Z-A">
-      <div id="celebrity"></div>
-    </div>
+    </div> -->
 
     <div id="quotes">
       <div id="quoteCelebrity"></div>

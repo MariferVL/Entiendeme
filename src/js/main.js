@@ -1,8 +1,6 @@
 import { filterData, sortData } from "./data.js";
 import celebrities from "../data/celebrities.js";
 
-//construirás una página web para visualizar un conjunto (set) de datos
-//se adecúe a lo que descubras que tu usuario necesita.
 
 // Show map for long/lat
 function initMap() {
@@ -43,8 +41,6 @@ function getLatLng(location) {
   document.getElementById("location").value = latLong;
 }
 
-
-
 // Select value of filter (element, generation)
 const obj = {
   getOption: function () {
@@ -75,7 +71,7 @@ const printData = async () => {
   }
 };
 
-document.querySelector("#condition").addEventListener("click", printData);
+document.querySelector("#options").addEventListener("change", printData);
 
 // Const of elements
 const earth = ["Capricornio", "Tauro", "Virgo"];
@@ -90,14 +86,25 @@ function getElements(zodiac) {
   if (zodiac === "Capricorn" || zodiac === "Virgo" || zodiac === "Taurus") {
     console.log(msj + "tierra" + msj2);
     earth.forEach((sign) => console.log(sign));
-  } else if (zodiac === "Libra" || zodiac === "Gemini" || zodiac === "Aquarius"
+  } else if (
+    zodiac === "Libra" ||
+    zodiac === "Gemini" ||
+    zodiac === "Aquarius"
   ) {
     console.log(msj + "aire" + msj2);
     air.forEach((sign) => console.log(sign));
-  } else if (zodiac === "Cancer" || zodiac === "Pisces" || zodiac === "Scorpio") {
+  } else if (
+    zodiac === "Cancer" ||
+    zodiac === "Pisces" ||
+    zodiac === "Scorpio"
+  ) {
     console.log(msj + "agua" + msj2);
     water.forEach((sign) => console.log(sign));
-  } else if (zodiac === "Aries" || zodiac === "Leo" || zodiac === "Sagittarius") {
+  } else if (
+    zodiac === "Aries" ||
+    zodiac === "Leo" ||
+    zodiac === "Sagittarius"
+  ) {
     console.log(msj + "fuego" + msj2);
     fire.forEach((sign) => console.log(sign));
   }
@@ -133,83 +140,76 @@ function hideSelector() {
 }
 
 
-
-
-/* console.log("Estas son las opciones " + option);
-celebrities["celebrities"].forEach(dictionary => {
-  if (sign.slice(0, 5) === dictionary["sign"].slice(0, 5)) {
-    console.log("Este es diccionario " + dictionary["category"])
-    if (option === dictionary["category"]) console.log("Este es el nombre con categoria  " + dictionary["name"])
-    //<option> dictionary["name"] </option>
-    // console.log("El nombre es " + dictionary["name"] + " Y su fecha de nacimiento es " + dictionary["DOB"])
+function removeElements(id) {
+  const parent = document.getElementById(id);
+  while (parent.firstChild) {
+    parent.removeChild(parent.firstChild);
   }
-}); */
-
-
+}
 
 //Get selected option from Categories
 function getCategory(sign) {
   const categoriesList = [];
-  celebrities["celebrities"].forEach(dictionary => {
+  celebrities["celebrities"].forEach((dictionary) => {
     if (sign.slice(0, 5) === dictionary["sign"].slice(0, 5)) {
       categoriesList.push(dictionary["category"]);
     }
-  })
+  });
+  removeElements("sortBy");
   // Create new options in select
-  const categoriesToPrint = categoriesList.filter((item, index) => categoriesList.indexOf(item) === index);
-  categoriesToPrint.forEach(element => {
-    const sel = document.getElementById("sortBy");
+  const categoriesToPrint = categoriesList.filter(
+    (item, index) => categoriesList.indexOf(item) === index
+  );
+
+  const sel = document.getElementById("sortBy");
+  sel.innerHTML =
+    "<option selected disabled>Selecciona área de tu interés</option>";
+  categoriesToPrint.forEach((element) => {
     const opt = document.createElement("option");
     opt.value = element;
     opt.text = element;
     sel.add(opt);
-  })
+  });
 
   // Listener with change for select option
   const optionCategory = document.getElementById("sortBy");
   optionCategory.addEventListener("change", () => {
+    removeElements("celebrity");
     const category = optionCategory.options[optionCategory.selectedIndex].value;
-    const parent = document.getElementById("celebrity");
-    while (parent.firstChild) {
-      parent.removeChild(parent.firstChild);
-    }
-
     sortData(sign, category, "ordenAlfabetico");
   });
 }
 
-
 // Show celebrities with the same sign
 function getCelebrities(celebritiesNames) {
   // Create anchor for celebrities names
-  celebritiesNames.forEach(name =>  {
+  celebritiesNames.forEach((name) => {
     const divCeleb = document.getElementById("celebrity");
     const anchor = document.createElement("a");
     anchor.href = "#quoteCelebrity";
     anchor.text = name;
     divCeleb.appendChild(anchor);
-  })
-  const optionOrder = document.getElementById("sortOrder");
-  optionOrder.addEventListener("click", (order) => {
+  });
+  //Enable sort by Order options
+  const elements = document.querySelectorAll(".nav-link");
+  elements.forEach((element) => {
+    element.classList.remove("disabled");
+  });
+
+  document.getElementById("a-z").addEventListener("click", (order) => {
+    removeElements("celebrity");
     sortData("sign", "category", order.value);
   });
-} // ordenar pasos
-
-
-// llevarlo a data para sort
-
-
+  document.getElementById("z-a").addEventListener("click", (order) => {
+    removeElements("celebrity");
+    sortData("sign", "category", order.value);
+  });
+}
 
 // Print quotes of celebrities
 /* function printQuotes() {
 
 } */
-
-
-
-
-
-
 
 /* //global variables
 var deck = {};
@@ -412,4 +412,10 @@ function pastPresentFuture() {
 //  }
 //}
 
-export { getElements, getGeneration, getCategory, hideSelector, getCelebrities };
+export {
+  getElements,
+  getGeneration,
+  getCategory,
+  hideSelector,
+  getCelebrities,
+};
