@@ -2,7 +2,6 @@ import {
   getElements,
   getGeneration,
   getCategory,
-  hideSelector,
   getCelebrities,
 } from "./main.js";
 import celebrities from "../data/celebrities.js";
@@ -11,13 +10,13 @@ import celebrities from "../data/celebrities.js";
 function filterData(data, condition) {
   let valid = true;
   if (condition === "element") {
-    hideSelector();
+    
     getElements(data);
   } else if (condition === "generation") {
-    hideSelector();
+    
     getGeneration();
   } else if (condition === "celebrities") {
-    hideSelector();
+   
     getCategory(data);
   } else {
     valid = false;
@@ -28,28 +27,33 @@ function filterData(data, condition) {
 const actorsCancer = [];
 const singers = [];
 
-let names = [];
 
+let namesFilter = [];
 // Sort data by celebrity type (singer or actor) and in ascending/descendig order.
 function sortData(data, sortBy, sortOrder) {
-  // sortBy = [Actuación, canto, deporte y tv]
-  // sortOrder = [Ascendente, descendente]
+  const names = [];
+  let namesArray = []
+
   celebrities["celebrities"].forEach((dictionary) => {
     if (data.slice(0, 5) === dictionary["sign"].slice(0, 5)) {
       if (sortBy === dictionary["category"]) {
         names.push(dictionary["name"]);
+        namesFilter = names.filter(
+          (item, index) => names.indexOf(item) === index
+        );
+        namesArray = names;
       }
     }
   });
   if (sortOrder === "A-Z") {
-    names = names.sort();
-    console.log("Entró  :  A-Z");
+    namesFilter = namesFilter.sort();
+    namesArray = namesFilter;
   } else if (sortOrder === "Z-A") {
-    console.log("Entró Z-A ");
-
-    names = names.sort().reverse();
+    namesFilter = namesFilter.sort().reverse();
+    namesArray = namesFilter;
   }
-  getCelebrities(names);
+  // Algo que contenga los dos names por separado  
+  getCelebrities(namesArray);
 }
 
 // Show any chart just because.

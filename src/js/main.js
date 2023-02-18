@@ -129,21 +129,13 @@ function getGeneration() {
   }
 }
 
-// Show and hide selector with category of celebrities
-function hideSelector() {
-  const condition = document.getElementById("options").value;
-  if (condition === "celebrities") {
-    document.getElementById("selector2").hidden = false;
-  } else {
-    document.getElementById("selector2").hidden = true;
-  }
-}
-
 
 function removeElements(id) {
   const parent = document.getElementById(id);
-  while (parent.firstChild) {
-    parent.removeChild(parent.firstChild);
+  let child = parent.firstChild;
+  while (child) {
+    parent.removeChild(child);
+    child = parent.firstChild
   }
 }
 
@@ -174,7 +166,7 @@ function getCategory(sign) {
   // Listener with change for select option
   const optionCategory = document.getElementById("sortBy");
   optionCategory.addEventListener("change", () => {
-    removeElements("celebrity");
+    removeElements("celebrity")
     const category = optionCategory.options[optionCategory.selectedIndex].value;
     sortData(sign, category, "ordenAlfabetico");
   });
@@ -182,27 +174,32 @@ function getCategory(sign) {
 
 // Show celebrities with the same sign
 function getCelebrities(celebritiesNames) {
+  
   // Create anchor for celebrities names
-  celebritiesNames.forEach((name) => {
+  for (let i = 0; i < celebritiesNames.length; i++) {
+    const name = celebritiesNames[i];
     const divCeleb = document.getElementById("celebrity");
     const anchor = document.createElement("a");
     anchor.href = "#quoteCelebrity";
     anchor.text = name;
+    anchor.id = "celebrity" + i;
     divCeleb.appendChild(anchor);
-  });
+
+  }
+
   //Enable sort by Order options
   const elements = document.querySelectorAll(".nav-link");
   elements.forEach((element) => {
     element.classList.remove("disabled");
   });
 
-  document.getElementById("a-z").addEventListener("click", (order) => {
-    removeElements("celebrity");
-    sortData("sign", "category", order.value);
+  document.getElementById("asc").addEventListener("click", (order) => {
+    removeElements("celebrity")
+    sortData("sign", "category", order.target.value);
   });
-  document.getElementById("z-a").addEventListener("click", (order) => {
-    removeElements("celebrity");
-    sortData("sign", "category", order.value);
+  document.getElementById("desc").addEventListener("click", (order) => {
+    removeElements("celebrity")
+    sortData("sign", "category", order.target.value);
   });
 }
 
@@ -416,6 +413,5 @@ export {
   getElements,
   getGeneration,
   getCategory,
-  hideSelector,
   getCelebrities,
 };
