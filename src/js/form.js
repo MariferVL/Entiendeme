@@ -84,7 +84,6 @@ function updateHTML(elmId, value) {
   const elem = document.getElementById(elmId);
   if (typeof elem !== "undefined" && elem !== null) {
     elem.setAttribute("max", value);
-    console.log("Max Value: " + value);
   }
 }
 updateHTML("DateOB", today);

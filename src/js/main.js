@@ -1,5 +1,8 @@
-import { filterData, sortData } from "./data.js";
+import { filterData, sortData, computeStats } from "./data.js";
 import celebrities from "../data/celebrities.js";
+import { Chart } from "../chart.js/dist/index.js";
+
+
 
 
 // Show map for long/lat
@@ -59,11 +62,12 @@ const astroData = fetch("/data/astrology.json")
     return info.data;
   });
 
+let zodiac;
 const printData = async () => {
   const a = await astroData;
   const option = await obj.getOption();
 
-  const zodiac = a["zodiac"]["name"];
+  zodiac = a["zodiac"]["name"];
 
   //DOM
   if (!filterData(zodiac, option)) {
@@ -81,8 +85,11 @@ const fire = ["Aries", "Leo", "Sagitario"];
 
 // Get element of sign
 function getElements(zodiac) {
+  // recorrer diccionario
+  // match entre signo y sign de diccionario
   const msj = "Este signo pertenece al elemento de ";
-  const msj2 = " igual que:";
+  const msj2 = " igual que: ";
+
   if (zodiac === "Capricorn" || zodiac === "Virgo" || zodiac === "Taurus") {
     console.log(msj + "tierra" + msj2);
     earth.forEach((sign) => console.log(sign));
@@ -174,13 +181,12 @@ function getCategory(sign) {
 
 // Show celebrities with the same sign
 function getCelebrities(celebritiesNames) {
-  
   // Create anchor for celebrities names
   for (let i = 0; i < celebritiesNames.length; i++) {
     const name = celebritiesNames[i];
     const divCeleb = document.getElementById("celebrity");
     const anchor = document.createElement("a");
-    anchor.href = "#quoteCelebrity";
+    anchor.href = "#celebrityInfo";
     anchor.text = name;
     anchor.id = "celebrity" + i;
     divCeleb.appendChild(anchor);
@@ -203,10 +209,31 @@ function getCelebrities(celebritiesNames) {
   });
 }
 
-// Print quotes of celebrities
-/* function printQuotes() {
+document.getElementById("celebrity").addEventListener("click", (event) => {
+  console.log("Entro al listener " + event.target.text);
+  printQuotes(event.target.text)
+})
 
-} */
+// Print quotes of celebrities
+function printQuotes(celebName) {
+  console.log("Entro a la funcion ");
+  //entrar a mi diccionario, 
+  celebrities["celebrities"].forEach(dictionary => {
+    console.log("Entro al diccionario ");
+    if (celebName === dictionary["name"]) {
+      console.log("Entro al if" + dictionary["quote"] + dictionary["name"] + dictionary["DOB"]);
+      document.getElementById("quote").innerText = dictionary["quote"];
+      document.getElementById("nameCeleb").innerText = dictionary["name"];
+      document.getElementById("DOB").innerText = dictionary["DOB"];
+    }
+  })
+}
+
+document.getElementById("optionsStats").addEventListener("change", (event) => {
+  computeStats(celebrities["celebrities"], event.target.value, zodiac)
+})
+
+
 
 /* //global variables
 var deck = {};
@@ -414,4 +441,5 @@ export {
   getGeneration,
   getCategory,
   getCelebrities,
+ 
 };
