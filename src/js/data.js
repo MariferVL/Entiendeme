@@ -122,34 +122,6 @@ function computeStats(data, select, sign) {
   // 
 }
 
-function showChart(count) {
-  const ctx = document.getElementById("myChart");
-  new Chart(ctx, {
-    type: "pie",
-    data: {
-      labels: [Object.keys(count)],
-      datasets: [{
-        labels: "Num datos",
-        data: [Object.values(count)],
-        backgroundColor: [
-          "rgb(157, 211, 124)",
-          "rgb(231, 145, 69)",
-          "rgb(194, 81, 201)",
-          "rgb(240, 231, 42)"
-        ]
-      }]
-    },
-    options: {
-      scales: {
-        yAxes: [{
-          ticks: {
-            beginAtZero: true
-          }
-        }]
-      }
-    }
-  })
-} 
 
 //Porcertanje de categoria segun elemento
 //

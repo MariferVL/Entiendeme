@@ -1,8 +1,5 @@
 import { filterData, sortData, computeStats } from "./data.js";
 import celebrities from "../data/celebrities.js";
-import { Chart } from "../chart.js/dist/index.js";
-
-
 
 
 // Show map for long/lat
@@ -74,6 +71,7 @@ const printData = async () => {
     // Mensaje de "Opcion no válida"
   }
 };
+
 
 document.querySelector("#options").addEventListener("change", printData);
 
@@ -235,211 +233,155 @@ document.getElementById("optionsStats").addEventListener("change", (event) => {
 
 
 
-/* //global variables
-var deck = {};
-var rank = "";
-var suit = "";
-var deckArr = [];
-var backImg = "<img class='back' src='/images/carta.png' />"
+//global variables
+const deck = {};
+let deckArr = [];
+const backImg = "<img class='back' src='./images/carta.png'/>"
 
 //Creates a tarot card deck 
 
 function createDeck() {
   deckArr = [];
 
-  function deckConst(forEach,dictionaryayName) {
-    this.name = name;
+  function cardsConst(displayName) {
     this.displayName = displayName;
   }
 
-  var id = 0;
-  for (var a0 = 0; a0 < 4; a0++) {
+  let id = 0;
+  for (let a0 = 0; a0 < 4; a0++) {
 
     switch (a0) {
-      case 0:
-        suit = "cups";
-        break;
+    case 0:
+      suit = "cups";
+      break;
+    case 1:
+      suit = "pentacles";
+      break;
+    case 2:
+      suit = "swords";
+      break;
+    case 3:
+      suit = "wands";
+      break;
+    }
+
+    for (let a1 = 1; a1 < 15; a1++) {
+      let rank = a1;
+      switch (a1) {
       case 1:
-        suit = "pentacles";
+        rank = "ace";
         break;
       case 2:
-        suit = "swords";
+        rank = "two"
         break;
       case 3:
-        suit = "wands";
+        rank = "three"
         break;
-    }
-
-    for (var a1 = 1; a1 < 15; a1++) {
-      var rank = a1;
-      switch (a1) {
-        case 1:
-          rank = "ace";
-          break;
-        case 2:
-          rank = "two"
-          break;
-        case 3:
-          rank = "three"
-          break;
-        case 4:
-          rank = "four"
-          break;
-        case 5:
-          rank = "five"
-          break;
-        case 6:
-          rank = "six"
-          break;
-        case 7:
-          rank = "seven"
-          break;
-        case 8:
-          rank = "eight"
-          break;
-        case 9:
-          rank = "nine"
-          break;
-        case 10:
-          rank = "ten"
-          break;
-        case 11:
-          rank = "page";
-          break;
-        case 12:
-          rank = "knight";
-          break;
-        case 13:
-          rank = "queen";
-          break;
-        case 14:
-          rank = "king";
-          break;
-        default:
-          break;
+      case 4:
+        rank = "four"
+        break;
+      case 5:
+        rank = "five"
+        break;
+      case 6:
+        rank = "six"
+        break;
+      case 7:
+        rank = "seven"
+        break;
+      case 8:
+        rank = "eight"
+        break;
+      case 9:
+        rank = "nine"
+        break;
+      case 10:
+        rank = "ten"
+        break;
+      case 11:
+        rank = "page";
+        break;
+      case 12:
+        rank = "knight";
+        break;
+      case 13:
+        rank = "queen";
+        break;
+      case 14:
+        rank = "king";
+        break;
+      default:
+        break;
       }
       id++;
-      // assigns the name that jives with biddy tarot's urls
-      var name = rank + "_" + suit;
-      // overcomplicated way to title-case & replace '_' with ' '
-      var displayName = name.replace(/_/g, " of ")
-        .toLowerCase()
-        .split(' ')
-        .map(i => i[0].toUpperCase() + i.substring(1))
-        .join(' ');
 
-      card = new deckConst(name, displayName);
-      deck[id] = card;
+      msg = new cardsConst(displayName);
+      deck[id] = msg;
     }
   }
 
-  deck[57] = new deckConst('fool');
-  deck[58] = new deckConst('magician');
-  deck[59] = new deckConst('high_priestess');
-  deck[60] = new deckConst('empress');
-  deck[61] = new deckConst('emperor');
-  deck[62] = new deckConst('hierophant');
-  deck[63] = new deckConst('lovers');
-  deck[64] = new deckConst('chariot');
-  deck[65] = new deckConst('strength');
-  deck[66] = new deckConst('hermit');
-  deck[67] = new deckConst('wheel_of_fortune');
-  deck[68] = new deckConst('justice');
-  deck[69] = new deckConst('hanged_man');
-  deck[70] = new deckConst('death');
-  deck[71] = new deckConst('temperance');
-  deck[72] = new deckConst('devil');
-  deck[73] = new deckConst('tower');
-  deck[74] = new deckConst('star');
-  deck[75] = new deckConst('moon');
-  deck[76] = new deckConst('sun');
-  deck[77] = new deckConst('judgement');
-  deck[78] = new deckConst('world');
-
-  // totally over-complicated code to capitolize, space & add a 'the' to trump cards that needed it
-  for (var x = 57; x <= 78; x++) {
-    var capStr = deck[x].name
-      .replace(/_/g, " ")
-      .toLowerCase()
-      .split(' ')
-      .map(i => i[0].toUpperCase() + i.substring(1))
-      .join(' ');
+  deck[57] = new cardsConst('fool');
+  deck[58] = new cardsConst('magician');
+  deck[59] = new cardsConst('high_priestess');
+  deck[60] = new cardsConst('empress');
+  deck[61] = new cardsConst('emperor');
+  deck[62] = new cardsConst('hierophant');
+  deck[63] = new cardsConst('lovers');
+  deck[64] = new cardsConst('chariot');
+  deck[65] = new cardsConst('strength');
+  deck[66] = new cardsConst('hermit');
+  deck[67] = new cardsConst('wheel_of_fortune');
+  deck[68] = new cardsConst('justice');
+  deck[69] = new cardsConst('hanged_man');
+  deck[70] = new cardsConst('death');
+  deck[71] = new cardsConst('temperance');
+  deck[72] = new cardsConst('devil');
+  deck[73] = new cardsConst('tower');
+  deck[74] = new cardsConst('star');
+  deck[75] = new cardsConst('moon');
+  deck[76] = new cardsConst('sun');
+  deck[77] = new cardsConst('judgement');
+  deck[78] = new cardsConst('world');
 
 
-    if (x === 65 ||
-      x === 68 ||
-      x === 70 ||
-      x === 71 ||
-      x === 77) {
-      deck[x].displayName = capStr;
-    } else {
-      deck[x].displayName = "The " + capStr;
-    }
-  }
-
-
-
-  for (var t = 0; t < 78; t++) {
+  for (let t = 0; t < 78; t++) {
     deckArr.push(t + 1);
   }
 
   return deckArr;
-  return deck;
 }
 
 //gets image i = id from createDeck()
-function riderWaite(i) {
-  var img = $("<img class='front' src='https://www.biddytarot.com/cards/" +
+function getFront(i) {
+  let img = $("<img class='front' src='https://www.biddytarot.com/cards/" +
     deck[i].name + ".jpg' alt=" + deck[i].displayName + "/>");
   return img;
 
 }
 
-//Selects random cards & prevents doubles
-function randGen() {
-  var cardsLeft = deckArr.length;
-  var randInt = Math.floor((Math.random() * cardsLeft));
-  var randNum = deckArr[randInt];
-  deckArr.splice(randInt, 1);
-  return randNum;
-}
 
-//Past, Present, Future spread
-function pastPresentFuture() {
-  $("img, #blurb, #card-name, #rev").remove();
-  $("#pastPresentFuture").html('Another Reading?');
+// //Past, Present, Future spread
+// function pastPresentFuture() {
+//   $("img, #blurb, #card-name, #rev").remove();
+//   $("#pastPresentFuture").html('Another Reading?');
 
-  for (var b = 1; b <= 3; b++) {
-    var rand = randGen();
 
-    var randInvert = Math.floor((Math.random() * 101));
-    var randCardImg = riderWaite(rand);
-    var randCardDisplayName = "<p id='card-name'>" + deck[rand].displayName + "</p>"
+//     let randCardDisplayName = "<p id='card-name'>" + deck[rand].displayName + "</p>"
 
-    if (randInvert >= 15) {
-      $("#td-" + b).html(randCardImg);
-      $("#td-display-name-" + b).append(randCardDisplayName);
-    } else {
-      $("#td-" + b).html(randCardImg).addClass("invert");
-      $("#td-display-name-" + b).append(randCardDisplayName);
-      $("#rev-" + b).html('<p id="rev"><i>Reversed</i></p>');
-    }
-  }
-} */
+//       $("#td-" + b).html(randCardImg);
+//       $("#td-display-name-" + b).append(randCardDisplayName);
+//       $("#td-" + b).html(randCardImg).addClass("invert");
+//       $("#td-display-name-" + b).append(randCardDisplayName);
+//       $("#rev-" + b).html('<p id="rev"><i>Reversed</i></p>');
+//     }
+//   }
 
-//Shows all cards (used in debugging)
-//function debug() {
-//  createDeck();
-
-//  for (var i = 1; i < Object.keys(deck).length; i++) {
-//    console.log(deck[i].displayName);
-//  }
-//}
 
 export {
   getElements,
   getGeneration,
   getCategory,
   getCelebrities,
- 
+  createDeck,
+
 };

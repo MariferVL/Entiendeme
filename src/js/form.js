@@ -1,7 +1,10 @@
+import { createDeck } from "./main.js";
+
 let currentTab = 0;
 document.addEventListener("DOMContentLoaded", function (event) {
   showTab(currentTab);
 });
+
 
 function showTab(n) {
   const x = document.getElementsByClassName("tab");
@@ -31,6 +34,8 @@ function nextPrev(n) {
     document.getElementById("all-steps").style.display = "none";
     document.getElementById("register").style.display = "none";
     document.getElementById("text-message").style.display = "block";
+    // TODO: Aqui esta la funcion de las cartas
+    createDeck()
   } else {
     showTab(currentTab);
   }
@@ -97,3 +102,5 @@ function fixStepIndicator(n) {
   }
   x[n].className += " active";
 }
+
+
