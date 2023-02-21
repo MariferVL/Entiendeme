@@ -36,9 +36,18 @@ window.initMap = initMap;
 
 // Get lat & long
 //"19.800904,-99.0627642"
+let latLong;
 function getLatLng(location) {
-  const latLong = JSON.stringify(location).replace(/"lat":|"lng":|/gi, "");
+  latLong = JSON.stringify(location).replace(/"lat":|"lng":|/gi, "");
   document.getElementById("location").value = latLong;
+}
+
+
+const dateTime = document.getElementById("birthdaytime").value;
+// Get time zone from users location
+function getTimeZone() {
+  const offset = new Date(dateTime).getTimezoneOffset(), o = Math.abs(offset);
+  return (offset < 0 ? "+" : "-") + ("00" + Math.floor(o / 60)).slice(-2) + ":" + ("00" + (o % 60)).slice(-2);
 }
 
 // Select value of filter (element, generation)
@@ -53,11 +62,32 @@ const obj = {
 // API Conection
 // https://stackoverflow.com/questions/43871637/no-access-control-allow-origin-header-is-present-on-the-requested-resource-whe
 
-const astroData = fetch("/data/astrology.json")
-  .then((response) => response.json())
-  .then((info) => {
-    return info.data;
-  });
+
+// Espacio de la API
+
+const url = "https://api.prokerala.com/v2/astrology/birth-details";
+const data = {
+  "ayanamsa": "1",
+  "coordinates": latLong,
+  "datetime": dateTime + ":00" + getTimeZone(),
+  "la": "en",
+};
+
+const myHeaders = new Headers();
+myHeaders.append("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI2MzljZWQ5OC1mYWNhLTQ3YTItOTk1ZC1jMGQwMzRmMjgyYTEiLCJqdGkiOiJjOWY1NzAxNmU5MTk4NWRjY2VhNzNhMzZiMWIyMjM1Zjc3ZjQ1YzYwYmZhZWJiMjgxN2Y1NTQyMTA2Yzk0M2ZjODY4ODVkNjRiMWUyMDQ3NSIsImlhdCI6MTY3NzAwMTYzNi43OTg1OSwibmJmIjoxNjc3MDAxNjM2Ljc5ODU5MywiZXhwIjoxNjc3MDA1MjM2Ljc5ODM3Niwic3ViIjoiMmQ3MDRmMDYtNjlhMC00OTdkLWI0YTQtOTE2OWZkZTk1YThlIiwic2NvcGVzIjpbXSwiY3JlZGl0c19yZW1haW5pbmciOjQ3MDAsInJhdGVfbGltaXRzIjpbeyJyYXRlIjo1LCJpbnRlcnZhbCI6NjB9XX0.HOmB6NTg6GaPYZXBgu-yej_FqF52KRvxgzSB0KcotnK4LaCOs-Rte4MHLjygwQNL6CUwCTDWQO6mJdg_cajNj9QGUPbvKb8jZAvSdIwpc_c-45r2q0J4BubLJWLl3KcDvE7sr_7JuKvZP7PhrPDv3j_PjEGjo0oc9fZqivJpXqtTXUI8gAnV5D7oAWN6FyJkQmVfgZ3WcF25RfJn2fSkM1zZQpuQ-Ej99_9_pcazaB6X-G-fLYhbm32k3jTtQx7hF0qvge5tsVtBSKT66izhcRqi_GbwLxh2SRYnn6KzCQJRxfVv4Oz-6OYokovkVztnHOpM1fh3nMczMPWzQ0a-bw");
+
+const requestOptions = {
+  method: 'GET',
+  headers: myHeaders,
+  redirect: 'follow'
+};
+
+const astroData = fetch(url + new URLSearchParams(data), requestOptions)
+  .then((res) => res.text()) // res.json()
+  .catch((error) => console.error("Error:", error))
+  .then((response) => console.log("Success:", response.json()));
+
+
 
 let zodiac;
 const printData = async () => {
@@ -72,6 +102,7 @@ const printData = async () => {
   }
 };
 
+// Actualizar boton de print data hacia las cartas 
 
 document.querySelector("#options").addEventListener("change", printData);
 
@@ -134,7 +165,7 @@ function getGeneration() {
   }
 }
 
-
+// Remove options from 
 function removeElements(id) {
   const parent = document.getElementById(id);
   let child = parent.firstChild;
@@ -251,67 +282,67 @@ function createDeck() {
   for (let a0 = 0; a0 < 4; a0++) {
 
     switch (a0) {
-    case 0:
-      suit = "cups";
-      break;
-    case 1:
-      suit = "pentacles";
-      break;
-    case 2:
-      suit = "swords";
-      break;
-    case 3:
-      suit = "wands";
-      break;
+      case 0:
+        suit = "cups";
+        break;
+      case 1:
+        suit = "pentacles";
+        break;
+      case 2:
+        suit = "swords";
+        break;
+      case 3:
+        suit = "wands";
+        break;
     }
 
     for (let a1 = 1; a1 < 15; a1++) {
       let rank = a1;
       switch (a1) {
-      case 1:
-        rank = "ace";
-        break;
-      case 2:
-        rank = "two"
-        break;
-      case 3:
-        rank = "three"
-        break;
-      case 4:
-        rank = "four"
-        break;
-      case 5:
-        rank = "five"
-        break;
-      case 6:
-        rank = "six"
-        break;
-      case 7:
-        rank = "seven"
-        break;
-      case 8:
-        rank = "eight"
-        break;
-      case 9:
-        rank = "nine"
-        break;
-      case 10:
-        rank = "ten"
-        break;
-      case 11:
-        rank = "page";
-        break;
-      case 12:
-        rank = "knight";
-        break;
-      case 13:
-        rank = "queen";
-        break;
-      case 14:
-        rank = "king";
-        break;
-      default:
-        break;
+        case 1:
+          rank = "ace";
+          break;
+        case 2:
+          rank = "two"
+          break;
+        case 3:
+          rank = "three"
+          break;
+        case 4:
+          rank = "four"
+          break;
+        case 5:
+          rank = "five"
+          break;
+        case 6:
+          rank = "six"
+          break;
+        case 7:
+          rank = "seven"
+          break;
+        case 8:
+          rank = "eight"
+          break;
+        case 9:
+          rank = "nine"
+          break;
+        case 10:
+          rank = "ten"
+          break;
+        case 11:
+          rank = "page";
+          break;
+        case 12:
+          rank = "knight";
+          break;
+        case 13:
+          rank = "queen";
+          break;
+        case 14:
+          rank = "king";
+          break;
+        default:
+          break;
       }
       id++;
 

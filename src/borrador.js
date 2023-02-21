@@ -1,21 +1,10 @@
-// const url = "https://api.prokerala.com/v2/astrology/birth-details";
-//const data = {
-//  "ayanamsa": "1",
-  //"coordinates": "19.800904,-99.0627642",
-  //"datetime": "1996-01-05T01:11:00-06:00",
-  // 2023-02-18T11:22 
-  // datetime + ":00" + getTimeZone()
-  //"la": "en",
-//};
-
-// ¡Dale click en tu ciudad de nacimiento!
-
-
-//const tokens = {
-  //"Client ID": "aqui va el token",
-  //"Client Secret": "aqui va el token",
-//}
-
+const url = "https://api.prokerala.com/v2/astrology/birth-details";
+const data = {
+ "ayanamsa": "1",
+  "coordinates": latLong,
+  "datetime": datetime + ":00" + getTimeZone(),
+  "la": "en",
+};
 
 fetch(url + new URLSearchParams(data),)
   .then((res) => res.json())
