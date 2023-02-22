@@ -1,6 +1,9 @@
 import { filterData, sortData, computeStats } from "./data.js";
 import celebrities from "../data/celebrities.js";
 
+/* Form Section */
+
+/* const userName = document.getElementById("fName"); */
 
 // Show map for long/lat
 function initMap() {
@@ -43,9 +46,10 @@ function getLatLng(location) {
 }
 
 
-const dateTime = document.getElementById("birthdaytime").value;
+let dateTime;
 // Get time zone from users location
 function getTimeZone() {
+  dateTime = document.getElementById("birthdaytime").value;
   const offset = new Date(dateTime).getTimezoneOffset(), o = Math.abs(offset);
   return (offset < 0 ? "+" : "-") + ("00" + Math.floor(o / 60)).slice(-2) + ":" + ("00" + (o % 60)).slice(-2);
 }
@@ -59,17 +63,19 @@ const obj = {
 
 //TODO: API se llama solo con click confirmación formulario
 
-// API Conection
-// https://stackoverflow.com/questions/43871637/no-access-control-allow-origin-header-is-present-on-the-requested-resource-whe
 
+/* API Section */
 
-// Espacio de la API
+const timeZone = async () => { 
+  return await getTimeZone();
+}
 
+// FIXME: Parar llamado a la API
 const url = "https://api.prokerala.com/v2/astrology/birth-details";
 const data = {
   "ayanamsa": "1",
   "coordinates": latLong,
-  "datetime": dateTime + ":00" + getTimeZone(),
+  "datetime": dateTime + ":00" + timeZone(), 
   "la": "en",
 };
 
@@ -82,6 +88,7 @@ const requestOptions = {
   redirect: 'follow'
 };
 
+
 const astroData = fetch(url + new URLSearchParams(data), requestOptions)
   .then((res) => res.text()) // res.json()
   .catch((error) => console.error("Error:", error))
@@ -89,60 +96,60 @@ const astroData = fetch(url + new URLSearchParams(data), requestOptions)
 
 
 
+
 let zodiac;
 const printData = async () => {
   const a = await astroData;
-  const option = await obj.getOption();
 
   zodiac = a["zodiac"]["name"];
-
-  //DOM
-  if (!filterData(zodiac, option)) {
-    // Mensaje de "Opcion no válida"
-  }
 };
 
-// Actualizar boton de print data hacia las cartas 
 
-document.querySelector("#options").addEventListener("change", printData);
+/* Filter Section */
+
+function callFilterData() {
+  // Message if option is not valid
+  if (!filterData(zodiac, obj.getOption())) {
+    document.getElementById("options").setCustomValidity("¿Quieres saber 'qué quieres saber'? 👀 \n Esa no es una opción válida");
+  }
+}
+
+document.querySelector("#options").addEventListener("change", callFilterData);
+
 
 // Const of elements
 const earth = ["Capricornio", "Tauro", "Virgo"];
 const air = ["Libra", "Geminis", "Acuario"];
 const water = ["Cancer", "Piscis", "Escorpio"];
 const fire = ["Aries", "Leo", "Sagitario"];
+const divRes = document.getElementById("mainResult")
 
 // Get element of sign
 function getElements(zodiac) {
-  // recorrer diccionario
-  // match entre signo y sign de diccionario
   const msj = "Este signo pertenece al elemento de ";
   const msj2 = " igual que: ";
 
+  // FIXME: Probar que funcione el msj impreso
   if (zodiac === "Capricorn" || zodiac === "Virgo" || zodiac === "Taurus") {
-    console.log(msj + "tierra" + msj2);
-    earth.forEach((sign) => console.log(sign));
+    divRes.innerText(msj + "tierra" + msj2 + earth.forEach((sign) => sign));
   } else if (
     zodiac === "Libra" ||
     zodiac === "Gemini" ||
     zodiac === "Aquarius"
   ) {
-    console.log(msj + "aire" + msj2);
-    air.forEach((sign) => console.log(sign));
+    divRes.innerText(msj + "aire" + msj2 + air.forEach((sign) => sign));
   } else if (
     zodiac === "Cancer" ||
     zodiac === "Pisces" ||
     zodiac === "Scorpio"
   ) {
-    console.log(msj + "agua" + msj2);
-    water.forEach((sign) => console.log(sign));
+    divRes.innerText(msj + "agua" + msj2 + water.forEach((sign) => sign));
   } else if (
     zodiac === "Aries" ||
     zodiac === "Leo" ||
     zodiac === "Sagittarius"
   ) {
-    console.log(msj + "fuego" + msj2);
-    fire.forEach((sign) => console.log(sign));
+    divRes.innerText(msj + "fuego" + msj2 + fire.forEach((sign) => sign));
   }
 }
 
@@ -153,15 +160,15 @@ function getGeneration() {
   const year = date.slice(0, 3);
 
   if (year <= "1960" && year >= "1949") {
-    console.log(msj + "Baby Boomer");
+    divRes.innerText(msj + "Baby Boomer");
   } else if (year <= "1980" && year >= "1969") {
-    console.log(msj + "X");
+    divRes.innerText(msj + "X");
   } else if (year <= "1993" && year >= "1981") {
-    console.log(msj + "Millennial");
+    divRes.innerText(msj + "Millennial");
   } else if (year <= "2010" && year >= "1994") {
-    console.log(msj + "Z");
+    divRes.innerText(msj + "Z");
   } else if (year <= "2023" && year >= "2011") {
-    console.log(msj + "Alfa");
+    divRes.innerText(msj + "Alfa");
   }
 }
 
@@ -215,14 +222,14 @@ function getCelebrities(celebritiesNames) {
     const name = celebritiesNames[i];
     const divCeleb = document.getElementById("celebrity");
     const anchor = document.createElement("a");
-    anchor.href = "#celebrityInfo";
+    anchor.href = "#displayResult";
     anchor.text = name;
     anchor.id = "celebrity" + i;
     divCeleb.appendChild(anchor);
 
   }
 
-  //Enable sort by Order options
+  // Enable sort by Order options
   const elements = document.querySelectorAll(".nav-link");
   elements.forEach((element) => {
     element.classList.remove("disabled");
@@ -251,7 +258,7 @@ function printQuotes(celebName) {
     console.log("Entro al diccionario ");
     if (celebName === dictionary["name"]) {
       console.log("Entro al if" + dictionary["quote"] + dictionary["name"] + dictionary["DOB"]);
-      document.getElementById("quote").innerText = dictionary["quote"];
+      document.getElementById("mainResult").innerText = dictionary["quote"];
       document.getElementById("nameCeleb").innerText = dictionary["name"];
       document.getElementById("DOB").innerText = dictionary["DOB"];
     }
@@ -272,6 +279,7 @@ const backImg = "<img class='back' src='./images/carta.png'/>"
 //Creates a tarot card deck 
 
 function createDeck() {
+  printData()
   deckArr = [];
 
   function cardsConst(displayName) {

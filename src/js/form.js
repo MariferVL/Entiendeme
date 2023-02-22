@@ -34,8 +34,16 @@ function nextPrev(n) {
     document.getElementById("all-steps").style.display = "none";
     document.getElementById("register").style.display = "none";
     document.getElementById("text-message").style.display = "block";
+   
     // TODO: Aqui esta la funcion de las cartas
     createDeck()
+    
+    // FIXME: Cuando la página funcione probar que remover el disabled funcione
+    const elements = document.querySelectorAll(".form-select");
+    elements.forEach((element) => {
+      element.disabled = false;
+    });
+
   } else {
     showTab(currentTab);
   }
@@ -62,12 +70,12 @@ function validateForm() {
           if (year <= new Date().getFullYear()) {
             y[i].setCustomValidity("");
           } else {
-            y[i].setCustomValidity(" ¡Ey!, ✋🏻⚠️ No tan rápido.\n Disfruta tu año, el " + userYear  + " ya llegará. 😉");
+            y[i].setCustomValidity(" ¡Ey!, ✋🏻⚠️ No tan rápido.\n Disfruta tu año, el " + userYear + " ya llegará. 😉");
             y[i].className += " invalid";
             valid = false;
           }
         } else {
-          y[i].setCustomValidity("Wow 😲 ¿Vienes del futuro?\nEl año " + userYear  + " todavía no llega. 😅");
+          y[i].setCustomValidity("Wow 😲 ¿Vienes del futuro?\nEl año " + userYear + " todavía no llega. 😅");
           y[i].className += " invalid";
           valid = false;
         }

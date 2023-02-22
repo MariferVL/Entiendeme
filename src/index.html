@@ -202,11 +202,11 @@ TODO: Seguir fundamentos de visual design. -->
     </div>
   </section>
 
-  <section id="filter-sort">
+  <section id="filter-sort" >
     <ul class="nav">
       <li class="nav-item" id="selector">
         <select class="form-select form-select-lg mb-3" id="options"
-          aria-label="Seleccionar data por elemento, generacion y celebridades">
+          aria-label="Seleccionar data por elemento, generacion y celebridades" disabled>
           <option selected disabled>¿Qué quieres saber?</option>
           <option value="element">Elemento</option>
           <option value="generation">Generación</option>
@@ -217,7 +217,7 @@ TODO: Seguir fundamentos de visual design. -->
       </li>
       <li class="nav-item" id="selector2">
         <select class="form-select form-select-lg mb-3" id="sortBy"
-          aria-label="Seleccionar celebridades por categorias">
+          aria-label="Seleccionar celebridades por categorias" disabled>
           <option selected disabled>¿Qué categoría te interesa?</option>
         </select>
       </li>
@@ -231,7 +231,7 @@ TODO: Seguir fundamentos de visual design. -->
       </li>
       <!-- </div> -->
       <li class="nav-item" id="selectorStats">
-        <select class="form-select form-select-lg mb-3" id="optionsStats" aria-label="Seleccionar estadisticas">
+        <select class="form-select form-select-lg mb-3" id="optionsStats" aria-label="Seleccionar estadisticas" disabled>
           <option selected disabled>¿Qué estadisticas quieres conocer?</option>
           <option value="signStat">Estadística por signo</option>
           <option value="elementStat">Estadística por elemento</option>
@@ -242,17 +242,10 @@ TODO: Seguir fundamentos de visual design. -->
 
     <div id="celebrity"></div>
 
-    <div id="celebrityInfo">
-      <p id="quote"></p>
+    <div id="displayResult">
+      <p id="mainResult"></p>
       <p id="nameCeleb"></p>
       <p id="DOB"></p>
-    </div>
-
-
-  
-   
-    <div>
-      <canvas id="myChart" width="400" height="400"></canvas>
     </div>
  
 

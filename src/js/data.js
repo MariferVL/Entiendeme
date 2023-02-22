@@ -21,8 +21,6 @@ function filterData(data, condition) {
   return valid;
 }
 
-const actorsCancer = [];
-const singers = [];
 
 
 let namesFilter = [];
