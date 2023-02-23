@@ -153,6 +153,7 @@ function getElements(zodiac) {
   }
 }
 
+
 // Get generation
 function getGeneration() {
   const msj = "De acuerdo a tu año de nacimiento perteneces a la generación: ";
@@ -172,7 +173,8 @@ function getGeneration() {
   }
 }
 
-// Remove options from 
+
+// Remove elements from DOM 
 function removeElements(id) {
   const parent = document.getElementById(id);
   let child = parent.firstChild;
@@ -181,6 +183,7 @@ function removeElements(id) {
     child = parent.firstChild
   }
 }
+
 
 //Get selected option from Categories
 function getCategory(sign) {
@@ -191,11 +194,13 @@ function getCategory(sign) {
     }
   });
   removeElements("sortBy");
-  // Create new options in select
+  
+  // Filter categories repetitions
   const categoriesToPrint = categoriesList.filter(
     (item, index) => categoriesList.indexOf(item) === index
   );
-
+  
+  // Create new options in select
   const sel = document.getElementById("sortBy");
   sel.innerHTML =
     "<option selected disabled>Selecciona área de tu interés</option>";
@@ -215,8 +220,10 @@ function getCategory(sign) {
   });
 }
 
+
 // Show celebrities with the same sign
 function getCelebrities(celebritiesNames) {
+
   // Create anchor for celebrities names
   for (let i = 0; i < celebritiesNames.length; i++) {
     const name = celebritiesNames[i];
@@ -246,30 +253,44 @@ function getCelebrities(celebritiesNames) {
 }
 
 document.getElementById("celebrity").addEventListener("click", (event) => {
-  console.log("Entro al listener " + event.target.text);
   printQuotes(event.target.text)
 })
 
 // Print quotes of celebrities
 function printQuotes(celebName) {
-  console.log("Entro a la funcion ");
-  //entrar a mi diccionario, 
+  console.log("Entro a la funcion "); 
   celebrities["celebrities"].forEach(dictionary => {
     console.log("Entro al diccionario ");
     if (celebName === dictionary["name"]) {
       console.log("Entro al if" + dictionary["quote"] + dictionary["name"] + dictionary["DOB"]);
-      document.getElementById("mainResult").innerText = dictionary["quote"];
+      divRes.innerText = dictionary["quote"];
       document.getElementById("nameCeleb").innerText = dictionary["name"];
       document.getElementById("DOB").innerText = dictionary["DOB"];
     }
   })
 }
 
+
+// Listener and print of stats
 document.getElementById("optionsStats").addEventListener("change", (event) => {
-  computeStats(celebrities["celebrities"], event.target.value, zodiac)
+  const stats = computeStats(celebrities["celebrities"], event.target.value, zodiac); 
+  let msg1;
+  let msg2;
+
+  if (event.target.value === "signStat") {
+    msg1 = " de tu signo";
+    stats.forEach((stat) => msg2 = stat);
+  } else if (event.target.value === "elementStat") {
+    msg1 = " del elemento al que pertenece tu signo";
+    stats.forEach((stat) => msg2 = stat);
+  }
+  divRes.innerText =  "De acuerdo a nuestra base de datos lo que sabemos" +
+  + msg1 + ", estas son nuestras estadísticas: " +  msg2;
+  
 })
 
 
+/* Card Section */
 
 //global variables
 const deck = {};

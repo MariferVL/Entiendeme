@@ -51,13 +51,8 @@ function sortData(data, sortBy, sortOrder) {
   getCelebrities(namesArray);
 }
 
-/* function filterStats(data, sign) {
-  if (sign === data["sign"]) {
-    
 
-  }
-  
-} */
+
 // Show any chart just because.
 function computeStats(data, select, sign) {
   let categoriesList = [];
@@ -75,7 +70,6 @@ function computeStats(data, select, sign) {
           categoriesListElement.push(dictionary["category"]);
           categoriesList = categoriesListElement;
         }
-        // Falta matchear signos con diccionario
       } else if (sign === "Libra" || sign === "Gemini" || sign === "Aquarius") {
         if (dictionary["element"] === "air") {
           categoriesListElement.push(dictionary["category"]);
@@ -95,40 +89,25 @@ function computeStats(data, select, sign) {
     }
   })
 
-  let count = {};
-  let totals = 0;
+  const count = {};
 
   for (const element of categoriesList) {
     count[element] = (count[element] || 0) + 1;
   }
 
   const arr = Object.values(count);
-  const keyArr = Object.keys(count)
+  const keyArr = Object.keys(count);
   const sum = arr.reduce((a, b) => a + b, 0);
 
   let percent;
 
   for (let i = 0; i < arr.length; i++) {
     percent = Number(arr[i]) * 100 / sum;
-    arr[i] = percent;
-   
-    console.log("Este es el porcentaje" + percent);
+    count[keyArr[i]] = percent.toFixed(1); 
   }
-  showChart(count) 
-
-  // Entender mismo proceso con  map() y Objet.keys()
-  // 
+  
+  return count; 
 }
 
-
-//Porcertanje de categoria segun elemento
-//
-
-
-
-
-
-// COUNT(porcentaje) AVERAGE(promedio, moda, media), SUM(resumir valores, sumar total), MIN&MAX(calcular minimo y maximo).
-// function sortData(data, sortBy, sortOrder){
 
 export { filterData, sortData, computeStats };
