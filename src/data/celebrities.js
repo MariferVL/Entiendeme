@@ -52,7 +52,7 @@ export default {
 		"DOB": "20 de Febrero",
 		"sign": "Piscis",
 		"element": "water",
-		"quote": "'Uno de estos días tal vez tu magia no me afecte y tu beso no me debilite.' - 'Hate That I Love You'",
+		"quote": "'Uno de estos días tal vez tu magia no me afecte y tus besos no me debiliten' - 'Hate That I Love You'",
 		"category": "Canto",
 	},
 	{
