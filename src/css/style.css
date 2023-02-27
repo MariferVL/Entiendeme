@@ -64,25 +64,21 @@ p{
   background-size: cover;
 }
 
-.carousel-block{
-  width: 50%;
-  top: 11%;
-}
 
 .carousel-img1 {
   width: 44%;
   transform: rotate(-5deg) scale(1.25);
   position: relative;
   left: 11%;
-  padding-top: 22%;
+  
 }
 
 .carousel-img2{
   width: 44%;
   transform: rotate(-5deg) scale(1.25);
   position: relative;
-  right: 65%;
-  padding-top: 22%;
+  right: 38%;
+  padding-top: 8%;
 
 }
 
