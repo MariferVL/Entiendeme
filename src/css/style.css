@@ -239,7 +239,7 @@ input:valid+span::after {
   opacity: 0, 3;
 }
 
-input[type=text] {
+input[type=text], input[type=datetime-local] {
   margin: 0.22rem 0;
   box-sizing: border-box;
   padding: 0.625rem;
@@ -393,7 +393,25 @@ table {
   font-family: 'Ubuntu', sans-serif;
   font-size: 1.1rem;
   font-weight: bolder;
-  background-color: #d6ad608b;
+  background-color: #d6ad6029;
+  border-color: transparent;
+}
+
+option:focus {
+  color: #f6ecdb;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 1.1rem;
+  font-weight: bolder;
+  background-color: #c1944149;
+  border-color: transparent;
+}
+
+option:hover {
+  color: #f6ecdb;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 1.1rem;
+  font-weight: bolder;
+  background-color: #c1944149;
   border-color: transparent;
 }
 

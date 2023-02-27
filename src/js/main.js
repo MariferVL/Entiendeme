@@ -135,23 +135,25 @@ const astroData = fetch(url + new URLSearchParams(data), requestOptions)
   .then((response) => console.log("Success:", response.json())); */
 
 const astroData = fetch("/data/astrology.json")
-  .then((response) => console.log("Success:", response.json()))
+  .then((response) => response.json())
   .then((info) => {
     return info.data;
   })
   .catch((error) => console.error("Error:", error));
 
-let zodiac;
+/* let zodiac; */
 const printData = async () => {
   const a = await astroData;
 
-  zodiac = a["zodiac"]["name"];
+  const zodiac = a["zodiac"]["name"];
+  console.log("Zodiac dentro de astro " + zodiac);
 
+  document.querySelector("#options").addEventListener("change", callFilterData(zodiac));
 };
 
-console.log("Zodiac" + zodiac);
 
-document.querySelector("#options").addEventListener("change", callFilterData);
+
+
 
 /* Filter Section */
 
@@ -256,6 +258,7 @@ function getCategory(sign) {
     const opt = document.createElement("option");
     opt.value = element;
     opt.text = element;
+    opt.class = "form-option";
     sel.add(opt);
   });
 
@@ -354,7 +357,6 @@ const backImg = "<img class='back' src='./images/carta.png'/>";
 //Creates a tarot card deck
 
 function createDeck() {
-  printData();
   deckArr = [];
 
   function cardsConst(displayName) {
@@ -490,4 +492,4 @@ function getFront(i) {
 //     }
 //   }
 
-export { getElements, getGeneration, getCategory, getCelebrities, createDeck };
+export { getElements, getGeneration, getCategory, getCelebrities, createDeck, };
