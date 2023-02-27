@@ -49,7 +49,7 @@ let dateTime;
 // Get time zone from users location
 
 async function getTimeZone() {
-  let promise = new Promise(() => {
+  const promise = new Promise(() => {
     dateTime = document.getElementById("birthdaytime").value;
     const offset = new Date(dateTime).getTimezoneOffset(),
       o = Math.abs(offset);
@@ -61,7 +61,7 @@ async function getTimeZone() {
     );
   });
 
-  let result = await promise; // espera hasta que la promesa se resuelva (*)
+  const result = await promise; // espera hasta que la promesa se resuelva (*)
   return result;
 }
 
@@ -93,11 +93,11 @@ const objTZ = {
 };
 
 // Select value of filter (element, generation)
-const obj = {
-  getOption: function () {
-    return document.getElementById("options").value;
-  },
-};
+// const obj = {
+//   getOption: function () {
+//     return document.getElementById("options").value;
+//   },
+// };
 
 //TODO: API se llama solo con click confirmación formulario
 
@@ -141,26 +141,37 @@ const astroData = fetch("/data/astrology.json")
   })
   .catch((error) => console.error("Error:", error));
 
-/* let zodiac; */
+let zodiac;
 const printData = async () => {
   const a = await astroData;
-
-  const zodiac = a["zodiac"]["name"];
+  console.log("AstroData: " + astroData);
+  zodiac = a["zodiac"]["name"];
   console.log("Zodiac dentro de astro " + zodiac);
-
-  document.querySelector("#options").addEventListener("change", callFilterData(zodiac));
 };
 
-
-
-
-
+document
+  .querySelector("#options")
+  .addEventListener("change", () =>
+    callFilterData(document.getElementById("options").value)
+  );
 /* Filter Section */
 
-function callFilterData(zodiac) {
+// async function getOption() {
+//   const promise = new Promise((resolve, reject) => {
+//     console.log(reject);
+//     console.log(resolve);
+//     return document.getElementById("options").value;
+//   });
+
+// const awaitOption = async () => {
+//   const objOption = await getOption();
+//   return objOption;
+// };
+
+function callFilterData(condition) {
   // Message if option is not valid
   console.log("Zodiac: " + zodiac);
-  if (!filterData(zodiac, obj.getOption())) {
+  if (!filterData(zodiac, condition)) {
     document
       .getElementById("options")
       .setCustomValidity(
@@ -168,7 +179,6 @@ function callFilterData(zodiac) {
       );
   }
 }
-
 
 // Const of elements
 const earth = ["Capricornio", "Tauro", "Virgo"];
@@ -184,25 +194,25 @@ function getElements(zodiac) {
 
   // FIXME: Probar que funcione el msj impreso
   if (zodiac === "Capricorn" || zodiac === "Virgo" || zodiac === "Taurus") {
-    divRes.innerText(msj + "tierra" + msj2 + earth.forEach((sign) => sign));
+    divRes.innerText = msj + "tierra" + msj2 + earth.forEach((sign) => sign);
   } else if (
     zodiac === "Libra" ||
     zodiac === "Gemini" ||
     zodiac === "Aquarius"
   ) {
-    divRes.innerText(msj + "aire" + msj2 + air.forEach((sign) => sign));
+    divRes.innerText = msj + "aire" + msj2 + air.forEach((sign) => sign);
   } else if (
     zodiac === "Cancer" ||
     zodiac === "Pisces" ||
     zodiac === "Scorpio"
   ) {
-    divRes.innerText(msj + "agua" + msj2 + water.forEach((sign) => sign));
+    divRes.innerText = msj + "agua" + msj2 + water.forEach((sign) => sign);
   } else if (
     zodiac === "Aries" ||
     zodiac === "Leo" ||
     zodiac === "Sagittarius"
   ) {
-    divRes.innerText(msj + "fuego" + msj2 + fire.forEach((sign) => sign));
+    divRes.innerText = msj + "fuego" + msj2 + fire.forEach((sign) => sign);
   }
 }
 
@@ -210,18 +220,18 @@ function getElements(zodiac) {
 function getGeneration() {
   const msj = "De acuerdo a tu año de nacimiento perteneces a la generación: ";
   const date = document.getElementById("DateOB").value;
-  const year = date.slice(0, 3);
+  const year = date.slice(0, 4);
 
   if (year <= "1960" && year >= "1949") {
-    divRes.innerText(msj + "Baby Boomer");
+    divRes.innerText = msj + "Baby Boomer";
   } else if (year <= "1980" && year >= "1969") {
-    divRes.innerText(msj + "X");
+    divRes.innerText = msj + "X";
   } else if (year <= "1993" && year >= "1981") {
-    divRes.innerText(msj + "Millennial");
+    divRes.innerTex = msj + "Millennial";
   } else if (year <= "2010" && year >= "1994") {
-    divRes.innerText(msj + "Z");
+    divRes.innerText = msj + "Z";
   } else if (year <= "2023" && year >= "2011") {
-    divRes.innerText(msj + "Alfa");
+    divRes.innerText = msj + "Alfa";
   }
 }
 
@@ -330,22 +340,33 @@ document.getElementById("optionsStats").addEventListener("change", (event) => {
     event.target.value,
     zodiac
   );
+
   let msg1;
   let msg2;
 
   if (event.target.value === "signStat") {
     msg1 = " de tu signo";
-    stats.forEach((stat) => (msg2 = stat));
+    for (let key in stats) {
+      if (stats.hasOwnProperty(key)) {
+        value = stats[key];
+        msg2 = key + ": " + value + "<br> ";
+      }
+    }
   } else if (event.target.value === "elementStat") {
     msg1 = " del elemento al que pertenece tu signo";
-    stats.forEach((stat) => (msg2 = stat));
+    for (let key in stats) {
+      if (stats.hasOwnProperty(key)) {
+        value = stats[key];
+        msg2 = key + ": " + value + "<br> ";
+      }
   }
+
   divRes.innerText =
     "De acuerdo a nuestra base de datos lo que sabemos" +
-    +msg1 +
+    + msg1 +
     ", estas son nuestras estadísticas: " +
     msg2;
-});
+};
 
 /* Card Section */
 
@@ -492,4 +513,11 @@ function getFront(i) {
 //     }
 //   }
 
-export { getElements, getGeneration, getCategory, getCelebrities, createDeck, };
+export {
+  getElements,
+  getGeneration,
+  getCategory,
+  getCelebrities,
+  createDeck,
+  printData,
+};

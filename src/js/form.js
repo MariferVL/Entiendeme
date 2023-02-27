@@ -1,10 +1,15 @@
-// import { printData } from "./main.js";
+import { printData } from "./main.js";
 
 let currentTab = 0;
 document.addEventListener("DOMContentLoaded", function (event) {
   showTab(currentTab);
+  document
+    .getElementById("prevBtn")
+    .addEventListener("click", () => nextPrev(-1));
+  document
+    .getElementById("nextBtn")
+    .addEventListener("click", () => nextPrev(1));
 });
-
 
 function showTab(n) {
   const x = document.getElementsByClassName("tab");
@@ -34,24 +39,25 @@ function nextPrev(n) {
     document.getElementById("all-steps").style.display = "none";
     document.getElementById("register").style.display = "none";
     document.getElementById("text-message").style.display = "block";
-   
+
     // TODO: Aqui esta la funcion de las cartas
     // createDeck()
-    // printData();
-    
+    console.log("Post último tab");
+    printData();
+
     // FIXME: Cuando la página funcione probar que remover el disabled funcione
     const elements = document.querySelectorAll(".form-select");
     elements.forEach((element) => {
       element.disabled = false;
     });
-
   } else {
     showTab(currentTab);
   }
 }
 
 function validateForm() {
-  let i, valid = true;
+  let i,
+    valid = true;
   const x = document.getElementsByClassName("tab");
   const y = x[currentTab].getElementsByTagName("input");
   for (i = 0; i < y.length; i++) {
@@ -71,12 +77,20 @@ function validateForm() {
           if (year <= new Date().getFullYear()) {
             y[i].setCustomValidity("");
           } else {
-            y[i].setCustomValidity(" ¡Ey!, ✋🏻⚠️ No tan rápido.\n Disfruta tu año, el " + userYear + " ya llegará. 😉");
+            y[i].setCustomValidity(
+              " ¡Ey!, ✋🏻⚠️ No tan rápido.\n Disfruta tu año, el " +
+                userYear +
+                " ya llegará. 😉"
+            );
             y[i].className += " invalid";
             valid = false;
           }
         } else {
-          y[i].setCustomValidity("Wow 😲 ¿Vienes del futuro?\nEl año " + userYear + " todavía no llega. 😅");
+          y[i].setCustomValidity(
+            "Wow 😲 ¿Vienes del futuro?\nEl año " +
+              userYear +
+              " todavía no llega. 😅"
+          );
           y[i].className += " invalid";
           valid = false;
         }
@@ -92,7 +106,6 @@ function validateForm() {
 // Set max date of input
 //1923-01-01T00:00 https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_input_date_max
 const today = new Date().toLocaleString("sv-SE").replace(" ", "T").slice(0, 16);
-
 
 function updateHTML(elmId, value) {
   const elem = document.getElementById(elmId);
@@ -111,5 +124,3 @@ function fixStepIndicator(n) {
   }
   x[n].className += " active";
 }
-
-
