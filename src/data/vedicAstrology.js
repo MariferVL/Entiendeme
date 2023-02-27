@@ -289,99 +289,99 @@ export default {
           id: 1,
           animal: "Caballo",
           animal_img: "",
-          friendlyYoni: "Serpiente, Venado, Mono",
+          friendlyYoni: "Caballo, Serpiente, Venado, Mono",
           enemyYoni: "Toro, Vaca, Tigre, León."
         },
         {
           id: 2,
           animal: "Elefante",
           animal_img: "",
-          friendlyYoni: "Oveja, Serpiente, Toro, Mono",
-          enemyYoni: "Vaca,León, Tiger"
+          friendlyYoni: "Elefante, Oveja, Serpiente, Toro, Mono",
+          enemyYoni: "Vaca, León, Tigre"
         },
         {
           id: 3,
           animal: "Oveja",
           animal_img: "",
-          friendlyYoni: "Elefante, Vaca, Toro, Suricata",
+          friendlyYoni: "Oveja, Elefante, Vaca, Toro, Suricata",
           enemyYoni: "Mono, León, Tigre, Rata, Perro"
         },
         {
           id: 4,
           animal: "Serpiente",
           animal_img: "",
-          friendlyYoni: "Caballo, Elefante",
+          friendlyYoni: "Serpiente, Caballo, Elefante",
           enemyYoni: "Suricata, Gato, Rata, Vaca, Toro"
         },
         {
           id: 5,
           animal: "Perro",
           animal_img: "",
-          friendlyYoni: "",
+          friendlyYoni: "Perro",
           enemyYoni: "Venado,Rata, Oveja, Tigre, Suricata, León"
         },
         {
           id: 6,
           animal: "Gato",
           animal_img: "",
-          friendlyYoni: "Venado, Mono",
+          friendlyYoni: "Gato, Venado, Mono",
           enemyYoni: "Rata, Serpiente, Tigre, León"
         },
         {
           id: 7,
           animal: "Rata",
           animal_img: "",
-          friendlyYoni: "",
+          friendlyYoni: "Rata",
           enemyYoni: "Gato, Oveja, Serpiente, Perro, Suricata"
         },
         {
           id: 8,
           animal: "Vaca",
           animal_img: "",
-          friendlyYoni: "Oveja, Toro, Venado",
-          enemyYoni: "TigreCaballo, Serpiente,Leon"
+          friendlyYoni: "Vaca, Oveja, Toro, Venado",
+          enemyYoni: "Tigre, Caballo, Serpiente,Leon"
         },
         {
           id: 9,
           animal: "Toro",
           animal_img: "",
-          friendlyYoni: " Elefante, Oveja, Vaca",
+          friendlyYoni: "Toro, Elefante, Oveja, Vaca",
           enemyYoni: "Caballo, Serpiente, Tigre, León"
         },
         {
           id: 10,
           animal: "Tigre",
           animal_img: "",
-          friendlyYoni: "",
+          friendlyYoni: "Tigre",
           enemyYoni: "Vaca, Toro, Caballo, Elefante, Oveja, Perro, Gato, Venado, Mono, León"
         },
         {
           id: 11,
           animal: "Venado",
           animal_img: "",
-          friendlyYoni: "Caballo, Gato, Vaca",
+          friendlyYoni: "Venado, Caballo, Gato, Vaca",
           enemyYoni: "Perro, Tigre, León"
         },
         {
           id: 12,
           animal: "Mono",
           animal_img: "",
-          friendlyYoni: "Caballo, Elefante, Gato, Suricata",
+          friendlyYoni: "Mono, Caballo, Elefante, Gato, Suricata",
           enemyYoni: "Oveja, Tigre"
         },
         {
           id: 13,
           animal: "Suricata",
           animal_img: "",
-          friendlyYoni: "Oveja, Mono",
+          friendlyYoni: "Suricata, Oveja, Mono",
           enemyYoni: "Serpiente, Perro, Rata, "
         },
         {
           id: 14,
-          animal: "Kapha",
+          animal: "León",
           animal_img: "",
           friendlyYoni: "",
-          enemyYoni: "Elefante, Caballo, Oveja, Perro, Gato, Vaca, Toro, tigre, Venado"
+          enemyYoni: "Elefante, Caballo, Oveja, Perro, Gato, Vaca, Toro, Tigre, Venado"
         },
   
       ],

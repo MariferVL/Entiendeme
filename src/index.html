@@ -5,6 +5,12 @@
   <meta charset="utf-8">
   <title>entiéndeme</title>
 
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat;400&family=Ubuntu;1,700&display=swap"
+      rel="stylesheet">
+
   <!-- Boostrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -29,7 +35,9 @@
       <!-- Navbar -->
       <nav class="navbar navbar-expand-md navbar-dark">
         <div class="container-fluid " id="home">
-          <a class="navbar-brand d-flex " href="index.html">entiéndeme</a>
+          <a class="navbar-brand" href="#home">
+            <img src="images/laboratoria.png" alt="Logo" width="88" height="24" class="d-inline-block align-text-top">
+          </a>      
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
             aria-label="Toggle navigation">
@@ -40,23 +48,24 @@
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="index.html">Home</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#form">Astrología Védica
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="form" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Conócete
                 </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#testimonialsSection">Testimonios</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#pricing">Planes</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#form">Astrología Védica</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#testimonialsSection">Testimonios</a></li>
+                  <li><a class="dropdown-item" href="#pricing">Planes</a></li>
+                </ul>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#footer">Contacto</a>
               </li>
             </ul>
             <form class="d-flex">
-              <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-              <button class="btn  btn-outline-light navSearch" type="submit">Buscar</button>
+              <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Busqueda">
+              <button class="btn btn-outline-light goldButton" type="submit">Buscar</button>
             </form>
           </div>
         </div>
@@ -67,7 +76,7 @@
         <div class="col-lg-6  col-md-6  col-sm-6 ">
           <h1>Astrología Védica</h1>
           <button type="button" class="btn btn-dark btn-lg download-btn aware"><i class=""></i> Conocerte</button>
-          <button type="button" class="btn btn-outline-light btn-lg download-btn testimony"><i class=""
+          <button type="button" class="btn btn-outline-light btn-lg download-btn goldButton"><i class=""
               href="#testimonialsSection"></i>Testimonios</button>
         </div>
         <div class="col-lg-6  col-md-6 col-sm-6">
@@ -229,25 +238,25 @@
 
     <div id="testimonials" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
-        <div class="carousel-item active" data-bs-interval="10000">
+        <div class="carousel-item active" data-bs-interval="8800">
           <h3>" Había intentado con diversas métodos para balancear mi estado de salud. En 'entiéndeme' pude comprender
             varios aspectos de mi vida y mi cuerpo.<br> ¡Gracias, <b>entiéndeme</b>!"</h3>
           <img src="images/Testimonial_3.jpg" class="d-block w-100" alt="testimonio hombre peruano">
           <p>Trujillo, Perú</p>
         </div>
-        <div class="carousel-item" data-bs-interval="10000">
+        <div class="carousel-item" data-bs-interval="8800">
           <h3>"Estaba pasando por estados emocionales que afectaban mi vida laboral y familiar. Ahora que entiendo de
             donde provenía eso soy más feliz."</h3>
           <img src="images/Testimonial_1.jpg" class="d-block w-100" alt="testimonio mujer argentina">
           <p>Córdoba, Argentina</p>
         </div>
-        <div class="carousel-item" data-bs-interval="10000">
+        <div class="carousel-item" data-bs-interval="8800">
           <h3>"Nunca había considerado la importancia del autoconocimiento, y menos en lo sexual. El saber sobre mi yoni
             ha optimizado mi vida sexual totalmente."</h3>
           <img class="d-block w-100" src="images/Testimonial_4.jpg" alt="testimonio hombre ecuatoriano">
           <p>Cuenca, Ecuador</p>
         </div>
-        <div class="carousel-item" data-bs-interval="10000">
+        <div class="carousel-item" data-bs-interval="8800">
           <h3>"El conocer mi Nakshatra me ha ayudado a entenderme y aceptarme en mis días 'buenos' y 'malos'."</h3>
           <img class="d-block w-100" src="images/Testimonial_2.jpg" alt="testimonio mujer colombiana">
           <p>Villavicencio, Colombia</p>
@@ -333,7 +342,7 @@
               </h1>
             </div>
             <div class="pricing-button pb-4">
-              <button type="button" class="btn btn-lg btn-primary w-75">Vamos</button>
+              <button type="button" class="btn btn-lg btn-outline-light w-75 goldButton ">Vamos</button>
             </div>
           </div>
         </div>

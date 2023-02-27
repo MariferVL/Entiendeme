@@ -12,7 +12,7 @@ h6 {
   color: #c19441;
 }
 
-p {
+p{
   color: #D6AD60;
 }
 
@@ -29,7 +29,7 @@ p {
 
 
 /* Main Layout */
-#mainLayout, label {
+#mainLayout, label, .form-control::placeholder{
   color: #c29b39;
 
 }
@@ -57,7 +57,7 @@ p {
   width: 100%;
   height: 100%;
   opacity: 0.11;
-  background-image: url("../images/main2.png");
+  background-image: url("../images/bg1.png");
   /* Center and scale the image nicely */
   background-repeat: no-repeat;
   background-position: 50% 0;
@@ -77,10 +77,10 @@ p {
   padding: 0 0 6rem;
 }
 
-.navbar-dark .navbar-brand {
+.navbar-dark, .navbar-brand {
   color: #c19441;
   font-family: 'Ubuntu', sans-serif;
-  font-size: 2.5rem;
+  font-size: 1.1rem;
   font-weight: bolder;
 }
 
@@ -88,10 +88,14 @@ p {
   padding: 0 18px;
 }
 
-.nav-link {
+.nav-link, .dropdown-item {
   font-size: 1.1 rem;
   font-family: 'Montserrat-Light', sans-serif;
   color:  #D6AD60 !important;
+}
+
+.form-control, .dropdown-menu, .dropdown-divider{
+  border-color: #c29b39;
 }
 
 .form-control:focus {
@@ -99,8 +103,15 @@ p {
   box-shadow: 0 0 0 .25rem #D6AD60;
 }
 
-.navSearch{
+.goldButton{
   background-color: #D6AD60;
+}
+
+
+.goldButton:hover{
+  background-color: white;
+  border-color: #D6AD60;
+  color: #D6AD60;
 }
 
 .download-btn {
@@ -111,9 +122,6 @@ p {
   color: #D6AD60;
 }
 
-.testimony{
-  background-color: #D6AD60;
-}
 
 /* Form */
 
@@ -135,7 +143,7 @@ p {
   width: 100%;
   height: 100%;
   opacity: 0.22;
-  background-image: url('../images/main1.png');
+  background-image: url('../images/bgForm.png');
   background-repeat: no-repeat;
   background-position: 50% 0;
   background-size: cover;
@@ -262,7 +270,7 @@ input.invalid {
   opacity: 1
 }
 
-.step.finish {
+.step.finish, .navbar-toggler  {
   color: #fff;
   background: #D6AD60;
   opacity: 1;
@@ -287,7 +295,7 @@ input.invalid {
 .jumbotron {
   margin-top: 1.5%;
   text-align: center;
-  font-family: 'Satisfy', cursive;
+  /* font-family: 'Satisfy', cursive; */
   padding: 6rem;
 }
 
@@ -331,7 +339,7 @@ table {
   width: 100%;
   height: 100%;
   opacity: 0.22;
-  background-image: url('../images/main1.png');
+  background-image: url('../images/.png');
   background-repeat: no-repeat;
   background-position: 50% 0;
   background-size: cover;
@@ -339,44 +347,6 @@ table {
 
 .selector {
   margin: 2.5rem;
-}
-
-.dropdown-toggle {
-  width: 12.5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 3.125rem;
-  border: 0.125rem solid #D6AD60;
-  font-weight: 600;
-}
-
-.dropdown-toggle:focus {
-  box-shadow: none !important;
-}
-
-.dropdown-toggle::after {
-  display: none;
-}
-
-.dropdown-menu {
-  width: 200px;
-  border: 2px solid #D6AD60;
-  padding: 0rem 0;
-  transform: translate3d(0px, 50px, 0px) !important;
-}
-
-.dropdown-item:focus,
-.dropdown-item:hover {
-  color: #ffffff;
-  background-color: #b08027;
-  padding: 0.75rem;
-}
-
-.dropdown-item {
-  display: block;
-  width: 100%;
-  padding: 0.75rem;
 }
 
 /* Testimonials Section */
@@ -458,18 +428,19 @@ h3 {
 
 .btn-outline-primary:focus,
 .btn-primary:focus {
-  outline-color: #896420;
+  outline-color: #bd9750;
   outline-style: solid;
-  box-shadow: 0 0 0 4px #896420 !important;
+  box-shadow: 0 0 0 4px #bd9750 !important;
 }
 
 .btn-outline-primary:active,
 .btn-primary:active {
-  outline-color: #896420 !important;
+  outline-color: #bd9750 !important;
   outline-style: solid;
-  background-color: #896420 !important;
+  background-color: #bd9750 !important;
   border-color: #D6AD60 !important
 }
+
 
 /* Prices Section */
 
