@@ -45,14 +45,52 @@ function getLatLng(location) {
   document.getElementById("location").value = latLong;
 }
 
-
 let dateTime;
 // Get time zone from users location
-function getTimeZone() {
-  dateTime = document.getElementById("birthdaytime").value;
-  const offset = new Date(dateTime).getTimezoneOffset(), o = Math.abs(offset);
-  return (offset < 0 ? "+" : "-") + ("00" + Math.floor(o / 60)).slice(-2) + ":" + ("00" + (o % 60)).slice(-2);
+
+async function getTimeZone() {
+  let promise = new Promise(() => {
+    dateTime = document.getElementById("birthdaytime").value;
+    const offset = new Date(dateTime).getTimezoneOffset(),
+      o = Math.abs(offset);
+    return (
+      (offset < 0 ? "+" : "-") +
+      ("00" + Math.floor(o / 60)).slice(-2) +
+      ":" +
+      ("00" + (o % 60)).slice(-2)
+    );
+  });
+
+  let result = await promise; // espera hasta que la promesa se resuelva (*)
+  return result;
 }
+
+// async function f() {
+
+//   let promise = new Promise((resolve, reject) => {
+//     setTimeout(() => resolve("¡Hecho!"), 1000)
+//   });
+
+//   let result = await promise; // espera hasta que la promesa se resuelva (*)
+
+//   alert(result); // "¡Hecho!"
+// }
+
+// f();
+
+const objTZ = {
+  getTimeZone: function () {
+    dateTime = document.getElementById("birthdaytime").value;
+    const offset = new Date(dateTime).getTimezoneOffset(),
+      o = Math.abs(offset);
+    return (
+      (offset < 0 ? "+" : "-") +
+      ("00" + Math.floor(o / 60)).slice(-2) +
+      ":" +
+      ("00" + (o % 60)).slice(-2)
+    );
+  },
+};
 
 // Select value of filter (element, generation)
 const obj = {
@@ -63,62 +101,71 @@ const obj = {
 
 //TODO: API se llama solo con click confirmación formulario
 
-
 /* API Section */
 
-const timeZone = async () => { 
-  return await getTimeZone();
-}
+const timeZone = async () => {
+  const TZ = await getTimeZone();
+  return TZ;
+};
 
 // FIXME: Parar llamado a la API
-const url = "https://api.prokerala.com/v2/astrology/birth-details";
+/* const url = "https://api.prokerala.com/v2/astrology/birth-details";
 const data = {
-  "ayanamsa": "1",
-  "coordinates": latLong,
-  "datetime": dateTime + ":00" + timeZone(), 
-  "la": "en",
+  ayanamsa: "1",
+  coordinates: latLong,
+  datetime: dateTime + ":00" + timeZone(),
+  la: "en",
 };
 
 const myHeaders = new Headers();
-myHeaders.append("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI2MzljZWQ5OC1mYWNhLTQ3YTItOTk1ZC1jMGQwMzRmMjgyYTEiLCJqdGkiOiJjOWY1NzAxNmU5MTk4NWRjY2VhNzNhMzZiMWIyMjM1Zjc3ZjQ1YzYwYmZhZWJiMjgxN2Y1NTQyMTA2Yzk0M2ZjODY4ODVkNjRiMWUyMDQ3NSIsImlhdCI6MTY3NzAwMTYzNi43OTg1OSwibmJmIjoxNjc3MDAxNjM2Ljc5ODU5MywiZXhwIjoxNjc3MDA1MjM2Ljc5ODM3Niwic3ViIjoiMmQ3MDRmMDYtNjlhMC00OTdkLWI0YTQtOTE2OWZkZTk1YThlIiwic2NvcGVzIjpbXSwiY3JlZGl0c19yZW1haW5pbmciOjQ3MDAsInJhdGVfbGltaXRzIjpbeyJyYXRlIjo1LCJpbnRlcnZhbCI6NjB9XX0.HOmB6NTg6GaPYZXBgu-yej_FqF52KRvxgzSB0KcotnK4LaCOs-Rte4MHLjygwQNL6CUwCTDWQO6mJdg_cajNj9QGUPbvKb8jZAvSdIwpc_c-45r2q0J4BubLJWLl3KcDvE7sr_7JuKvZP7PhrPDv3j_PjEGjo0oc9fZqivJpXqtTXUI8gAnV5D7oAWN6FyJkQmVfgZ3WcF25RfJn2fSkM1zZQpuQ-Ej99_9_pcazaB6X-G-fLYhbm32k3jTtQx7hF0qvge5tsVtBSKT66izhcRqi_GbwLxh2SRYnn6KzCQJRxfVv4Oz-6OYokovkVztnHOpM1fh3nMczMPWzQ0a-bw");
+myHeaders.append(
+  "Authorization",
+  "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI2MzljZWQ5OC1mYWNhLTQ3YTItOTk1ZC1jMGQwMzRmMjgyYTEiLCJqdGkiOiJjOWY1NzAxNmU5MTk4NWRjY2VhNzNhMzZiMWIyMjM1Zjc3ZjQ1YzYwYmZhZWJiMjgxN2Y1NTQyMTA2Yzk0M2ZjODY4ODVkNjRiMWUyMDQ3NSIsImlhdCI6MTY3NzAwMTYzNi43OTg1OSwibmJmIjoxNjc3MDAxNjM2Ljc5ODU5MywiZXhwIjoxNjc3MDA1MjM2Ljc5ODM3Niwic3ViIjoiMmQ3MDRmMDYtNjlhMC00OTdkLWI0YTQtOTE2OWZkZTk1YThlIiwic2NvcGVzIjpbXSwiY3JlZGl0c19yZW1haW5pbmciOjQ3MDAsInJhdGVfbGltaXRzIjpbeyJyYXRlIjo1LCJpbnRlcnZhbCI6NjB9XX0.HOmB6NTg6GaPYZXBgu-yej_FqF52KRvxgzSB0KcotnK4LaCOs-Rte4MHLjygwQNL6CUwCTDWQO6mJdg_cajNj9QGUPbvKb8jZAvSdIwpc_c-45r2q0J4BubLJWLl3KcDvE7sr_7JuKvZP7PhrPDv3j_PjEGjo0oc9fZqivJpXqtTXUI8gAnV5D7oAWN6FyJkQmVfgZ3WcF25RfJn2fSkM1zZQpuQ-Ej99_9_pcazaB6X-G-fLYhbm32k3jTtQx7hF0qvge5tsVtBSKT66izhcRqi_GbwLxh2SRYnn6KzCQJRxfVv4Oz-6OYokovkVztnHOpM1fh3nMczMPWzQ0a-bw"
+);
 
 const requestOptions = {
-  method: 'GET',
+  method: "GET",
   headers: myHeaders,
-  redirect: 'follow'
+  redirect: "follow",
 };
 
-
-// const astroData = fetch(url + new URLSearchParams(data), requestOptions)
-//   .then((res) => res.text()) // res.json()
-//   .catch((error) => console.error("Error:", error))
-//   .then((response) => console.log("Success:", response.json()));
-
-
-
-const astroData = fetch("../data/astrology.json")
+const astroData = fetch(url + new URLSearchParams(data), requestOptions)
   .then((res) => res.text()) // res.json()
   .catch((error) => console.error("Error:", error))
-  .then((response) => console.log("Success:", response.json()));
+  .then((response) => console.log("Success:", response.json())); */
+
+const astroData = fetch("/data/astrology.json")
+  .then((response) => console.log("Success:", response.json()))
+  .then((info) => {
+    return info.data;
+  })
+  .catch((error) => console.error("Error:", error));
 
 let zodiac;
 const printData = async () => {
   const a = await astroData;
 
   zodiac = a["zodiac"]["name"];
+
 };
 
+console.log("Zodiac" + zodiac);
+
+document.querySelector("#options").addEventListener("change", callFilterData);
 
 /* Filter Section */
 
-function callFilterData() {
+function callFilterData(zodiac) {
   // Message if option is not valid
+  console.log("Zodiac: " + zodiac);
   if (!filterData(zodiac, obj.getOption())) {
-    document.getElementById("options").setCustomValidity("¿Quieres saber 'qué quieres saber'? 👀 \n Esa no es una opción válida");
+    document
+      .getElementById("options")
+      .setCustomValidity(
+        "¿Quieres saber 'qué quieres saber'? 👀 \n Esa no es una opción válida"
+      );
   }
 }
-
-document.querySelector("#options").addEventListener("change", callFilterData);
 
 
 // Const of elements
@@ -126,7 +173,7 @@ const earth = ["Capricornio", "Tauro", "Virgo"];
 const air = ["Libra", "Geminis", "Acuario"];
 const water = ["Cancer", "Piscis", "Escorpio"];
 const fire = ["Aries", "Leo", "Sagitario"];
-const divRes = document.getElementById("mainResult")
+const divRes = document.getElementById("mainResult");
 
 // Get element of sign
 function getElements(zodiac) {
@@ -157,7 +204,6 @@ function getElements(zodiac) {
   }
 }
 
-
 // Get generation
 function getGeneration() {
   const msj = "De acuerdo a tu año de nacimiento perteneces a la generación: ";
@@ -177,17 +223,15 @@ function getGeneration() {
   }
 }
 
-
-// Remove elements from DOM 
+// Remove elements from DOM
 function removeElements(id) {
   const parent = document.getElementById(id);
   let child = parent.firstChild;
   while (child) {
     parent.removeChild(child);
-    child = parent.firstChild
+    child = parent.firstChild;
   }
 }
-
 
 //Get selected option from Categories
 function getCategory(sign) {
@@ -198,12 +242,12 @@ function getCategory(sign) {
     }
   });
   removeElements("sortBy");
-  
+
   // Filter categories repetitions
   const categoriesToPrint = categoriesList.filter(
     (item, index) => categoriesList.indexOf(item) === index
   );
-  
+
   // Create new options in select
   const sel = document.getElementById("sortBy");
   sel.innerHTML =
@@ -218,16 +262,14 @@ function getCategory(sign) {
   // Listener with change for select option
   const optionCategory = document.getElementById("sortBy");
   optionCategory.addEventListener("change", () => {
-    removeElements("celebrity")
+    removeElements("celebrity");
     const category = optionCategory.options[optionCategory.selectedIndex].value;
     sortData(sign, category, "ordenAlfabetico");
   });
 }
 
-
 // Show celebrities with the same sign
 function getCelebrities(celebritiesNames) {
-
   // Create anchor for celebrities names
   for (let i = 0; i < celebritiesNames.length; i++) {
     const name = celebritiesNames[i];
@@ -237,74 +279,82 @@ function getCelebrities(celebritiesNames) {
     anchor.text = name;
     anchor.id = "celebrity" + i;
     divCeleb.appendChild(anchor);
-
   }
 
   // Enable sort by Order options
-  const elements = document.querySelectorAll(".nav-link");
+  const elements = document.querySelectorAll(".sortOrder");
   elements.forEach((element) => {
     element.classList.remove("disabled");
   });
 
   document.getElementById("asc").addEventListener("click", (order) => {
-    removeElements("celebrity")
+    removeElements("celebrity");
     sortData("sign", "category", order.target.value);
   });
   document.getElementById("desc").addEventListener("click", (order) => {
-    removeElements("celebrity")
+    removeElements("celebrity");
     sortData("sign", "category", order.target.value);
   });
 }
 
 document.getElementById("celebrity").addEventListener("click", (event) => {
-  printQuotes(event.target.text)
-})
+  printQuotes(event.target.text);
+});
 
 // Print quotes of celebrities
 function printQuotes(celebName) {
-  console.log("Entro a la funcion "); 
-  celebrities["celebrities"].forEach(dictionary => {
+  console.log("Entro a la funcion ");
+  celebrities["celebrities"].forEach((dictionary) => {
     console.log("Entro al diccionario ");
     if (celebName === dictionary["name"]) {
-      console.log("Entro al if" + dictionary["quote"] + dictionary["name"] + dictionary["DOB"]);
+      console.log(
+        "Entro al if" +
+          dictionary["quote"] +
+          dictionary["name"] +
+          dictionary["DOB"]
+      );
       divRes.innerText = dictionary["quote"];
       document.getElementById("nameCeleb").innerText = dictionary["name"];
       document.getElementById("DOB").innerText = dictionary["DOB"];
     }
-  })
+  });
 }
-
 
 // Listener and print of stats
 document.getElementById("optionsStats").addEventListener("change", (event) => {
-  const stats = computeStats(celebrities["celebrities"], event.target.value, zodiac); 
+  const stats = computeStats(
+    celebrities["celebrities"],
+    event.target.value,
+    zodiac
+  );
   let msg1;
   let msg2;
 
   if (event.target.value === "signStat") {
     msg1 = " de tu signo";
-    stats.forEach((stat) => msg2 = stat);
+    stats.forEach((stat) => (msg2 = stat));
   } else if (event.target.value === "elementStat") {
     msg1 = " del elemento al que pertenece tu signo";
-    stats.forEach((stat) => msg2 = stat);
+    stats.forEach((stat) => (msg2 = stat));
   }
-  divRes.innerText =  "De acuerdo a nuestra base de datos lo que sabemos" +
-  + msg1 + ", estas son nuestras estadísticas: " +  msg2;
-  
-})
-
+  divRes.innerText =
+    "De acuerdo a nuestra base de datos lo que sabemos" +
+    +msg1 +
+    ", estas son nuestras estadísticas: " +
+    msg2;
+});
 
 /* Card Section */
 
 //global variables
 const deck = {};
 let deckArr = [];
-const backImg = "<img class='back' src='./images/carta.png'/>"
+const backImg = "<img class='back' src='./images/carta.png'/>";
 
-//Creates a tarot card deck 
+//Creates a tarot card deck
 
 function createDeck() {
-  printData()
+  printData();
   deckArr = [];
 
   function cardsConst(displayName) {
@@ -313,7 +363,6 @@ function createDeck() {
 
   let id = 0;
   for (let a0 = 0; a0 < 4; a0++) {
-
     switch (a0) {
       case 0:
         suit = "cups";
@@ -336,31 +385,31 @@ function createDeck() {
           rank = "ace";
           break;
         case 2:
-          rank = "two"
+          rank = "two";
           break;
         case 3:
-          rank = "three"
+          rank = "three";
           break;
         case 4:
-          rank = "four"
+          rank = "four";
           break;
         case 5:
-          rank = "five"
+          rank = "five";
           break;
         case 6:
-          rank = "six"
+          rank = "six";
           break;
         case 7:
-          rank = "seven"
+          rank = "seven";
           break;
         case 8:
-          rank = "eight"
+          rank = "eight";
           break;
         case 9:
-          rank = "nine"
+          rank = "nine";
           break;
         case 10:
-          rank = "ten"
+          rank = "ten";
           break;
         case 11:
           rank = "page";
@@ -384,29 +433,28 @@ function createDeck() {
     }
   }
 
-  deck[57] = new cardsConst('fool');
-  deck[58] = new cardsConst('magician');
-  deck[59] = new cardsConst('high_priestess');
-  deck[60] = new cardsConst('empress');
-  deck[61] = new cardsConst('emperor');
-  deck[62] = new cardsConst('hierophant');
-  deck[63] = new cardsConst('lovers');
-  deck[64] = new cardsConst('chariot');
-  deck[65] = new cardsConst('strength');
-  deck[66] = new cardsConst('hermit');
-  deck[67] = new cardsConst('wheel_of_fortune');
-  deck[68] = new cardsConst('justice');
-  deck[69] = new cardsConst('hanged_man');
-  deck[70] = new cardsConst('death');
-  deck[71] = new cardsConst('temperance');
-  deck[72] = new cardsConst('devil');
-  deck[73] = new cardsConst('tower');
-  deck[74] = new cardsConst('star');
-  deck[75] = new cardsConst('moon');
-  deck[76] = new cardsConst('sun');
-  deck[77] = new cardsConst('judgement');
-  deck[78] = new cardsConst('world');
-
+  deck[57] = new cardsConst("fool");
+  deck[58] = new cardsConst("magician");
+  deck[59] = new cardsConst("high_priestess");
+  deck[60] = new cardsConst("empress");
+  deck[61] = new cardsConst("emperor");
+  deck[62] = new cardsConst("hierophant");
+  deck[63] = new cardsConst("lovers");
+  deck[64] = new cardsConst("chariot");
+  deck[65] = new cardsConst("strength");
+  deck[66] = new cardsConst("hermit");
+  deck[67] = new cardsConst("wheel_of_fortune");
+  deck[68] = new cardsConst("justice");
+  deck[69] = new cardsConst("hanged_man");
+  deck[70] = new cardsConst("death");
+  deck[71] = new cardsConst("temperance");
+  deck[72] = new cardsConst("devil");
+  deck[73] = new cardsConst("tower");
+  deck[74] = new cardsConst("star");
+  deck[75] = new cardsConst("moon");
+  deck[76] = new cardsConst("sun");
+  deck[77] = new cardsConst("judgement");
+  deck[78] = new cardsConst("world");
 
   for (let t = 0; t < 78; t++) {
     deckArr.push(t + 1);
@@ -417,18 +465,20 @@ function createDeck() {
 
 //gets image i = id from createDeck()
 function getFront(i) {
-  let img = $("<img class='front' src='https://www.biddytarot.com/cards/" +
-    deck[i].name + ".jpg' alt=" + deck[i].displayName + "/>");
+  let img = $(
+    "<img class='front' src='https://www.biddytarot.com/cards/" +
+      deck[i].name +
+      ".jpg' alt=" +
+      deck[i].displayName +
+      "/>"
+  );
   return img;
-
 }
-
 
 // //Past, Present, Future spread
 // function pastPresentFuture() {
 //   $("img, #blurb, #card-name, #rev").remove();
 //   $("#pastPresentFuture").html('Another Reading?');
-
 
 //     let randCardDisplayName = "<p id='card-name'>" + deck[rand].displayName + "</p>"
 
@@ -440,12 +490,4 @@ function getFront(i) {
 //     }
 //   }
 
-
-export {
-  getElements,
-  getGeneration,
-  getCategory,
-  getCelebrities,
-  createDeck,
-
-};
+export { getElements, getGeneration, getCategory, getCelebrities, createDeck };

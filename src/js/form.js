@@ -1,4 +1,4 @@
-import { createDeck } from "./main.js";
+// import { createDeck } from "./main.js";
 
 let currentTab = 0;
 document.addEventListener("DOMContentLoaded", function (event) {
@@ -36,7 +36,7 @@ function nextPrev(n) {
     document.getElementById("text-message").style.display = "block";
    
     // TODO: Aqui esta la funcion de las cartas
-    createDeck()
+    // createDeck()
     
     // FIXME: Cuando la página funcione probar que remover el disabled funcione
     const elements = document.querySelectorAll(".form-select");

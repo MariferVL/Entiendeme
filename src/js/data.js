@@ -8,6 +8,7 @@ import celebrities from "../data/celebrities.js";
 
 // Filter data by zodiac or generation
 function filterData(data, condition) {
+  console.log("Data:" + data);
   let valid = true;
   if (condition === "element") {
     getElements(data);
