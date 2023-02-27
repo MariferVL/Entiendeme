@@ -74,45 +74,36 @@
           </div>
         </div>
       </nav>
-      <!-- Main -->
-      <!-- 
-      <div class="row">
-        <div class="col-lg-6  col-md-6  col-sm-6 ">
-          <h1>Astrología Védica</h1>
-          <a type="button" class="btn btn-dark btn-lg download-btn aware" href="#form"><i class=""></i> Conócete</a>
-          <a type="button" class="btn btn-outline-light btn-lg download-btn goldButton"><i class=""
-              href="#testimonialsSection"></i>Testimonios</a>
-        </div>
-        <div class="col-lg-6  col-md-6 col-sm-6">
-          <img class="carousel-img" src="images/mockup-manos-mujer.png" alt="mano con celular">
-        </div>
-      </div>
-    </div>
-    </div> -->
 
       <div id="mainContent" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active clearfix" data-bs-interval="8800">
-              <h3>Astrología Védica<br><b></b></h3>
-              <p class="col-md-6 float-md-start mb-3 ms-md-3">
-                A paragraph of placeholder placeholder text. We're using it here to show the use of the clearfix class. We're adding quite a few meaningless phrases here to demonstrate how the columns interact here with the floated image.
-              
-            
-              <a type="button" class="btn btn-dark btn-lg download-btn  aware" href="#form"><i class=""></i>    Conócete   </a>
-              <a type="button" class="btn btn-outline-light btn-lg download-btn goldButton"
-                href="#testimonialsSection"><i class=""></i>Testimonios</a>
-              </p>
-              <img class="col-md-6 float-md-end mb-3 ms-md-3 carousel-img1 " src="images/mockup-manos-mujer.png" alt="manos mujer con App">
+            <h3>Astrología Védica<br><b></b></h3>
+            <p class="col-md-6 float-md-start mb-3 ms-md-3">
+              A paragraph of placeholder placeholder text. We're using it here to show the use of the clearfix class.
+              We're adding quite a few meaningless phrases here to demonstrate how the columns interact here with the
+              floated image.
+
+
+              <a type="button" class="btn btn-dark btn-lg download-btn  aware" href="#form"><i class=""></i> Conócete
+              </a>
+              <!-- <a type="button" class="btn btn-outline-light btn-lg download-btn goldButton"
+                href="#testimonialsSection"><i class=""></i>Testimonios</a> -->
+            </p>
+            <img class="col-md-6 float-md-end mb-3 ms-md-3 carousel-img1 " src="images/mockup-manos-mujer.png"
+              alt="manos mujer con App">
           </div>
           <div class="carousel-item clearfix" data-bs-interval="8800">
-              <img class="col-md-6 float-md-start mb-3 ms-md-3 carousel-img2" src="images/mockup-manos-hombre.png" alt="manos hombre con App">
-              <h3>Título<br><b></b></h3>
-              <p>
-                A paragraph of placeholder text. We're using it here to show the use of the clearfix class. We're adding quite a few meaningless phrases here to demonstrate how the columns interact here with the floated image.
-              </p>
-              <a type="button" class="btn btn-dark btn-lg download-btn aware" href="#form"><i class=""></i>    Conócete   </a>
-              <a type="button" class="btn btn-outline-light btn-lg download-btn goldButton"
-                href="#testimonialsSection"><i class=""></i>Testimonios</a>
+            <img class="col-md-6 float-md-start mb-3 ms-md-3 carousel-img2" src="images/mockup-manos-hombre.png"
+              alt="manos hombre con App">
+            <h3>Título<br><b></b></h3>
+            <p>
+              A paragraph of placeholder text. We're using it here to show the use of the clearfix class. We're adding
+              quite a few meaningless phrases here to demonstrate how the columns interact here with the floated image.
+            </p>
+            <a type="button" class="btn btn-dark btn-lg download-btn aware" href="#form"><i class=""></i> Conócete </a>
+            <!-- <a type="button" class="btn btn-outline-light btn-lg download-btn goldButton"
+                href="#testimonialsSection"><i class=""></i>Testimonios</a> -->
           </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#mainContent" data-bs-slide="prev">
@@ -228,47 +219,59 @@
     </div>
   </section>
 
+  <!-- Filter and Sort by -->
 
   <section id="filterSort">
-    <ul class="nav filter">
-      <li class="nav-item" id="selector">
-        <select class="form-select form-select-lg mb-3" id="options"
-          aria-label="Seleccionar data por elemento, generacion y celebridades" disabled>
-          <option selected disabled>¿Qué quieres saber?</option>
-          <option value="element">Elemento</option>
-          <option value="generation">Generación</option>
-          <option value="celebrities">Celebridades</option>
-        </select>
-      </li>
-      <li class="nav-item" id="selector2">
-        <select class="form-select form-select-lg mb-3" id="sortBy" aria-label="Seleccionar celebridades por categorias"
-          disabled>
-          <option selected disabled>¿Qué categoría te interesa?</option>
-        </select>
-      </li>
+    <img class="bgSelector" src="images/bg2.png" alt="fondo de patrón astrologico">
+    <div class="filterContent">
+      <ul class="nav filter">
+        <li class="nav-item nav-select" id="selector">
+          <select class="form-select form-select-lg mb-3" id="options"
+            aria-label="Seleccionar data por elemento, generacion y celebridades" disabled>
+            <option selected disabled>¿Qué quieres saber?</option>
+            <option value="element">Elemento</option>
+            <option value="generation">Generación</option>
+            <option value="celebrities">Celebridades</option>
+          </select>
+        </li>
+        <li class="nav-item nav-select" id="selector2">
+          <select class="form-select form-select-lg mb-3" id="sortBy"
+            aria-label="Seleccionar celebridades por categorias" disabled>
+            <option selected disabled>¿Qué categoría te interesa?</option>
+          </select>
+        </li>
 
-      <li class="nav-item" id="asc">
-        <input type="button" class="nav-link disabled" value="A-Z">
-      </li>
-      <li class="nav-item" id="desc">
-        <input type="button" class="nav-link disabled" value="Z-A">
-      </li>
-      <li class="nav-item" id="selectorStats">
-        <select class="form-select form-select-lg mb-3" id="optionsStats" aria-label="Seleccionar estadisticas"
-          disabled>
-          <option selected disabled>¿Qué estadisticas quieres conocer?</option>
-          <option value="signStat">Estadística por signo</option>
-          <option value="elementStat">Estadística por elemento</option>
-        </select>
-      </li>
-    </ul>
+        <li class="nav-item" id="asc">
+          <input type="button" class="nav-link disabled" value="A-Z">
+        </li>
+        <li class="nav-item" id="desc">
+          <input type="button" class="nav-link disabled" value="Z-A">
+        </li>
+        <li class="nav-item" id="selectorStats">
+          <select class="form-select form-select-lg mb-3" id="optionsStats" aria-label="Seleccionar estadisticas"
+            disabled>
+            <option selected disabled>¿Qué estadisticas quieres conocer?</option>
+            <option value="signStat">Estadística por signo</option>
+            <option value="elementStat">Estadística por elemento</option>
+          </select>
+        </li>
+      </ul>
 
-    <div id="celebrity"></div>
-
-    <div id="displayResult">
-      <p id="mainResult"></p>
-      <p id="nameCeleb"></p>
-      <p id="DOB"></p>
+      <div class="row">
+        <div id="celebrity" class="col-lg-4  col-md-3  col-sm-3">
+            <h4>Celebridades</h4>
+            <img class="handsImg" src="images/manos.png" alt="manos hacia el cielo">
+        </div>
+        <img id="astroIA" src="images/astroIA.png" alt="cabeza mujer con ojos cerrados">
+        <div id="displayResult" class="col-lg-6  col-md-4 col-sm-4">
+            <img class="float-md-end quoteImg " src="images/quotes.png" alt="dialogo con comillas">
+            <div class="quoteContent">
+              <p id="mainResult">Quote</p>
+              <p id="nameCeleb">Name</p>
+              <p id="DOB"><i class="fas fa-birthday-cake"></i></p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -278,7 +281,7 @@
     <div id="testimonials" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active" data-bs-interval="8800">
-          <h3>" Había intentado con diversas métodos para balancear mi estado de salud. En 'entiéndeme' pude comprender
+          <h3>"Había intentado con diversos métodos para balancear mi estado de salud. En 'entiéndeme' pude comprender
             varios aspectos de mi vida y mi cuerpo.<br> ¡Gracias, <b>entiéndeme</b>!"</h3>
           <img src="images/Testimonial_3.jpg" class="d-block w-100" alt="testimonio hombre peruano">
           <p>Trujillo, Perú</p>
@@ -296,7 +299,8 @@
           <p>Cuenca, Ecuador</p>
         </div>
         <div class="carousel-item" data-bs-interval="8800">
-          <h3>"El conocer mi Nakshatra me ha ayudado a entenderme y aceptarme en mis días 'buenos' y 'malos'."</h3>
+          <h3>"El conocer mi Nakshatra me ha ayudado a entenderme y aceptarme en mis días 'buenos' y 'malos', y a
+            mejorar mis relaciones."</h3>
           <img class="d-block w-100" src="images/Testimonial_2.jpg" alt="testimonio mujer colombiana">
           <p>Villavicencio, Colombia</p>
         </div>
