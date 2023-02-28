@@ -1,10 +1,12 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-prototype-builtins */
 import { filterData, sortData, computeStats } from "./data.js";
 import celebrities from "../data/celebrities.js";
 
 /* FORM SECTION */
 
 let currentTab = 0;
-document.addEventListener("DOMContentLoaded", function (event) {
+document.addEventListener("DOMContentLoaded", function () {
   showTab(currentTab);
   document
     .getElementById("prevBtn")
@@ -43,8 +45,7 @@ function nextPrev(n) {
     document.getElementById("register").style.display = "none";
     document.getElementById("text-message").style.display = "block";
 
-    console.log("Post último tab");
-    data();
+    dataAPI();
 
     // Enable selector
     const elements = document.querySelectorAll(".form-select");
@@ -201,11 +202,12 @@ const astroData = fetch("/data/astrology.json")
   .then((info) => {
     return info.data;
   })
-  .catch((error) => console.error("Error:", error));
+  .catch((error) => error);
 
-const data = async () => {
+const dataAPI = async () => {
   const wait = await astroData;
-  createDeck(wait);
+  console.log("Wait:" + wait);
+  createCards(wait);
 }
 
 /* let zodiac;
@@ -216,16 +218,24 @@ const printData = async () => {
   console.log("Zodiac dentro de astro " + zodiac);
 }; */
 
+
 /* CARD SECTION */
 let zodiac;
-const userName = document.getElementById("fName");
-const backImg = "<img class='back' src='./images/carta.png'/>";
 
 // Create & print main results
-function createDeck(data) {
-  console.log("la data", data)
+function createCards(data) {
+  const userName = document.getElementById("fName").value;
+  document.getElementById("msgUser").innerText = userName + ", estos son tus resultados:";
+
   zodiac = data["zodiac"]["name"];
-  console.log("Zodiac dentro de astro " + zodiac);
+  const nakshatra = data["nakshatra"]["name"];
+  const animal = data["additional_info"]["animal_sign"];
+  const nadi = data["additional_info"]["nadi"];
+
+  document.getElementById("card1").src = "images/cards/card-" + nakshatra + ".png";
+  document.getElementById("card2").src = "images/cards/card-" + animal + ".png";
+  document.getElementById("card3").src = "images/cards/card-" + nadi + ".png";
+
 
 }
 
@@ -259,25 +269,25 @@ function getElements(zodiac) {
 
   // FIXME: Probar que funcione el msg impreso
   if (zodiac === "Capricorn" || zodiac === "Virgo" || zodiac === "Taurus") {
-    divRes.innerText = msg + "tierra" + msg2 + earth.forEach((sign) => sign);
+    divRes.innerText = msg + "tierra" + msg2 + earth.toString();
   } else if (
     zodiac === "Libra" ||
     zodiac === "Gemini" ||
     zodiac === "Aquarius"
   ) {
-    divRes.innerText = msg + "aire" + msg2 + air.forEach((sign) => sign);
+    divRes.innerText = msg + "aire" + msg2 + air.toString();
   } else if (
     zodiac === "Cancer" ||
     zodiac === "Pisces" ||
     zodiac === "Scorpio"
   ) {
-    divRes.innerText = msg + "agua" + msg2 + water.forEach((sign) => sign);
+    divRes.innerText = msg + "agua" + msg2 + water.toString();
   } else if (
     zodiac === "Aries" ||
     zodiac === "Leo" ||
     zodiac === "Sagittarius"
   ) {
-    divRes.innerText = msg + "fuego" + msg2 + fire.forEach((sign) => sign);
+    divRes.innerText = msg + "fuego" + msg2 + fire.toString();
   }
 }
 
@@ -387,15 +397,9 @@ function getCelebrities(celebritiesNames) {
 function printQuotes(celebName) {
   celebrities["celebrities"].forEach((dictionary) => {
     if (celebName === dictionary["name"]) {
-      console.log(
-        "Entro al if" +
-        dictionary["quote"] +
-        dictionary["name"] +
-        dictionary["DOB"]
-      );
       divRes.innerText = dictionary["quote"];
       document.getElementById("nameCeleb").innerText = dictionary["name"];
-      document.getElementById("DOB").innerText = "<i class='fas fa-birthday-cake'></i>" + dictionary["DOB"];
+      document.getElementById("DOB").innerHTML = "<i class='fas fa-birthday-cake'></i>" + dictionary["DOB"];
     }
   });
 }
@@ -414,7 +418,7 @@ document.getElementById("optionsStats").addEventListener("change", (event) => {
   );
 
   let msg1;
-  let msg2 = [];
+  const msg2 = [];
 
   if (event.target.value === "signStat") {
     msg1 = " de tu signo";
@@ -441,154 +445,12 @@ document.getElementById("optionsStats").addEventListener("change", (event) => {
 });
 
 
-/* Card Section */
 
-// Mostrar la carta trasera
-// Cortar el nombre "card-" de cada carta para utilizarla
-// Asignar if para cada carta (3 cartas)
-
-// //global variables
-
-
-//Creates a tarot card deck
-
-
-/* function cardsConst(displayName) {
-  this.displayName = displayName;
-}
-
-let id = 0;
-for (let a0 = 0; a0 < 4; a0++) {
-  switch (a0) {
-    case 0:
-      suit = "cups";
-      break;
-    case 1:
-      suit = "pentacles";
-      break;
-    case 2:
-      suit = "swords";
-      break;
-    case 3:
-      suit = "wands";
-      break;
-  }
-
-  for (let a1 = 1; a1 < 15; a1++) {
-    let rank = a1;
-    switch (a1) {
-      case 1:
-        rank = "ace";
-        break;
-      case 2:
-        rank = "two";
-        break;
-      case 3:
-        rank = "three";
-        break;
-      case 4:
-        rank = "four";
-        break;
-      case 5:
-        rank = "five";
-        break;
-      case 6:
-        rank = "six";
-        break;
-      case 7:
-        rank = "seven";
-        break;
-      case 8:
-        rank = "eight";
-        break;
-      case 9:
-        rank = "nine";
-        break;
-      case 10:
-        rank = "ten";
-        break;
-      case 11:
-        rank = "page";
-        break;
-      case 12:
-        rank = "knight";
-        break;
-      case 13:
-        rank = "queen";
-        break;
-      case 14:
-        rank = "king";
-        break;
-      default:
-        break;
-    }
-    id++;
-
-    msg = new cardsConst(displayName);
-    deck[id] = msg;
-  }
-}
-
-deck[57] = new cardsConst("fool");
-deck[58] = new cardsConst("magician");
-deck[59] = new cardsConst("high_priestess");
-deck[60] = new cardsConst("empress");
-deck[61] = new cardsConst("emperor");
-deck[62] = new cardsConst("hierophant");
-deck[63] = new cardsConst("lovers");
-deck[64] = new cardsConst("chariot");
-deck[65] = new cardsConst("strength");
-deck[66] = new cardsConst("hermit");
-deck[67] = new cardsConst("wheel_of_fortune");
-deck[68] = new cardsConst("justice");
-deck[69] = new cardsConst("hanged_man");
-deck[70] = new cardsConst("death");
-deck[71] = new cardsConst("temperance");
-deck[72] = new cardsConst("devil");
-deck[73] = new cardsConst("tower");
-deck[74] = new cardsConst("star");
-deck[75] = new cardsConst("moon");
-deck[76] = new cardsConst("sun");
-deck[77] = new cardsConst("judgement");
-deck[78] = new cardsConst("world");
-
-for (let t = 0; t < 78; t++) {
-  deckArr.push(t + 1);
-}
-
-return deckArr;
-}
-
-//gets image i = id from createDeck()
-function getFront(i) {
-let img = $(
-  "<img class='front' src='https://www.biddytarot.com/cards/" +
-    deck[i].name +
-    ".jpg' alt=" +
-    deck[i].displayName +
-    "/>"
-);
-return img;
-} */
-
-// //Past, Present, Future spread
-// function pastPresentFuture() {
-//   $("img, #blurb, #card-name, #rev").remove();
-//   $("#pastPresentFuture").html('Another Reading?');
-
-//     let randCardDisplayName = "<p id='card-name'>" + deck[rand].displayName + "</p>"
-
-//       $("#td-" + b).html(randCardImg);
-//       $("#td-display-name-" + b).append(randCardDisplayName);
-//       $("#td-" + b).html(randCardImg).addClass("invert");
-//       $("#td-display-name-" + b).append(randCardDisplayName);
-//       $("#rev-" + b).html('<p id="rev"><i>Reversed</i></p>');
-//     }
-//   }
-
-export {
+const goingOut = { 
   getElements,
   getGeneration,
   getCategory,
   getCelebrities,
 };
+
+export default goingOut;

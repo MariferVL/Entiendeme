@@ -1,11 +1,4 @@
-import {
-  getElements,
-  getGeneration,
-  getCategory,
-  getCelebrities,
-} from "./main.js";
-
-
+import goingIn from "./main.js";
 import celebrities from "../data/celebrities.js";
 
 // Filter data by zodiac or generation
@@ -13,11 +6,11 @@ function filterData(data, condition) {
   console.log("Data:" + data);
   let valid = true;
   if (condition === "element") {
-    getElements(data);
+    goingIn.getElements(data);
   } else if (condition === "generation") {
-    getGeneration();
+    goingIn.getGeneration();
   } else if (condition === "celebrities") {
-    getCategory(data);
+    goingIn.getCategory(data);
   } else {
     valid = false;
   }
@@ -51,7 +44,7 @@ function sortData(data, sortBy, sortOrder) {
     namesArray = namesFilter;
   }
   // Algo que contenga los dos names por separado  
-  getCelebrities(namesArray);
+  goingIn.getCelebrities(namesArray);
 }
 
 
