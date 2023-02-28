@@ -1,4 +1,4 @@
-import { printData } from "./main.js";
+import { astroData } from "./main.js";
 
 let currentTab = 0;
 document.addEventListener("DOMContentLoaded", function (event) {
@@ -43,7 +43,7 @@ function nextPrev(n) {
     // TODO: Aqui esta la funcion de las cartas
     // createDeck()
     console.log("Post último tab");
-    printData();
+    astroData();
 
     // FIXME: Cuando la página funcione probar que remover el disabled funcione
     const elements = document.querySelectorAll(".form-select");

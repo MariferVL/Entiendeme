@@ -4,6 +4,8 @@ import {
   getCategory,
   getCelebrities,
 } from "./main.js";
+
+
 import celebrities from "../data/celebrities.js";
 
 // Filter data by zodiac or generation
