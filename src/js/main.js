@@ -312,18 +312,41 @@ function removeElements(id) {
 
 // Get selected option from Categories
 function getCategory(sign) {
-  const categoriesList = [];
+  /*const categoriesList = [];
+
   celebrities["celebrities"].forEach((dictionary) => {
     if (sign.slice(0, 5) === dictionary["sign"].slice(0, 5)) {
       categoriesList.push(dictionary["category"]);
     }
-  });
+  });*/
+
+  const categoriesList = celebrities["celebrities"]
+    .filter(
+      (celebrity) => celebrity.sign.slice(0, 5) === sign.slice(0, 5)
+    )
+    .map(
+      (celebrity) => celebrity.category
+    )
+
+
   removeElements("sortBy");
 
   // Filter categories repetitions
-  const categoriesToPrint = categoriesList.filter(
+  /*const categoriesToPrint = categoriesList.filter(
     (item, index) => categoriesList.indexOf(item) === index
-  );
+  );*/
+  const categoriesToPrint = [...new Set(categoriesList)]
+  //spread operator 
+
+  /*const sergio = {
+    name: "sergio",
+    pais: "colombia"
+  }
+  const copysergio = {...sergio};
+
+  const copyCategoriesList = [...categoriesList]; //no se puede
+  copyCategoriesList.push(100)*/
+
 
   // Create new options in select
   const sel = document.getElementById("sortBy");
