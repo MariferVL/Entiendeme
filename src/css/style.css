@@ -1,5 +1,5 @@
 body {
-  font-family: 'Montserrat-Black', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   text-align: center;
 }
 
@@ -16,8 +16,14 @@ h6 {
   color: #c19441;
 }
 
-p {
-  color: #D6AD60;
+.mandatory {
+  color: #CDA313;
+}
+
+p, span {
+  color: #CDA313;
+  font-family: 'Montserrat', sans-serif;
+
 }
 
 .container,
@@ -349,6 +355,9 @@ input.invalid {
   border-color: transparent;
 }
 
+#map {
+  justify-content: center
+}
 
 .all-steps {
   text-align: center;
@@ -542,6 +551,10 @@ option:checked {
 
 .quoteContent {
   position: relative;
+  bottom: 10rem;
+  right: 5.3rem;
+  width: 36rem;
+  font-size: small;
 }
 
 #mainResult {
@@ -768,12 +781,12 @@ h3 {
   }
 
   #astroIA {
-    width: 33%;
+    width: 100%;
     object-fit: cover;
   }
 
   .quoteImg {
-    width: 66%;
+    width: 92%;
     object-fit: cover;
     padding-top: 2rem;
   }
