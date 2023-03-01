@@ -49,6 +49,10 @@ label,
   overflow: hidden;
 }
 
+#title1 {
+  position: relative;
+  right: 8rem;
+}
 
 .mainSection:before {
   content: ' ';
@@ -67,11 +71,24 @@ label,
 }
 
 
+#textWelcome {
+  width: 25rem;
+  text-align: justify;
+  text-indent: 1.5rem;
+}
+
+#textWelcome2 {
+  width: 49rem;
+  text-align: justify;
+  text-indent: 1.5rem;
+}
+
 .carousel-img1 {
   width: 33%;
   transform: rotate(-5deg) scale(1.25);
   position: relative;
   left: 11%;
+
 
 }
 
@@ -99,18 +116,27 @@ label,
   font-weight: bolder;
 }
 
-.form-select:hover, .sortBy:hover,
+
+
+option:hover {
+  background-color: #ffffff !important;
+  color: #c19441 !important;
+  border-color: transparent !important;
+}
+
+.form-select:hover,
+.sortBy:hover,
 .nav-link.active:hover,
-.nav-link:hover, .nav-item:hover  {
+.nav-link:hover,
+.nav-item:hover {
   color: #ab843c5a !important;
 
 }
 
+
 .nav-item {
   padding: 0 18px;
 }
-
-
 
 .nav-link,
 .dropdown-item {
@@ -129,24 +155,19 @@ label,
   background-color: #d6ad6037;
 }
 
-.dropdown-item:focus, .goldButton {
+.dropdown-item:focus,
+.goldButton {
   background-color: #c29b39b4;
   color: white !important;
 }
-
 
 .form-control:focus {
   border-color: #D6AD60;
   box-shadow: 0 0 0 .25rem #D6AD60;
 }
 
-/* .goldButton {
-  background-color: #D6AD60;
-
-} */
-
-
-.goldButton:hover, .sortOrder:hover{
+.goldButton:hover,
+.sortOrder:hover {
   background-color: white;
   border-color: transparent;
   color: #D6AD60;
@@ -158,6 +179,7 @@ label,
 
 .aware {
   color: #D6AD60;
+
 }
 
 
@@ -239,7 +261,8 @@ input:valid+span::after {
   opacity: 0, 3;
 }
 
-input[type=text], input[type=datetime-local] {
+input[type=text],
+input[type=datetime-local] {
   margin: 0.22rem 0;
   box-sizing: border-box;
   padding: 0.625rem;
@@ -381,13 +404,16 @@ table {
   padding-top: 6%;
 }
 
-.form-select:disabled, .disabled {
+.form-select:disabled,
+.disabled {
   color: white !important;
   background-color: #d6ad601a;
   border: transparent;
 }
 
-.form-select, .sortBy, .sortOrder {
+.form-select,
+.sortBy,
+.sortOrder {
   color: #c19441;
   font-family: 'Ubuntu', sans-serif;
   font-size: 1.1rem;
@@ -396,9 +422,28 @@ table {
   border-color: transparent;
 }
 
-.form-select:focus{
-  border-color: rgba(215, 177, 108, 0.68) ;
-  box-shadow: 0 0 0 0.3rem rgba(215, 177, 108, 0.564)  !important;
+ul {
+  list-style-type: none;
+}
+
+.sortBy {
+  text-decoration: none;
+  color: #d79825;
+}
+
+.form-select:focus {
+  border-color: transparent;
+  box-shadow: -1px 0px 16px 9px rgba(215, 177, 108, 0.15);
+}
+
+.form-select {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23d6ad608b' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+}
+
+option:checked {
+  color: white;
+  background-color: rgb(255, 215, 0);
+  ;
 }
 
 .bgSelector {
@@ -420,39 +465,66 @@ table {
 
 #celebrity {
   background-color: white;
-  padding-top: 3rem;
 }
 
 .handsImg {
-  width: 55%;
+  width: 100%;
+  object-fit: cover;
   position: relative;
+  bottom: 1rem;
 }
 
 #displayResult {
-  position: relative;
-  left: 8%;
-  top: 33%;
-  padding-top: 5rem;
+  padding: 0px;
+  left: 0px;
+  top: 0px;
 }
 
+
+
+.col-sm-2 {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+
 .quoteImg {
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 88%;
+  width: 100%;
+  object-fit: cover;
   padding-top: 2rem;
 }
 
 #astroIA {
-  position: absolute;
-  height: auto;
-  left: 23rem;
-  top: 15rem;
-  width: 17rem;
+  width: 100%;
+  object-fit: cover;
 }
 
 .quoteContent {
   position: relative;
+}
+
+#mainResult {
+  padding: 0rem;
+  margin: 8rem;
+  position: relative;
+  top: -9rem;
+  left: 2.5rem;
+}
+
+#nameCeleb {
+  margin-top: 1px;
+  margin-bottom: 1px;
+  position: relative;
+  bottom: 16.5rem;
+  left: 2.2rem;
+}
+
+#DOB {
+  margin-top: 1px;
+  margin-bottom: 1px;
+  position: relative;
+  bottom: 16.5rem;
+  left: 2.2rem;
 }
 
 /* Testimonials Section */
@@ -569,7 +641,7 @@ h3 {
 
 /* Footer  Section*/
 #footer {
-  padding: 8%;
+  padding: 5% 0 3%;
   background-color: #D6AD60;
 }
 
@@ -616,4 +688,13 @@ h3 {
     margin-left: 0px;
     margin-right: 0px;
   }
+
+  .handsImg {
+    width: 11%;
+    position: relative;
+    bottom: 1rem;
+  }
+
+  
+
 }

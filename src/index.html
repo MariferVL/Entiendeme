@@ -75,29 +75,38 @@
       <div id="mainContent" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active clearfix" data-bs-interval="8800">
-            <h3>Astrología Védica<br><b></b></h3>
-            <p class="col-md-6 float-md-start mb-3 ms-md-3">
-              Tu carta astral es un mapa del cielo que representa el momento exacto en el que naciste. Más que 
+            <h3 id="title1">Astrología Védica<br><b></b></h3>
+            <p id="textWelcome" class="col-md-6 float-md-start mb-3 ms-md-3">
+              Tu carta astral es un mapa del cielo que representa el momento exacto en el que naciste. Más que
               predecir el destino o pronosticar los sucesos terrestres, se usa como una potente herramienta en
-              el proceso individual de auto-conocimiento.
-              En <b> Entiéndeme </b> utilizamos la astrología védica, que está orientada a los propósitos y la identidad;
+              el proceso individual de auto-conocimiento. </br>
+              En <b> Entiéndeme </b> utilizamos la astrología védica, que está orientada a los propósitos y la
+              identidad;
               más allá de tu signo, se trata de tu energía, tu personalidad y lo que decides hacer con eso.
-            </br>
-              <a type="button" class="btn btn-dark btn-lg download-btn  aware" href="#form"><i class=""></i> Conócete
-              </a>
+              </br>
               <!-- <a type="button" class="btn btn-outline-light btn-lg download-btn goldButton"
                 href="#testimonialsSection"><i class=""></i>Testimonios</a> -->
             </p>
+            <a type="button" class="btn btn-dark btn-lg download-btn  aware" href="#form"><i class=""></i> Conócete
+            </a>
             <img class="col-md-6 float-md-end mb-3 ms-md-3 carousel-img1 " src="images/mockup-manos-mujer.png"
               alt="manos mujer con App">
           </div>
           <div class="carousel-item clearfix" data-bs-interval="8800">
             <img class="col-md-6 float-md-start mb-3 ms-md-3 carousel-img2" src="images/mockup-manos-hombre.png"
               alt="manos hombre con App">
-            <h3>¿Qué viene en tu lectura?<br><b></b></h3>
-            <p>
-              A paragraph of placeholder text. We're using it here to show the use of the clearfix class. We're adding
-              quite a few meaningless phrases here to demonstrate how the columns interact here with the floated image.
+            <h3 id="title2">¿Qué viene en tu lectura?<br><b></b></h3>
+            <p id="textWelcome2">
+              Se dice que el <b> Nakshatra </b> es el lenguaje original de las estrellas. Se relaciona con dos aspectos,
+              lo que representa
+              a las estrellas fijas que son constantes, y la Luna/mente que siempre está cambiando. </br>
+              El <b>Yoni Porutham</b> define la compatibilidad físico-emocional y sexual. Es representado por un animal,
+              y como tal, sigue las reglas de covivencia animal. Esto define tanto tu máxima compatibilidad con alguien,
+              como la tendencia
+              a las enemistades. </br>
+              Finalmente, el <b>Ayurveda</b> es el sistema tradicional de sanación de la India, que considera la
+              combinación
+              de cuerpo, mente y espíritu como un todo. </br>
             </p>
             <a type="button" class="btn btn-dark btn-lg download-btn aware" href="#form"><i class=""></i> Conócete </a>
             <!-- <a type="button" class="btn btn-outline-light btn-lg download-btn goldButton"
@@ -131,23 +140,23 @@
             <div class="tab">
               <label for="fName">¿Cómo te llamas? <span class="mandatory">*</span></label>
               <p>
-                <input id="fName" type="text" placeholder="Nombre" oninput="this.className = ''"
-                  name="fName" required aria-required="true">
+                <input id="fName" type="text" placeholder="Nombre" oninput="this.className = ''" name="fName" required
+                  aria-required="true">
               </p>
 
             </div>
             <div class="tab">
               <label for="location">¿Dónde naciste? <span class="mandatory">*</span></label>
               <div id="map"></div>
-              <p><input type="text" placeholder="Click en Mapa" id="location"
-                  oninput="this.className = ''" name="location" required aria-required="true"></p>
+              <p><input type="text" placeholder="Click en Mapa" id="location" oninput="this.className = ''"
+                  name="location" required aria-required="true"></p>
 
 
             </div>
             <div class="tab">
               <label for="DateOB">¿Cuándo y a qué hora naciste? <span class="mandatory">*</span></label>
-              <p><input class="dob" type="datetime-local" id="DateOB" oninput="this.className = ''"
-                  name="dob" min="1923-01-01T00:00" max="2023-02-23T00:00" required aria-required="true"></p>
+              <p><input class="dob" type="datetime-local" id="DateOB" oninput="this.className = ''" name="dob"
+                  min="1923-01-01T00:00" max="2023-02-23T00:00" required aria-required="true"></p>
               <span id="validity" class="validity"></span>
             </div>
 
@@ -158,10 +167,8 @@
 
             <div style="overflow:auto;" id="nextprevious">
               <div style="float:right;">
-                <button class="formButton" type="button" id="prevBtn"><i
-                    class="fa fa-angle-double-left"></i></button>
-                <button class="formButton" type="button" id="nextBtn"><i
-                    class="fa fa-angle-double-right"></i></button>
+                <button class="formButton" type="button" id="prevBtn"><i class="fa fa-angle-double-left"></i></button>
+                <button class="formButton" type="button" id="nextBtn"><i class="fa fa-angle-double-right"></i></button>
               </div>
             </div>
           </form>
@@ -221,55 +228,63 @@
 
   <section id="filterSort">
     <img class="bgSelector" src="images/bg2.png" alt="fondo de patrón astrologico">
-    <div class="filterContent">
-      <ul class="nav filter">
-        <li class="nav-item nav-select" id="selector">
-          <select class="form-select form-select-lg mb-3" id="options"
-            aria-label="Seleccionar data por elemento, generacion y celebridades" disabled>
-            <option selected disabled>¿Qué quieres saber?</option>
-            <option class="form-option" value="element">Elemento</option>
-            <option class="form-option" value="generation">Generación</option>
-            <option class="form-option" value="celebrities">Celebridades</option>
-          </select>
-        </li>
-        <li class="nav-item nav-select" id="selector2">
-          <select class="form-select form-select-lg mb-3" id="sortBy"
-            aria-label="Seleccionar celebridades por categorias" disabled>
-            <option selected disabled>¿Qué categoría te interesa?</option>
-          </select>
-        </li>
-
-        <li class="nav-item" id="asc">
-          <input type="button" class="nav-link sortOrder disabled" value="A-Z">
-        </li>
-        <li class="nav-item" id="desc">
-          <input type="button" class="nav-link sortOrder disabled" value="Z-A">
-        </li>
-        <li class="nav-item" id="selectorStats">
-          <select class="form-select form-select-lg mb-3" id="optionsStats" aria-label="Seleccionar estadisticas"
-            disabled>
-            <option selected disabled>¿Qué estadisticas quieres conocer?</option>
-            <option value="signStat">Estadística por signo</option>
-            <option value="elementStat">Estadística por elemento</option>
-          </select>
-        </li>
-      </ul>
-
+    <div class="filterContent container">
       <div class="row">
-        <div id="celebrity" class="col-lg-4  col-md-3  col-sm-3">
-            <h4>Celebridades</h4>
-            <img class="handsImg" src="images/manos.png" alt="manos hacia el cielo">
+        <div class="col-12">
+          <ul class="nav filter">
+            <li class="nav-item nav-select" id="selector">
+              <select class="form-select form-select-lg mb-3" id="options"
+                aria-label="Seleccionar data por elemento, generacion y celebridades" disabled>
+                <option selected disabled>¿Qué quieres saber?</option>
+                <option class="form-option" value="element">Elemento</option>
+                <option class="form-option" value="generation">Generación</option>
+                <option class="form-option" value="celebrities">Celebridades</option>
+              </select>
+            </li>
+            <li class="nav-item nav-select" id="selector2">
+              <select class="form-select form-select-lg mb-3" id="sortBy"
+                aria-label="Seleccionar celebridades por categorias" disabled>
+                <option selected disabled>¿Qué categoría te interesa?</option>
+              </select>
+            </li>
+
+            <li class="nav-item" id="asc">
+              <input type="button" class="nav-link sortOrder disabled" value="A-Z">
+            </li>
+            <li class="nav-item" id="desc">
+              <input type="button" class="nav-link sortOrder disabled" value="Z-A">
+            </li>
+            <li class="nav-item" id="selectorStats">
+              <select class="form-select form-select-lg mb-3" id="optionsStats" aria-label="Seleccionar estadisticas"
+                disabled>
+                <option selected disabled>¿Qué estadisticas quieres conocer?</option>
+                <option value="signStat">Estadística por signo</option>
+                <option value="elementStat">Estadística por elemento</option>
+              </select>
+            </li>
+          </ul>
         </div>
-        <img id="astroIA" src="images/astroIA.png" alt="cabeza mujer con ojos cerrados">
-        <div id="displayResult" class="col-lg-6  col-md-4 col-sm-4">
-            <img class="float-md-end quoteImg " src="images/quotes.png" alt="dialogo con comillas">
-            <div class="quoteContent">
-              <p id="mainResult"></p>
-              <p id="nameCeleb"></p>
-              <p id="DOB"></p>
+
+        <div id="celebrity" class="col-sm-12 col-md-12 col-lg-3">
+          <div id="printCelebs" class="col-12">
+          </div>
+          <img class="handsImg col-12" src="images/manos.png" alt="manos hacia el cielo">
+        </div>
+
+        <div class="col-sm-3 col-md-3 col-lg-3">
+          <img id="astroIA" src="images/astroIA.png" alt="cabeza mujer con ojos cerrados">
+        </div>
+
+        <div id="displayResult" class="col-lg-5 col-md-6 col-sm-6">
+          <img class="quoteImg " src="images/quotes.png" alt="dialogo con comillas">
+          <div class="quoteContent">
+            <p id="mainResult"></p>
+            <p id="nameCeleb"></p>
+            <p id="DOB"></p>
           </div>
         </div>
       </div>
+
     </div>
   </section>
 

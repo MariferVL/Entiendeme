@@ -79,8 +79,8 @@ function validateForm() {
           } else {
             y[i].setCustomValidity(
               " ¡Ey!, ✋🏻⚠️ No tan rápido.\n Disfruta tu año, el " +
-              userYear +
-              " ya llegará. 😉"
+                userYear +
+                " ya llegará. 😉"
             );
             y[i].className += " invalid";
             valid = false;
@@ -88,8 +88,8 @@ function validateForm() {
         } else {
           y[i].setCustomValidity(
             "Wow 😲 ¿Vienes del futuro?\nEl año " +
-            userYear +
-            " todavía no llega. 😅"
+              userYear +
+              " todavía no llega. 😅"
           );
           y[i].className += " invalid";
           valid = false;
@@ -166,7 +166,6 @@ function initMap() {
 
 window.initMap = initMap;
 
-
 let dateTime;
 
 // Get time zone from users location
@@ -177,9 +176,9 @@ async function getTimeZone() {
       o = Math.abs(offset);
     resolve(
       (offset < 0 ? "+" : "-") +
-      ("00" + Math.floor(o / 60)).slice(-2) +
-      ":" +
-      ("00" + (o % 60)).slice(-2)
+        ("00" + Math.floor(o / 60)).slice(-2) +
+        ":" +
+        ("00" + (o % 60)).slice(-2)
     );
   });
 
@@ -187,15 +186,9 @@ async function getTimeZone() {
   return result;
 }
 
-
-
 /* API SECTION */
 
 /* END API SECTION */
-
-
-
-
 
 const astroData = fetch("/data/astrology.json")
   .then((response) => response.json())
@@ -208,7 +201,7 @@ const dataAPI = async () => {
   const wait = await astroData;
   console.log("Wait:" + wait);
   createCards(wait);
-}
+};
 
 /* let zodiac;
 const printData = async () => {
@@ -218,27 +211,25 @@ const printData = async () => {
   console.log("Zodiac dentro de astro " + zodiac);
 }; */
 
-
 /* CARD SECTION */
 let zodiac;
 
 // Create & print main results
 function createCards(data) {
   const userName = document.getElementById("fName").value;
-  document.getElementById("msgUser").innerText = userName + ", estos son tus resultados:";
+  document.getElementById("msgUser").innerText =
+    userName + ", estos son tus resultados:";
 
   zodiac = data["zodiac"]["name"];
   const nakshatra = data["nakshatra"]["name"];
   const animal = data["additional_info"]["animal_sign"];
   const nadi = data["additional_info"]["nadi"];
 
-  document.getElementById("card1").src = "images/cards/card-" + nakshatra + ".png";
+  document.getElementById("card1").src =
+    "images/cards/card-" + nakshatra + ".png";
   document.getElementById("card2").src = "images/cards/card-" + animal + ".png";
   document.getElementById("card3").src = "images/cards/card-" + nadi + ".png";
-
-
 }
-
 
 /* FILTER SECTION */
 
@@ -253,7 +244,6 @@ document.querySelector("#options").addEventListener("change", () => {
       );
   }
 });
-
 
 // Const of elements
 const earth = ["Capricornio", "Tauro", "Virgo"];
@@ -369,11 +359,9 @@ function getCelebrities(celebritiesNames) {
     anchor.href = "#displayResult";
     anchor.text = name;
     anchor.id = "celebrity" + i;
-    anchor.class = "sortBy"
+    anchor.setAttribute("class", "sortBy");
     rootList.appendChild(itemList);
     itemList.appendChild(anchor);
-
-
   }
 
   // Enable sort by Order options
@@ -392,14 +380,14 @@ function getCelebrities(celebritiesNames) {
   });
 }
 
-
 // Print quotes of celebrities
 function printQuotes(celebName) {
   celebrities["celebrities"].forEach((dictionary) => {
     if (celebName === dictionary["name"]) {
       divRes.innerText = dictionary["quote"];
       document.getElementById("nameCeleb").innerText = dictionary["name"];
-      document.getElementById("DOB").innerHTML = "<i class='fas fa-birthday-cake'></i>" + dictionary["DOB"];
+      document.getElementById("DOB").innerHTML =
+        "<i class='fas fa-birthday-cake'></i> " + dictionary["DOB"];
     }
   });
 }
@@ -407,7 +395,6 @@ function printQuotes(celebName) {
 document.getElementById("celebrity").addEventListener("click", (event) => {
   printQuotes(event.target.text);
 });
-
 
 // Listener and print of stats
 document.getElementById("optionsStats").addEventListener("change", (event) => {
@@ -438,15 +425,16 @@ document.getElementById("optionsStats").addEventListener("change", (event) => {
     }
   }
 
-  divRes.innerHTML =
-    "De acuerdo a nuestra base de datos lo que sabemos " + msg1 +
+  divRes.innerText =
+    "De acuerdo a nuestra base de datos y lo que sabemos " +
+    msg1 +
     ", estas son nuestras estadísticas: " +
     msg2.toString();
+  document.getElementById("nameCeleb").innerText = "";
+  document.getElementById("DOB").innerText = "";
 });
 
-
-
-const goingOut = { 
+const goingOut = {
   getElements,
   getGeneration,
   getCategory,

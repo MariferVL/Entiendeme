@@ -4,7 +4,7 @@ export default {
 		"DOB": "15 de Abril",
 		"sign": "Aries",
 		"element": "fire",
-		"quote": "'No quiero que otras personas decidan quién soy. Quiero decidir eso por mí misma.'",
+		"quote": "No quiero que otras personas decidan quién soy. Quiero decidir eso por mí misma.",
 		"category": "Actuación",
 	},
 	{
@@ -12,7 +12,7 @@ export default {
 		"DOB": "25 de Marzo",
 		"sign": "Aries",
 		"element": "fire",
-		"quote": "'Lo bueno del rock and roll es que alguien como yo puede ser una estrella.'",
+		"quote": "Lo bueno del rock and roll es que alguien como yo puede ser una estrella.",
 		"category": "Canto",
 	},
 	{
@@ -20,7 +20,7 @@ export default {
 		"DOB": "28 de Marzo",
 		"sign": "Aries",
 		"element": "fire",
-		"quote": "'Estoy diseñada a la moda para ser radical' - 'Fashion of His Love'",
+		"quote": "Estoy diseñada a la moda para ser radical' - 'Fashion of His Love",
 		"category": "Canto",
 	},
 	{
@@ -28,7 +28,7 @@ export default {
 		"DOB": "27 de Marzo",
 		"sign": "Aries",
 		"element": "fire",
-		"quote": "'No valías mi tiempo, así que te dejo atrás. Porque necesito un amor de verdad en mi vida' - 'Shake It Off'",
+		"quote": "No valías mi tiempo, así que te dejo atrás. Porque necesito un amor de verdad en mi vida' - 'Shake It Off",
 		"category": "Canto",
 	},
 	{
@@ -36,7 +36,7 @@ export default {
 		"DOB": "22 de Marzo",
 		"sign": "Aries",
 		"element": "fire",
-		"quote": "'No creo en la perfección. Pero la energía de querer que las cosas salgan bien es una energía perfeccionista'",
+		"quote": "No creo en la perfección. Pero la energía de querer que las cosas salgan bien es una energía perfeccionista",
 		"category": "Actuación",
 	},
 	{
@@ -44,7 +44,7 @@ export default {
 		"DOB": "04 de Abril",
 		"sign": "Aries",
 		"element": "fire",
-		"quote": "'Sólo hago esto porque me estoy divirtiendo. El día que deje de divertirme, simplemente me iré.'",
+		"quote": "Sólo hago esto porque me estoy divirtiendo. El día que deje de divertirme, simplemente me iré.",
 		"category": "Actuación",
 	},
 	{
@@ -52,7 +52,7 @@ export default {
 		"DOB": "20 de Febrero",
 		"sign": "Piscis",
 		"element": "water",
-		"quote": "'Uno de estos días tal vez tu magia no me afecte y tus besos no me debiliten' - 'Hate That I Love You'",
+		"quote": "Uno de estos días tal vez tu magia no me afecte y tus besos no me debiliten' - 'Hate That I Love You",
 		"category": "Canto",
 	},
 	{
@@ -60,7 +60,7 @@ export default {
 		"DOB": "01 de Marzo",
 		"sign": "Piscis",
 		"element": "water",
-		"quote": "'Porque lo he tenido todo, pero nadie está escuchando. Y eso es la soledad' - 'Loney'",
+		"quote": "Porque lo he tenido todo, pero nadie está escuchando. Y eso es la soledad' - 'Loney",
 		"category": "Canto",
 	},
 	{
@@ -68,7 +68,7 @@ export default {
 		"DOB": "02 de Marzo",
 		"sign": "Piscis",
 		"element": "water",
-		"quote": "'Estás creando cosas nuevas en las películas, y la gente las va a robar",
+		"quote": "Estás creando cosas nuevas en las películas, y la gente las va a robar",
 		"category": "Actuación",
 	},
 	{
@@ -76,7 +76,7 @@ export default {
 		"DOB": "22 de Febrero",
 		"sign": "Piscis",
 		"element": "water",
-		"quote": "'El amor es el hábito más difícil de romper, y el más difícil de satisfacer'",
+		"quote": "El amor es el hábito más difícil de romper, y el más difícil de satisfacer",
 		"category": "Actuación",
 	},
 	{
@@ -84,7 +84,7 @@ export default {
 		"DOB": "23 de Febrero",
 		"sign": "Piscis",
 		"element": "water",
-		"quote": "'Siempre hablo de mis personajes como si fueran personas reales'",
+		"quote": "Siempre hablo de mis personajes como si fueran personas reales",
 		"category": "Actuación",
 	},
 	{
@@ -92,7 +92,7 @@ export default {
 		"DOB": "20 de Febrero",
 		"sign": "Piscis",
 		"element": "water",
-		"quote": "'Ese era nuestro lugar, lo encontré primero e hice las bromas que le cuentas. Cuando ella está contigo, ¿Tienes un deja vu?' - 'Deja vu'",
+		"quote": "Ese era nuestro lugar, lo encontré primero e hice las bromas que le cuentas. Cuando ella está contigo, ¿Tienes un deja vu?' - 'Deja vu",
 		"category": "Canto",
 	},
 	{
@@ -100,7 +100,7 @@ export default {
 		"DOB": "05 de Mayo",
 		"sign": "Tauro",
 		"element": "earth",
-		"quote": "'Es tan típico de mí hablar de mí misma, lo siento' - 'Hello'",
+		"quote": "Es tan típico de mí hablar de mí misma, lo siento' - 'Hello",
 		"category": "Canto",
 	},
 	{
@@ -108,7 +108,7 @@ export default {
 		"DOB": "06 de Mayo",
 		"sign": "Tauro",
 		"element": "earth",
-		"quote": "'Me siento cómodo con envejecer porque es mejor que la otra opción, que es estar muerto. Así que tomaré envejecer.'",
+		"quote": "Me siento cómodo con envejecer porque es mejor que la otra opción, que es estar muerto. Así que tomaré envejecer.",
 		"category": "Actuación",
 	},
 	{
@@ -116,7 +116,7 @@ export default {
 		"DOB": "13 de Mayo",
 		"sign": "Tauro",
 		"element": "earth",
-		"quote": "'Quiero tomar todo el dolor que siento y celebrar y darle la vuelta.'",
+		"quote": "Quiero tomar todo el dolor que siento y celebrar y darle la vuelta.",
 		"category": "Canto",
 	},
 	{
@@ -124,7 +124,7 @@ export default {
 		"DOB": "24 de Abril",
 		"sign": "Tauro",
 		"element": "earth",
-		"quote": "'Gracias a ti ahora consigo lo que quiero' - 'Since U Been Gone'",
+		"quote": "Gracias a ti ahora consigo lo que quiero' - 'Since U Been Gone",
 		"category": "Canto",
 	},
 	{
@@ -132,7 +132,7 @@ export default {
 		"DOB": "27 de Abril",
 		"sign": "Tauro",
 		"element": "earth",
-		"quote": "'Soy mi propia alma gemela' - 'Soulmate'",
+		"quote": "Soy mi propia alma gemela' - 'Soulmate",
 		"category": "Canto",
 	},
 	{
@@ -140,7 +140,7 @@ export default {
 		"DOB": "02 de Mayo",
 		"sign": "Tauro",
 		"element": "earth",
-		"quote": "'Soy obstinada, pero no soy una persona vengativa y tampoco digo nada sin provocación'",
+		"quote": "Soy obstinada, pero no soy una persona vengativa y tampoco digo nada sin provocación",
 		"category": "Canto",
 	},
 	{
@@ -148,7 +148,7 @@ export default {
 		"DOB": "20 de Junio",
 		"sign": "Geminis",
 		"element": "air",
-		"quote": "'Tengo un enfoque diferente. No presento demandas porque realmente no me importa.'",
+		"quote": "Tengo un enfoque diferente. No presento demandas porque realmente no me importa.",
 		"category": "Actuación",
 	},
 	{
@@ -156,7 +156,7 @@ export default {
 		"DOB": "01 de Junio",
 		"sign": "Geminis",
 		"element": "air",
-		"quote": "'El miedo es estúpido. También lo son remordimientos.'",
+		"quote": "El miedo es estúpido. También lo son remordimientos.",
 		"category": "Actuación",
 	},
 	{
@@ -164,7 +164,7 @@ export default {
 		"DOB": "04 de Junio",
 		"sign": "Geminis",
 		"element": "air",
-		"quote": "'He sido imprudente, pero no soy una rebelde sin causa.'",
+		"quote": "He sido imprudente, pero no soy una rebelde sin causa.",
 		"category": "Actuación",
 	},
 	{
@@ -172,7 +172,7 @@ export default {
 		"DOB": "08 de Junio",
 		"sign": "Geminis",
 		"element": "air",
-		"quote": "'Lo estoy haciendo bastante bien en lo que respecta a los genios. Soy como una máquina, como un robot'",
+		"quote": "Lo estoy haciendo bastante bien en lo que respecta a los genios. Soy como una máquina, como un robot",
 		"category": "Canto",
 	},
 	{
@@ -180,7 +180,7 @@ export default {
 		"DOB": "07 de Junio",
 		"sign": "Geminis",
 		"element": "air",
-		"quote": "'Me gustan las críticas constructivas de gente inteligente.'",
+		"quote": "Me gustan las críticas constructivas de gente inteligente.",
 		"category": "Canto",
 	},
 	{
@@ -188,7 +188,7 @@ export default {
 		"DOB": "28 de Mayo",
 		"sign": "Geminis",
 		"element": "air",
-		"quote": "'Solo quiero hacer todo. No quiero sonar sentimental o demasiado cliché, pero así son las cosas.'",
+		"quote": "Solo quiero hacer todo. No quiero sonar sentimental o demasiado cliché, pero así son las cosas.",
 		"category": "Canto",
 	},
 	{
@@ -196,7 +196,7 @@ export default {
 		"DOB": "26 de Junio",
 		"sign": "Cancer",
 		"element": "water",
-		"quote": "'Si te quieres quedar, nos lo vamos a tomar con calma, cariño.' - 'My Favorite Part'",
+		"quote": "Si te quieres quedar, nos lo vamos a tomar con calma, cariño.' - 'My Favorite Part",
 		"category": "Canto",
 	},
 	{
@@ -204,7 +204,7 @@ export default {
 		"DOB": "22 de Julio",
 		"sign": "Cancer",
 		"element": "water",
-		"quote": "'Más que supervivencia, este es mi renacimiento.' - 'Revival'",
+		"quote": "Más que supervivencia, este es mi renacimiento.' - 'Revival",
 		"category": "Canto",
 	},
 	{
@@ -212,7 +212,7 @@ export default {
 		"DOB": "22 de Junio",
 		"sign": "Cancer",
 		"element": "water",
-		"quote": "'El gran don de los seres humanos es que tenemos el poder de la empatía.'",
+		"quote": "El gran don de los seres humanos es que tenemos el poder de la empatía.",
 		"category": "Actuación",
 	},
 	{
@@ -220,7 +220,7 @@ export default {
 		"DOB": "02 de Julio",
 		"sign": "Cancer",
 		"element": "water",
-		"quote": "'La belleza es gracia y confianza. He aprendido a aceptar y apreciar lo que la naturaleza me dio.'",
+		"quote": "La belleza es gracia y confianza. He aprendido a aceptar y apreciar lo que la naturaleza me dio.",
 		"category": "Actuación",
 	},
 	{
@@ -228,7 +228,7 @@ export default {
 		"DOB": "21 de Junio",
 		"sign": "Cancer",
 		"element": "water",
-		"quote": "'No tenemos nada que perder, nada que ganar, nada que deseáramos más. Excepto que hacer de nuestras vidas una obra de arte.' - 'Ride'",
+		"quote": "No tenemos nada que perder, nada que ganar, nada que deseáramos más. Excepto que hacer de nuestras vidas una obra de arte.' - 'Ride",
 		"category": "Canto",
 	},
 	{
@@ -236,7 +236,7 @@ export default {
 		"DOB": "07 de Julio",
 		"sign": "Cancer",
 		"element": "water",
-		"quote": "'La gente solo me mira como un Beatle, pero mis amigos me miran como una persona completa. Así es como funciona la vida.'",
+		"quote": "La gente solo me mira como un Beatle, pero mis amigos me miran como una persona completa. Así es como funciona la vida.",
 		"category": "Canto",
 	},
 	{
@@ -244,7 +244,7 @@ export default {
 		"DOB": "22 de Agosto",
 		"sign": "Leo",
 		"element": "fire",
-		"quote": "'Llegué aquí para quedarme.'",
+		"quote": "Llegué aquí para quedarme.",
 		"category": "Canto",
 	},
 	{
@@ -252,7 +252,7 @@ export default {
 		"DOB": "10 de Agosto",
 		"sign": "Leo",
 		"element": "fire",
-		"quote": "'Yo inventé las pelucas.'",
+		"quote": "Yo inventé las pelucas.",
 		"category": "TV",
 	},
 	{
@@ -260,7 +260,7 @@ export default {
 		"DOB": "16 de Agosto",
 		"sign": "Leo",
 		"element": "fire",
-		"quote": "'Soy mi propio experimento, mi propia obra de arte.'",
+		"quote": "Soy mi propio experimento, mi propia obra de arte.",
 		"category": "Canto",
 	},
 	{
@@ -268,7 +268,7 @@ export default {
 		"DOB": "17 de Agosto",
 		"sign": "Leo",
 		"element": "fire",
-		"quote": "'El talento está en las elecciones'",
+		"quote": "El talento está en las elecciones",
 		"category": "Actuación",
 	},
 	{
@@ -276,7 +276,7 @@ export default {
 		"DOB": "26 de Julio",
 		"sign": "Leo",
 		"element": "fire",
-		"quote": "'Nadie puede hacerme llorar en público. Primero les daré un puñetazo antes de que me corran el rímel.'",
+		"quote": "Nadie puede hacerme llorar en público. Primero les daré un puñetazo antes de que me corran el rímel.",
 		"category": "Actuación",
 	},
 	{
@@ -284,7 +284,7 @@ export default {
 		"DOB": "20 de Agosto",
 		"sign": "Leo",
 		"element": "fire",
-		"quote": "'Cuando haces lo mejor que puedes para vivir tus sueños, inspiras a otros a hacer lo mismo.'",
+		"quote": "Cuando haces lo mejor que puedes para vivir tus sueños, inspiras a otros a hacer lo mismo.",
 		"category": "Canto",
 	},
 	{
@@ -292,7 +292,7 @@ export default {
 		"DOB": "01 de Septiembre",
 		"sign": "Virgo",
 		"element": "earth",
-		"quote": "'Con cualquier cosa, tienes que abordarlo desde un punto de vista educativo y maduro.'",
+		"quote": "Con cualquier cosa, tienes que abordarlo desde un punto de vista educativo y maduro.",
 		"category": "Actuación",
 	},
 	{
@@ -300,7 +300,7 @@ export default {
 		"DOB": "08 de Septiembre",
 		"sign": "Virgo",
 		"element": "earth",
-		"quote": "'Mi definición de la libertad es saber quién eres y serlo.'",
+		"quote": "Mi definición de la libertad es saber quién eres y serlo.",
 		"category": "Canto",
 	},
 	{
@@ -308,7 +308,7 @@ export default {
 		"DOB": "02 de Septiembre",
 		"sign": "Virgo",
 		"element": "earth",
-		"quote": "'El simple hecho de prestar atención puede llevarte muy lejos.'",
+		"quote": "El simple hecho de prestar atención puede llevarte muy lejos.",
 		"category": "Actuación",
 	},
 	{
@@ -316,7 +316,7 @@ export default {
 		"DOB": "25 de Agosto",
 		"sign": "Virgo",
 		"element": "earth",
-		"quote": "'La locura de una persona no es su realidad.'",
+		"quote": "La locura de una persona no es su realidad.",
 		"category": "Actuación",
 	},
 	{
@@ -324,7 +324,7 @@ export default {
 		"DOB": "25 de Agosto",
 		"sign": "Virgo",
 		"element": "earth",
-		"quote": "'Yo también estoy perdida buscando la paz aunque me encuentre distraida.' - 'Fucking Diablo'",
+		"quote": "Yo también estoy perdida buscando la paz aunque me encuentre distraida.' - 'Fucking Diablo",
 		"category": "Canto",
 	},
 	{
@@ -332,7 +332,7 @@ export default {
 		"DOB": "29 de Agosto",
 		"sign": "Virgo",
 		"element": "earth",
-		"quote": "'Soy un perfeccionista, trabajaré hasta que me caiga'",
+		"quote": "Soy un perfeccionista, trabajaré hasta que me caiga",
 		"category": "Canto",
 	},
 	{
@@ -340,7 +340,7 @@ export default {
 		"DOB": "25 de Septiembre",
 		"sign": "Libra",
 		"element": "air",
-		"quote": "'Pa' que highlighter si tu brillas sola' - 'Brillo' ",
+		"quote": "Pa' que highlighter si tu brillas sola' - 'Brillo' ",
 		"category": "Canto",
 	},
 	{
@@ -348,7 +348,7 @@ export default {
 		"DOB": "25 de Septiembre",
 		"sign": "Libra",
 		"element": "air",
-		"quote": "'No te miro, te admiro'",
+		"quote": "No te miro, te admiro",
 		"category": "Actuación",
 	},
 	{
@@ -356,7 +356,7 @@ export default {
 		"DOB": "09 de Octubre",
 		"sign": "Libra",
 		"element": "air",
-		"quote": "'El amor no es transformación, sino aceptación y comprensión.",
+		"quote": "El amor no es transformación, sino aceptación y comprensión.",
 		"category": "Actuación",
 	},
 	{
@@ -364,7 +364,7 @@ export default {
 		"DOB": "11 de Octubre",
 		"sign": "Libra",
 		"element": "air",
-		"quote": "'El karma para ti va a ser con quien termines.'",
+		"quote": "El karma para ti va a ser con quien termines.",
 		"category": "Canto",
 	},
 	{
@@ -372,7 +372,7 @@ export default {
 		"DOB": "03 de Octubre",
 		"sign": "Libra",
 		"element": "air",
-		"quote": "'La conformidad es el carcelero de la libertad y enemigo del crecimiento.'",
+		"quote": "La conformidad es el carcelero de la libertad y enemigo del crecimiento.",
 		"category": "Canto",
 	},
 	{
@@ -380,7 +380,7 @@ export default {
 		"DOB": "27 de Septiembre",
 		"sign": "Libra",
 		"element": "air",
-		"quote": "'Todo el mundo muere, pero no todo el mundo vive.",
+		"quote": "Todo el mundo muere, pero no todo el mundo vive.",
 		"category": "Canto",
 	},
 	{
@@ -388,7 +388,7 @@ export default {
 		"DOB": "11 de Noviembre",
 		"sign": "Escorpio",
 		"element": "water",
-		"quote": "'Soy muy terca y exigente, pero creo que es un rollo de espiritualidad, de paz, muy bonito.'",
+		"quote": "Soy muy terca y exigente, pero creo que es un rollo de espiritualidad, de paz, muy bonito.",
 		"category": "Actuación",
 	},
 	{
@@ -396,7 +396,7 @@ export default {
 		"DOB": "25 de Octubre",
 		"sign": "Escorpio",
 		"element": "water",
-		"quote": "'Averigua cuál es tu don y cuídalo.'",
+		"quote": "Averigua cuál es tu don y cuídalo.",
 		"category": "Canto",
 	},
 	{
@@ -404,7 +404,7 @@ export default {
 		"DOB": "30 de Octubre",
 		"sign": "Escorpio",
 		"element": "water",
-		"quote": "'Soy hombre de una sola palabra.'",
+		"quote": "Soy hombre de una sola palabra.",
 		"category": "Deporte",
 	},
 	{
@@ -412,7 +412,7 @@ export default {
 		"DOB": "28 de Octubre",
 		"sign": "Escorpio",
 		"element": "water",
-		"quote": "'La fiebre es una expresión de rabia interior.'",
+		"quote": "La fiebre es una expresión de rabia interior.",
 		"category": "Actuación",
 	},
 	{
@@ -420,7 +420,7 @@ export default {
 		"DOB": "12 de Noviembre",
 		"sign": "Escorpio",
 		"element": "water",
-		"quote": "'Lo voy inventando a medida que avanzo.'",
+		"quote": "Lo voy inventando a medida que avanzo.",
 		"category": "Actuación",
 	},
 	{
@@ -428,7 +428,7 @@ export default {
 		"DOB": "12 de Noviembre",
 		"sign": "Escorpio",
 		"element": "water",
-		"quote": "'Creo que las relaciones son trabajo, pero el amor es un regalo.'",
+		"quote": "Creo que las relaciones son trabajo, pero el amor es un regalo.",
 		"category": "Actuación",
 	},
 	{
@@ -436,7 +436,7 @@ export default {
 		"DOB": "2 de Diciembre",
 		"sign": "Sagitario",
 		"element": "fire",
-		"quote": "'Puedes odiarme o amarme, pero así soy yo.' - 'The Way I Am'",
+		"quote": "Puedes odiarme o amarme, pero así soy yo.' - 'The Way I Am",
 		"category": "Canto",
 	},
 	{
@@ -444,7 +444,7 @@ export default {
 		"DOB": "23 de Noviembre",
 		"sign": "Sagitario",
 		"element": "fire",
-		"quote": "'Sí, puedo amarme mejor que tú'. - 'Flowers'",
+		"quote": "Sí, puedo amarme mejor que tú'. - 'Flowers",
 		"category": "Canto",
 	},
 	{
@@ -452,7 +452,7 @@ export default {
 		"DOB": "18 de Diciembre",
 		"sign": "Sagitario",
 		"element": "fire",
-		"quote": "'Bonita, y puedes tener talento, pero nadie lo recordará si eres mala.'",
+		"quote": "Bonita, y puedes tener talento, pero nadie lo recordará si eres mala.",
 		"category": "Actuación",
 	},
 	{
@@ -460,7 +460,7 @@ export default {
 		"DOB": "8 de Diciembre",
 		"sign": "Sagitario",
 		"element": "fire",
-		"quote": "'Si no puedes manejar lo peor de mí, no obtendrás lo mejor de mí'. - 'Marilyn Monroe'",
+		"quote": "Si no puedes manejar lo peor de mí, no obtendrás lo mejor de mí'. - 'Marilyn Monroe",
 		"category": "Canto",
 	},
 	{
@@ -468,7 +468,7 @@ export default {
 		"DOB": " 13 de Diciembre",
 		"sign": "Sagitario",
 		"element": "fire",
-		"quote": "'Cariño, no me amenaces con pasar un buen rato' - 'London Boy'",
+		"quote": "Cariño, no me amenaces con pasar un buen rato' - 'London Boy",
 		"category": "Canto",
 	},
 	{
@@ -476,7 +476,7 @@ export default {
 		"DOB": "18 de Diciembre",
 		"sign": "Sagitario",
 		"element": "fire",
-		"quote": "'Siempre me gustaron esos momentos de epifanía, cuando tienes el próximo destino.'",
+		"quote": "Siempre me gustaron esos momentos de epifanía, cuando tienes el próximo destino.",
 		"category": "Actuación",
 	},
 	{
@@ -484,7 +484,7 @@ export default {
 		"DOB": "24 de Diciembre",
 		"sign": "Capricornio",
 		"element": "earth",
-		"quote": "'Porque llego la hora de estar conmigo' - 'Lo mejor de mi vida eres tú'",
+		"quote": "Porque llego la hora de estar conmigo' - 'Lo mejor de mi vida eres tú",
 		"category": "Canto",
 	},
 	{
@@ -492,7 +492,7 @@ export default {
 		"DOB": "8 de Enero",
 		"sign": "Capricornio",
 		"element": "earth",
-		"quote": "'Un poco menos de lucha y un poco más de chispa, cierra la boca y abre el corazón.' - 'A Little Less Conversation'",
+		"quote": "Un poco menos de lucha y un poco más de chispa, cierra la boca y abre el corazón.' - 'A Little Less Conversation",
 		"category": "Canto",
 	},
 	{
@@ -500,7 +500,7 @@ export default {
 		"DOB": "3 de Enero",
 		"sign": "Capricornio",
 		"element": "earth",
-		"quote": "'He aprendido que una experiencia amarga puede hacerte más fuerte.'",
+		"quote": "He aprendido que una experiencia amarga puede hacerte más fuerte.",
 		"category": "Actuación",
 	},
 	{
@@ -508,7 +508,7 @@ export default {
 		"DOB": "30 de Diciembre",
 		"sign": "Capricornio",
 		"element": "earth",
-		"quote": "'El dinero y la fama me hicieron creer que tenía derecho. Yo estaba equivocado y tonto.'",
+		"quote": "El dinero y la fama me hicieron creer que tenía derecho. Yo estaba equivocado y tonto.",
 		"category": "Deporte",
 	},
 	{
@@ -516,7 +516,7 @@ export default {
 		"DOB": "17 de Enero",
 		"sign": "Capricornio",
 		"element": "earth",
-		"quote": "'Si no estás (viviendo) en el momento, estás esperando la incertidumbre o regresando al dolor y el arrepentimiento.'",
+		"quote": "Si no estás (viviendo) en el momento, estás esperando la incertidumbre o regresando al dolor y el arrepentimiento.",
 		"category": "Actuación",
 	},
 		, {
@@ -524,7 +524,7 @@ export default {
 		"DOB": "27 de Diciembre",
 		"sign": "Capricornio",
 		"element": "earth",
-		"quote": "'Encuentro que hay un buen equilibrio entre la preparación y ver lo que sucede de forma natural.'",
+		"quote": "Encuentro que hay un buen equilibrio entre la preparación y ver lo que sucede de forma natural.",
 		"category": "Actuación",
 	},
 	{
@@ -532,7 +532,7 @@ export default {
 		"DOB": "1 de Febrero",
 		"sign": "Acuario",
 		"element": "air",
-		"quote": "'No tienes que arrepentirte por irte y crecer.' - 'Matilda'",
+		"quote": "No tienes que arrepentirte por irte y crecer.' - 'Matilda",
 		"category": "Canto",
 	},
 	{
@@ -540,7 +540,7 @@ export default {
 		"DOB": "29 de Enero",
 		"sign": "Acuario",
 		"element": "air",
-		"quote": "'Cuanto más alabas y celebras tu vida, más vida hay para celebrar.'",
+		"quote": "Cuanto más alabas y celebras tu vida, más vida hay para celebrar.",
 		"category": "TV",
 	},
 	{
@@ -548,7 +548,7 @@ export default {
 		"DOB": "6 de Febrero",
 		"sign": "Acuario",
 		"element": "air",
-		"quote": "'No te preocupes por nada, cada pequeña cosa va a estar bien.' - 'Everything's gonna be alright'",
+		"quote": "No te preocupes por nada, cada pequeña cosa va a estar bien.' - 'Everything's gonna be alright",
 		"category": "Canto",
 	},
 	{
@@ -556,7 +556,7 @@ export default {
 		"DOB": "17 de Febrero",
 		"sign": "Acuario",
 		"element": "air",
-		"quote": "'Puedo aceptar el fracaso, todos fracasan en algo. Pero no puedo aceptar no intentarlo.'",
+		"quote": "Puedo aceptar el fracaso, todos fracasan en algo. Pero no puedo aceptar no intentarlo.",
 		"category": "Deporte",
 	},
 	{
@@ -564,7 +564,7 @@ export default {
 		"DOB": "30 de Enero",
 		"sign": "Acuario",
 		"element": "air",
-		"quote": "'Ciertamente no siento atracción por la miseria. No voy intencionalmente a la oscuridad.'",
+		"quote": "Ciertamente no siento atracción por la miseria. No voy intencionalmente a la oscuridad.",
 		"category": "Actuación",
 	},
 	{
@@ -572,7 +572,7 @@ export default {
 		"DOB": "7 de Febrero",
 		"sign": "Acuario",
 		"element": "air",
-		"quote": "'Los fracasos que tenemos son a veces educaciones caras.'",
+		"quote": "Los fracasos que tenemos son a veces educaciones caras.",
 		"category": "Actuación",
 	}]
 };
