@@ -3,6 +3,10 @@ body {
   text-align: center;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 h1,
 h2,
 h3,
@@ -358,9 +362,9 @@ input.invalid {
 
 /* Results */
 
-.container {
-  max-width: 100%;
-}
+#results {
+  padding-bottom: 22rem;
+  }
 
 .jumbotron {
   margin-top: 1.5%;
@@ -371,6 +375,43 @@ input.invalid {
 
 table {
   width: 100%;
+}
+
+.flip-box {
+  background-color: transparent;
+  width: 300px;
+  height: 200px;
+  perspective: 1000px;
+}
+
+.flip-box-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-box:hover .flip-box-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-box-front, .flip-box-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+
+
+.flip-box-back {
+ background-image: url("/images/carta.png");  
+ color: white;
+  transform: rotateY(180deg);
+  width: 8%;
 }
 
 .back,
@@ -659,21 +700,102 @@ h3 {
 
 /* Responsive */
 
-@media (max-width: 992px) {
+@media only screen and (max-width: 992px) {
+
   .navbar {
     padding: 0 0 3rem;
   }
 
+  #home {
+    margin: 3rem;
+  }
+
+  #textWelcome2 {
+    width: 38rem;
+  }
+
+  .carousel-img1 {
+    bottom: 0%;
+  }
+
+  #filterSort {
+    height: 55rem;
+  }
+
+  .nav {
+    padding: 6% 13% 1%;
+  }
+
+  .handsImg {
+    width: 22%;
+    position: relative;
+    top: 3rem;
+  }
+
+  #astroIA {
+    width: 33%;
+    object-fit: cover;
+  }
+
+  .quoteImg {
+    width: 100%;
+    position: relative;
+    left: 8rem;
+    top: 3rem;
+    object-fit: cover;
+    padding-top: 2rem;
+  }
+
+  #astroIA {
+    /* width: 33%; */
+    width: 100%;
+    position: relative;
+    left: 13rem;
+    top: 11rem;
+  }
 }
 
-@media (max-width: 768px) {
+
+@media only screen and (max-width: 768px) {
   .navbar {
     padding: 0 0 3rem;
   }
 
+  .handsImg {
+    width: 33%;
+    position: relative;
+    bottom: 1rem;
+  }
+
+  #astroIA {
+    width: 33%;
+    object-fit: cover;
+  }
+
+  .quoteImg {
+    width: 66%;
+    object-fit: cover;
+    padding-top: 2rem;
+  }
+
 }
 
-@media (max-width: 576px) {
+@media only screen and (max-width: 576px) {
+
+
+  .d-inline-block {
+    width: 33%;
+    height: 33%;
+    position: relative;
+    top: 3rem;
+    right: 6rem;
+  }
+
+  .navbar-toggler {
+    position: relative;
+    left: 18rem;
+    bottom: 2rem;
+  }
 
   .col-lg-6 {
     padding: 0 8%;
@@ -689,12 +811,70 @@ h3 {
     margin-right: 0px;
   }
 
-  .handsImg {
-    width: 11%;
-    position: relative;
-    bottom: 1rem;
+  .jumbotron {
+    padding: 1rem;
   }
 
-  
+  #asc {
+    margin: 0 2rem 1rem;
+  }
+
+  #displayResult {
+    position: absolute;
+    top: 56%;    
+    left: -6rem;
+  }
+
+  #celebrity {
+    position: relative;
+    bottom: 2rem;
+  }
+
+  #celebrity > ul {
+    margin-top: 3rem;
+    }
+
+  #filterSort {
+    height: 44rem;
+  }
+
+  .col-sm-3 {
+    position: relative;
+    bottom: 3rem;
+    right: 20rem;
+    
+  }
+
+  div.carousel-item {
+    padding: 0rem;
+  }
+
+  #press img {
+    padding: 0;
+  }
+
+  #press {
+    padding: 8% 3% 3%;
+  }
+
+#pricing li {
+  margin-left: 11%;
+}
+
+.price {
+  font-size: 3em;
+}
+
+.svg-inline--fa.fa-w-16 {
+  width: 3rem;
+}
+
+.middle > div > ul > li {
+  margin-left: 8%;
+  }
+
+  .w-50{
+    margin: 0;
+  }
 
 }
