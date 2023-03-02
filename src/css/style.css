@@ -1,11 +1,11 @@
 body {
   font-family: 'Montserrat', sans-serif;
   text-align: center;
+  margin:0;
+  padding: 0;
 }
 
-* {
-  box-sizing: border-box;
-}
+
 
 h1,
 h2,
@@ -20,22 +20,13 @@ h6 {
   color: #CDA313;
 }
 
-p, span {
+p,
+span {
   color: #CDA313;
   font-family: 'Montserrat', sans-serif;
 
 }
 
-.container,
-.container-fluid,
-.container-lg,
-.container-md,
-.container-sm,
-.container-xl,
-.container-xxl {
-  padding-right: 0;
-  padding-left: 0;
-}
 
 
 /* Main Layout */
@@ -72,7 +63,6 @@ label,
   top: 0;
   width: 100%;
   height: 100%;
-  opacity: 0.7;
   background-image: url("../images/bg1.png");
   /* Center and scale the image nicely */
   background-repeat: no-repeat;
@@ -372,24 +362,26 @@ input.invalid {
 /* Results */
 
 #results {
-  padding-bottom: 22rem;
-  }
-
-.jumbotron {
-  margin-top: 1.5%;
-  text-align: center;
-  /* font-family: 'Satisfy', cursive; */
-  padding: 6rem;
+  margin: 6rem 0rem 40rem 2rem;
 }
 
-table {
-  width: 100%;
+#cards {
+  margin-left: -19.5rem;
+  padding: 0 !important;
+ 
+  
 }
+
+.cards {
+  margin-inline-end: -16rem;
+}
+
+
 
 .flip-box {
-  background-color: transparent;
-  width: 300px;
-  height: 200px;
+  background-color: white;
+/*   width: 300px;
+  height: 200px; */
   perspective: 1000px;
 }
 
@@ -406,7 +398,8 @@ table {
   transform: rotateY(180deg);
 }
 
-.flip-box-front, .flip-box-back {
+.flip-box-front,
+.flip-box-back {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -414,35 +407,34 @@ table {
   backface-visibility: hidden;
 }
 
-
-
 .flip-box-back {
- background-image: url("/images/carta.png");  
- color: white;
+  background-image: url("/images/carta.png");
   transform: rotateY(180deg);
-  width: 8%;
+  /* content: ' '; */
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+
+  /* Center and scale the image nicely */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 .back,
 .front {
   top: 0;
-  max-width: 21.375rem;
-  max-height: 31.625rem;
-  padding-left: 5%;
-  padding-right: 5%;
+  max-width: 67.5rem;
+  max-height: 120rem;
+/*   padding-left: 5%;
+  padding-right: 5%; */
   width: 100%;
+  object-fit: cover;
+
 }
 
-#display-name td,
-#reversal td {
-  top: 0;
-  max-width: 14.375rem;
-}
-
-#reversal td p {
-  top: 0;
-  font-size: 115%;
-}
 
 #filterSort {
   overflow: hidden;
@@ -824,9 +816,6 @@ h3 {
     margin-right: 0px;
   }
 
-  .jumbotron {
-    padding: 1rem;
-  }
 
   #asc {
     margin: 0 2rem 1rem;
@@ -834,7 +823,7 @@ h3 {
 
   #displayResult {
     position: absolute;
-    top: 56%;    
+    top: 56%;
     left: -6rem;
   }
 
@@ -843,9 +832,9 @@ h3 {
     bottom: 2rem;
   }
 
-  #celebrity > ul {
+  #celebrity>ul {
     margin-top: 3rem;
-    }
+  }
 
   #filterSort {
     height: 44rem;
@@ -855,7 +844,7 @@ h3 {
     position: relative;
     bottom: 3rem;
     right: 20rem;
-    
+
   }
 
   div.carousel-item {
@@ -870,23 +859,23 @@ h3 {
     padding: 8% 3% 3%;
   }
 
-#pricing li {
-  margin-left: 11%;
-}
-
-.price {
-  font-size: 3em;
-}
-
-.svg-inline--fa.fa-w-16 {
-  width: 3rem;
-}
-
-.middle > div > ul > li {
-  margin-left: 8%;
+  #pricing li {
+    margin-left: 11%;
   }
 
-  .w-50{
+  .price {
+    font-size: 3em;
+  }
+
+  .svg-inline--fa.fa-w-16 {
+    width: 3rem;
+  }
+
+  .middle>div>ul>li {
+    margin-left: 8%;
+  }
+
+  .w-50 {
     margin: 0;
   }
 

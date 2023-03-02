@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -164,7 +165,8 @@
 
             <div class="thanks-message text-center" id="text-message"> <img src="https://i.imgur.com/O18mJ1K.png"
                 width="100" class="mb-4">
-              <h3>¡Ya tenemos tus Datos!</h3> <span><b>Estamos interpretando tu carta para mostrarte tus resultados.</b></span>
+              <h3>¡Ya tenemos tus Datos!</h3> <span><b>Estamos interpretando tu carta para mostrarte tus
+                  resultados.</b></span>
             </div>
 
             <div style="overflow:auto;" id="nextprevious">
@@ -180,50 +182,37 @@
   </section>
 
   <section id="results">
-    <div class="container">
-      <div class="jumbotron">
+    <div class="container cards"> 
+      <div class="row align-items-end" id="cards">
         <h1 id="msgUser"></h1>
         <br>
-
-        <table id="table">
-          <tr id="card-img">
-            <td id="td-1">
-              <div class="flip-box">
-                <div class="flip-box-inner">
-                  <div class="flip-box-front">
-                    <img id="card1" class="back" src="images/carta.png" alt="carta con resultados">
-                  </div>
-                  <div class="flip-box-back">
-                  </div>
-                </div>
-              </div>
-            </td>
-            <td id="td-2">
-              <div class="flip-box">
-                <div class="flip-box-inner">
-                  <div class="flip-box-front">
-                    <img id="card2" class="back" src="images/carta.png" alt="carta con resultados">
-                  </div>
-                  <div class="flip-box-back">
-                  </div>
-                </div>
-              </div>
-            </td>
-            <td id="td-3">
-              <div class="flip-box">
-                <div class="flip-box-inner">
-                  <div class="flip-box-front">
-                    <img id="card3" class="back" src="images/carta.png" alt="carta con resultados">
-                  </div>
-                  <div class="flip-box-back">
-                  </div>
-                </div>
-              </div>
-            </td>
-          </tr>
-        </table>
-
-
+        <div class="flip-box col-lg-3 col-md-4 col-sm-6" >
+          <div class="flip-box-inner">
+            <div class="flip-box-front">
+              <img id="card1" class="back" src="images/carta.png" alt="carta con resultados">
+            </div>
+            <div class="flip-box-back">
+            </div>
+          </div>
+        </div>
+        <div class="flip-box col-lg-3 col-md-4 col-sm-6">
+          <div class="flip-box-inner">
+            <div class="flip-box-front">
+              <img id="card2" class="back" src="images/carta.png" alt="carta con resultados">
+            </div>
+            <div class="flip-box-back">
+            </div>
+          </div>
+        </div>
+        <div class="flip-box col-lg-3 col-md-3 col-sm-6">
+          <div class="flip-box-inner">
+            <div class="flip-box-front">
+              <img id="card3" class="back" src="images/carta.png" alt="carta con resultados">
+            </div>
+            <div class="flip-box-back">
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -270,7 +259,7 @@
         </div>
 
         <div id="celebrity" class="col-sm-12 col-md-12 col-lg-3">
-          <img  id="aiHands" class="handsImg col-12" src="images/manos.png" alt="manos hacia el cielo">
+          <img id="aiHands" class="handsImg col-12" src="images/manos.png" alt="manos hacia el cielo">
         </div>
 
         <div class="col-sm-3 col-md-3 col-lg-3">
