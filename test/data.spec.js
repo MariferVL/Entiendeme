@@ -1,9 +1,5 @@
-import {
-  showTab, nextPrev, validateForm, updateHTML, getLatLng, initMap, getTimeZone, createCards,
-  getElements, getGeneration, removeElements, getCategory, getCelebrities, printQuotes
-} from '../src/js/main.js';
-
-import { filterData, sortData, computeStats } from '.../src/js/data.js'
+import { filterData, sortData, computeStats } from "../src/js/data";
+import celebrities from "../data/celebrities";
 
 //Testeo
 //  TODO:Pasa linter (npm run pretest)
@@ -11,7 +7,7 @@ import { filterData, sortData, computeStats } from '.../src/js/data.js'
 //  TODO:Pasa tests (npm test)
 // TODO: Pruebas unitarias cubren un mínimo del 70% de statements, functions y lines y branches.
 
-describe('example', () => {
+/* describe('example', () => {
   it('is a function', () => {
     expect(typeof example).toBe('function');
   });
@@ -19,156 +15,17 @@ describe('example', () => {
   it('returns `example`', () => {
     expect(example()).toBe('example');
   });
-});
+}); */
 
 
-describe('showTab', () => {
-  it('is a function', () => {
-    expect(typeof showTab).toBe('function');
-  });
-
-  it('returns `anotherExample`', () => {
-    expect(anotherExample()).toBe('OMG');
-  });
-});
-
-describe('nextPrev', () => {
-  it('is a function', () => {
-    expect(typeof nextPrev).toBe('function');
-  });
-
-  it('returns `anotherExample`', () => {
-    expect(anotherExample()).toBe('OMG');
-  });
-});
-
-describe('validateForm', () => {
-  it('is a function', () => {
-    expect(typeof validateForm).toBe('function');
-  });
-
-  it('returns `anotherExample`', () => {
-    expect(anotherExample()).toBe('OMG');
-  });
-});
-
-describe('updateHTML', () => {
-  it('is a function', () => {
-    expect(typeof updateHTML).toBe('function');
-  });
-
-  it('returns `anotherExample`', () => {
-    expect(anotherExample()).toBe('OMG');
-  });
-});
-
-describe('getLatLng', () => {
-  it('is a function', () => {
-    expect(typeof getLatLng).toBe('function');
-  });
-
-  it('returns `anotherExample`', () => {
-    expect(anotherExample()).toBe('OMG');
-  });
-});
-
-describe('initMap', () => {
-  it('is a function', () => {
-    expect(typeof initMap).toBe('function');
-  });
-
-  it('returns `anotherExample`', () => {
-    expect(anotherExample()).toBe('OMG');
-  });
-});
-
-describe('getTimeZone', () => {
-  it('is a function', () => {
-    expect(typeof getTimeZone).toBe('function');
-  });
-
-  it('returns `anotherExample`', () => {
-    expect(anotherExample()).toBe('OMG');
-  });
-});
-
-describe('createCards', () => {
-  it('is a function', () => {
-    expect(typeof createCards).toBe('function');
-  });
-
-  it('returns `anotherExample`', () => {
-    expect(anotherExample()).toBe('OMG');
-  });
-});
-
-describe('getElements', () => {
-  it('is a function', () => {
-    expect(typeof getElements).toBe('function');
-  });
-
-  it('returns `anotherExample`', () => {
-    expect(anotherExample()).toBe('OMG');
-  });
-});
-
-describe('getGeneration', () => {
-  it('is a function', () => {
-    expect(typeof getGeneration).toBe('function');
-  });
-
-  it('returns `anotherExample`', () => {
-    expect(anotherExample()).toBe('OMG');
-  });
-});
-
-describe('removeElements', () => {
-  it('is a function', () => {
-    expect(typeof removeElements).toBe('function');
-  });
-
-  it('returns `anotherExample`', () => {
-    expect(anotherExample()).toBe('OMG');
-  });
-});
-
-describe('getCategory', () => {
-  it('is a function', () => {
-    expect(typeof getCategory).toBe('function');
-  });
-
-  it('returns `anotherExample`', () => {
-    expect(anotherExample()).toBe('OMG');
-  });
-});
-
-describe('getCelebrities', () => {
-  it('is a function', () => {
-    expect(typeof getCelebrities).toBe('function');
-  });
-
-  it('returns `anotherExample`', () => {
-    expect(anotherExample()).toBe('OMG');
-  });
-});
-
-describe('printQuotes', () => {
-  it('is a function', () => {
-    expect(typeof printQuotes).toBe('function');
-  });
-
-  it('returns `anotherExample`', () => {
-    expect(anotherExample()).toBe('OMG');
-  });
-});
 
 describe('filterData', () => {
   it('is a function', () => {
     expect(typeof filterData).toBe('function');
   });
 
-  it('returns `anotherExample`', () => {
-    expect(anotherExample()).toBe('OMG');
+  it('should returns false for "Condicion"', () => {
+    expect(filterData('condicion')).toBe('false');
   });
 });
 
@@ -177,8 +34,16 @@ describe('sortData', () => {
     expect(typeof sortData).toBe('function');
   });
 
-  it('returns `anotherExample`', () => {
-    expect(anotherExample()).toBe('OMG');
+  it('should show ["Harry Styles", "Bob Marley"] as namesArray', () => {
+    expect(sortData("Acuarius", "Canto", "")).toBe(["Harry Styles", "Bob Marley"]);
+  });
+
+  it('should show ["Bob Marley", "Harry Styles"] as namesArray', () => {
+    expect(sortData("Acuarius", "Canto", "A-Z")).toBe(["Bob Marley", "Harry Styles"]);
+  });
+
+  it('should show ["Harry Styles", "Bob Marley"] as namesArray', () => {
+    expect(sortData("Acuarius", "Canto", "Z-A")).toBe(["Harry Styles", "Bob Marley"]);
   });
 });
 
@@ -187,8 +52,12 @@ describe('computeStats', () => {
     expect(typeof computeStats).toBe('function');
   });
 
-  it('returns `anotherExample`', () => {
-    expect(anotherExample()).toBe('OMG');
+  it('returns {Canto: 33.3, Actuación: 50.0, Deporte: 16.7}', () => {
+    expect(computeStats(celebrities, "signStat", "Capricorn" )).toBe({Canto: 33.3, Actuación: 50.0, Deporte: 16.7});
+  });
+
+  it('returns {Canto: 55.6, Actuación: 38.9, Deporte: 5.6}', () => {
+    expect(computeStats(celebrities, "elementStat", "Capricorn" )).toBe({Canto: 55.6, Actuación: 38.9, Deporte: 5.6});
   });
 });
 

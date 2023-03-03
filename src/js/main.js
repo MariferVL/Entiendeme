@@ -103,16 +103,18 @@ function validateForm() {
   return valid;
 }
 
-const today = new Date().toLocaleString("sv-SE").replace(" ", "T").slice(0, 16);
+/* const today = new Date().toLocaleString("sv-SE").replace(" ", "T").slice(0, 16); */
 
+// eslint-disable-next-line no-unused-vars
 function updateHTML(elmId, value) {
   const elem = document.getElementById(elmId);
   if (typeof elem !== "undefined" && elem !== null) {
     elem.setAttribute("max", value);
   }
 }
-updateHTML("DateOB", today);
+/* updateHTML("DateOB", today);
 const dob = document.getElementById("DateOB").value;
+ */
 
 function fixStepIndicator(n) {
   let i;
@@ -166,10 +168,10 @@ function initMap() {
 
 window.initMap = initMap;
 
-let dateTime;
+/* let dateTime; */
 
 // Get time zone from users location
-async function getTimeZone() {
+/* async function getTimeZone() {
   const promise = new Promise((resolve) => {
     dateTime = document.getElementById("birthdaytime").value;
     const offset = new Date(dateTime).getTimezoneOffset(),
@@ -180,11 +182,11 @@ async function getTimeZone() {
         ":" +
         ("00" + (o % 60)).slice(-2)
     );
-  });
+  }); 
 
-  const result = await promise;
+   const result = await promise;
   return result;
-}
+} */
 
 /* API SECTION */
 
@@ -199,7 +201,6 @@ const astroData = fetch("/data/astrology.json")
 
 const dataAPI = async () => {
   const wait = await astroData;
-  console.log("Wait:" + wait);
   createCards(wait);
 };
 
