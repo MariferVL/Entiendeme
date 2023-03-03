@@ -12,6 +12,9 @@
     "start": "serve src/",
     "deploy": "gh-pages -d src"
   },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
   "devDependencies": {
     "@babel/core": "^7.6.2",
     "@babel/plugin-transform-modules-commonjs": "^7.6.0",
@@ -33,6 +36,7 @@
   },
   "dependencies": {
     "@googlemaps/js-api-loader": "^1.15.1",
-    "chart.js": "^4.2.1"
+    "chart.js": "^4.2.1",
+    "jsdom": "^21.1.0"
   }
 }
