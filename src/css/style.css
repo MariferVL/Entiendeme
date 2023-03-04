@@ -120,7 +120,6 @@ option:hover {
 .nav-link:hover,
 .nav-item:hover {
   color: #ab843c5a !important;
-
 }
 
 
@@ -172,6 +171,34 @@ option:hover {
   position: relative;
   top: 38%;
 
+}
+
+#btn-back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 0;
+  display: none;
+  color: #bd9750d2;
+  font-size: 3rem;
+  box-shadow: none;
+  pointer-events:none;
+  border:none;
+  background:none;
+  
+}
+
+#btn-back-to-top:before,
+#btn-back-to-top:after{
+  content:"";
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 0;
+}
+
+button:hover path{
+  fill: #ac8845;
 }
 
 
@@ -307,11 +334,13 @@ input.invalid {
 
 #nextBtn {
   margin-right: 0;
+  font-size: 1.3rem;
 }
 
 #prevBtn {
   background-color: #ffd78c;
   margin-right: 1rem;
+  font-size: 1.3rem;
 }
 
 .all-steps {
@@ -425,14 +454,16 @@ input.invalid {
   background-size: cover;
 }
 
-.back,
-.front {
+.back{
   top: 0;
-  max-width: 67.5rem;
-  max-height: 120rem;
-  width: 100%;
+  /* max-width: 67.5rem;
+  max-height: 120rem; */
+  width: 88%;
   object-fit: cover;
+}
 
+.front{
+  width: 80% ;
 }
 
 #typeAyur,

@@ -4,6 +4,34 @@ import { filterData, sortData, computeStats } from "./data.js";
 import celebrities from "../data/celebrities.js";
 // import fetch from "./node-fetch";
 
+
+//Get the button
+const mybutton = document.getElementById("btn-back-to-top");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function () {
+  scrollFunction();
+};
+
+function scrollFunction() {
+  if (
+    document.body.scrollTop > 20 ||
+    document.documentElement.scrollTop > 20
+  ) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+// When the user clicks on the button, scroll to the top of the document
+mybutton.addEventListener("click", backToTop);
+
+function backToTop() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+
+
 /* FORM SECTION */
 
 let currentTab = 0;
@@ -222,11 +250,11 @@ function createCards(data) {
   const nadi = data["additional_info"]["nadi"];
 
   document.getElementById("card1").src = "images/cards/card-" + nakshatra + ".png";
-  document.getElementById("card1").setAttribute("class", "front");
+  document.getElementById("card1").setAttribute("class", "back front");
   document.getElementById("card2").src = "images/cards/card-" + animal + ".png";
-  document.getElementById("card2").setAttribute("class", "front");
+  document.getElementById("card2").setAttribute("class", "back front");
   document.getElementById("card3").src = "images/cards/card-" + nadi + ".png";
-  document.getElementById("card3").setAttribute("class", "front");
+  document.getElementById("card3").setAttribute("class", "back front");
 
   if (nadi === "Vata") {
     button1.href = "https://indiaveda.com/p/constitucion-vata";
