@@ -1,11 +1,9 @@
 body {
   font-family: 'Montserrat', sans-serif;
   text-align: center;
-  margin:0;
+  margin: 0;
   padding: 0;
 }
-
-
 
 h1,
 h2,
@@ -46,7 +44,6 @@ label,
 .mainSection,
 .mainContent {
   position: relative;
-  /* padding: 3% 8% 0; */
   overflow: hidden;
 }
 
@@ -69,15 +66,9 @@ label,
   background-position: 50% 0;
   background-size: cover;
 }
-/* 
-#textWelcome {
-  width: 29rem;
-  position: absolute;
-  text-align: justify;
-  text-indent: 1.5rem;
-} */
 
-#textWelcome2, #textWelcome {
+#textWelcome2,
+#textWelcome {
   width: 34rem;
   text-align: justify;
   text-indent: 1.5rem;
@@ -89,7 +80,7 @@ label,
   transform: rotate(-5deg) scale(1.25);
   position: absolute;
   right: 8rem;
-  top:23%;
+  top: 23%;
 }
 
 .carousel-img2 {
@@ -134,7 +125,7 @@ option:hover {
 
 
 .nav-item {
-  padding: 0 0.7rem;
+  padding: 0 0.3rem;
 }
 
 .nav-link,
@@ -193,6 +184,8 @@ option:hover {
 .bgImg {
   overflow: hidden;
   position: relative;
+  display: table;
+  width: 100%;
 }
 
 .bgImg:before {
@@ -224,13 +217,17 @@ input:focus,
 
 #regForm {
   position: relative;
-  margin: 2rem;
+  height: 39.211rem;
+  display: table-cell;
+  vertical-align: middle;
 }
 
 #map {
   width: 400px;
   height: 300px;
-  margin: 1rem 6rem;
+  align-items: center;
+  display: flex;
+  margin: 0 auto;
 }
 
 span::after {
@@ -247,7 +244,6 @@ input:valid+span::after {
 
 #text-message {
   margin: 1rem auto;
-  /* font-family: Raleway; */
   padding: 40px;
   border-radius: 10px;
   width: 100;
@@ -267,9 +263,8 @@ input[type=datetime-local] {
   margin: 0.22rem 0;
   box-sizing: border-box;
   padding: 0.625rem;
-  width: 66%;
+  width: 29%;
   font-size: 1.063rem;
-  /* font-family: Raleway; */
   border: 1px solid #D6AD60;
   border-radius: 0.625rem;
   -webkit-appearance: none;
@@ -300,8 +295,18 @@ input.invalid {
 }
 
 .formButton:focus {
-
   outline: none !important;
+}
+
+#nextprevious {
+  overflow: auto;
+  position: relative;
+  bottom: 0.3rem;
+  display: inline-block;
+}
+
+#nextBtn {
+  margin-right: 0;
 }
 
 #prevBtn {
@@ -346,9 +351,6 @@ input.invalid {
   border-color: transparent;
 }
 
-#map {
-  justify-content: center
-}
 
 .all-steps {
   text-align: center;
@@ -374,8 +376,6 @@ input.invalid {
 #cards {
   margin-left: -19.5rem;
   padding: 0 !important;
- 
-  
 }
 
 .cards {
@@ -386,22 +386,26 @@ input.invalid {
 
 .flip-box {
   background-color: white;
-/*   width: 300px;
+  /*   width: 300px;
   height: 200px; */
   perspective: 1000px;
+
 }
 
 .flip-box-inner {
-  position: relative;
+  position: absolute;
   width: 100%;
   height: 100%;
   text-align: center;
-  transition: transform 0.8s;
+  box-shadow: 0 0 1rem rgba(0,0,0,0.1);
+
+  transition: transform 4s;
   transform-style: preserve-3d;
 }
 
 .flip-box:hover .flip-box-inner {
   transform: rotateY(180deg);
+
 }
 
 .flip-box-front,
@@ -414,15 +418,7 @@ input.invalid {
 }
 
 .flip-box-back {
-  background-image: url("/images/carta.png");
   transform: rotateY(180deg);
-  /* content: ' '; */
-  display: block;
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-
   /* Center and scale the image nicely */
   background-repeat: no-repeat;
   background-position: center;
@@ -434,13 +430,17 @@ input.invalid {
   top: 0;
   max-width: 67.5rem;
   max-height: 120rem;
-/*   padding-left: 5%;
-  padding-right: 5%; */
   width: 100%;
   object-fit: cover;
 
 }
 
+#typeAyur,
+#balanceAyur {
+  position: relative;
+  bottom: 3.3rem;
+  color: transparent;
+}
 
 #filterSort {
   overflow: hidden;
@@ -508,21 +508,18 @@ option:checked {
   position: relative;
 }
 
-/* .selector {
-  margin: 2.5rem;
-} */
 
 #row-nav {
   padding: 1rem 0 1rem;
 }
 
-#row-sort{
+#row-sort {
   padding: 0 0 8rem;
 }
 
 #celebrity {
   background-color: white;
-} 
+}
 
 .handsImg {
   width: 88%;
@@ -568,28 +565,12 @@ option:checked {
   font-size: small;
 }
 
-/* #mainResult {
-  margin: 7.05rem;
-  position: relative;
-  bottom: 12.8rem;
-  left: 1.7rem;
-} */
 
-/* #nameCeleb {
-  margin-top: 1px;
-  margin-bottom: 1px;
-  position: relative;
-  bottom: 16.5rem;
-  left: 2.2rem;
+#nameCeleb {
+  margin: 0.3rem auto
 }
 
-#DOB {
-  margin-top: 1px;
-  margin-bottom: 1px;
-  position: relative;
-  bottom: 16.5rem;
-  left: 2.2rem;
-} */
+
 
 /* Testimonials Section */
 
@@ -624,9 +605,12 @@ h3 {
 
 /* Press Section */
 
-#testimonialsSection, #press, #pricing, #footer{
+#testimonialsSection,
+#press,
+#pricing,
+#footer {
   position: relative;
-  top:11rem;
+  top: 11rem;
 }
 
 #press {
@@ -771,7 +755,6 @@ h3 {
   }
 
   #astroIA {
-    /* width: 33%; */
     width: 100%;
     position: relative;
     left: 13rem;
@@ -834,11 +817,6 @@ h3 {
     margin-left: 0px;
     margin-right: 0px;
   }
-
-
-#regForm {
-  height: 39.211rem;
-}
 
 
   #asc {

@@ -209,6 +209,9 @@ let zodiac;
 
 // Create & print main results
 function createCards(data) {
+  const button1 = document.getElementById("typeAyur");
+  const button2 = document.getElementById("balanceAyur");
+
   const userName = document.getElementById("fName").value;
   document.getElementById("msgUser").innerText =
     userName + ", estos son tus resultados:";
@@ -218,10 +221,24 @@ function createCards(data) {
   const animal = data["additional_info"]["animal_sign"];
   const nadi = data["additional_info"]["nadi"];
 
-  document.getElementById("card1").src =
-    "images/cards/card-" + nakshatra + ".png";
+  document.getElementById("card1").src = "images/cards/card-" + nakshatra + ".png";
+  document.getElementById("card1").setAttribute("class", "front");
   document.getElementById("card2").src = "images/cards/card-" + animal + ".png";
+  document.getElementById("card2").setAttribute("class", "front");
   document.getElementById("card3").src = "images/cards/card-" + nadi + ".png";
+  document.getElementById("card3").setAttribute("class", "front");
+
+  if (nadi === "Vata") {
+    button1.href = "https://indiaveda.com/p/constitucion-vata";
+    button2.href = "https://indiaveda.com/p/equilibra-vata";
+  } else if (nadi === "Pitta") {
+    button1.href = "https://indiaveda.com/p/constitucion-pitta";
+    button2.href = "https://indiaveda.com/p/equilibra-pitta"; 
+  } else if (nadi === "Kapha") {
+    button1.href = "https://indiaveda.com/p/constitucion-kapha";
+    button2.href = "https://indiaveda.com/p/equilibra-kapha"; 
+  }
+
 }
 
 /* FILTER SECTION */
