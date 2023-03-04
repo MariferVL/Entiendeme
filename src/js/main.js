@@ -2,6 +2,7 @@
 /* eslint-disable no-prototype-builtins */
 import { filterData, sortData, computeStats } from "./data.js";
 import celebrities from "../data/celebrities.js";
+// import fetch from "./node-fetch";
 
 /* FORM SECTION */
 
@@ -79,8 +80,8 @@ function validateForm() {
           } else {
             y[i].setCustomValidity(
               " ¡Ey!, ✋🏻⚠️ No tan rápido.\n Disfruta tu año, el " +
-                userYear +
-                " ya llegará. 😉"
+              userYear +
+              " ya llegará. 😉"
             );
             y[i].className += " invalid";
             valid = false;
@@ -88,8 +89,8 @@ function validateForm() {
         } else {
           y[i].setCustomValidity(
             "Wow 😲 ¿Vienes del futuro?\nEl año " +
-              userYear +
-              " todavía no llega. 😅"
+            userYear +
+            " todavía no llega. 😅"
           );
           y[i].className += " invalid";
           valid = false;
@@ -103,16 +104,7 @@ function validateForm() {
   return valid;
 }
 
-/* const today = new Date().toLocaleString("sv-SE").replace(" ", "T").slice(0, 16); */
-
-// eslint-disable-next-line no-unused-vars
-function updateHTML(elmId, value) {
-  const elem = document.getElementById(elmId);
-  if (typeof elem !== "undefined" && elem !== null) {
-    elem.setAttribute("max", value);
-  }
-}
-/* updateHTML("DateOB", today);
+/* const today = new Date().toLocaleString("sv-SE").replace(" ", "T").slice(0, 16);
 const dob = document.getElementById("DateOB").value;
  */
 
@@ -127,7 +119,7 @@ function fixStepIndicator(n) {
 
 /* END FORM SECTION */
 
-// FIXME: Buscar forma de sacar variable globa. Indispensable para el parametro de API
+// FIXME: Buscar forma de sacar variable global. Indispensable para el parametro de API
 let latLong;
 
 // Get lat & long and insert in input
@@ -235,16 +227,20 @@ function createCards(data) {
 /* FILTER SECTION */
 
 // Listener for filter data
-document.querySelector("#options").addEventListener("change", () => {
-  const condition = document.getElementById("options").value;
-  if (!filterData(zodiac, condition)) {
-    document
-      .getElementById("options")
-      .setCustomValidity(
-        "¿Quieres saber 'qué quieres saber'? 👀 \n Esa no es una opción válida"
-      );
-  }
-});
+const selectOption = document.getElementById("options");
+if (selectOption) {
+  selectOption.addEventListener("change", () => {
+    const condition = document.getElementById("options").value;
+    if (!filterData(zodiac, condition)) {
+      document
+        .getElementById("options")
+        .setCustomValidity(
+          "¿Quieres saber 'qué quieres saber'? 👀 \n Esa no es una opción válida"
+        );
+    }
+  });
+}
+
 
 // Const of elements
 const earth = ["Capricornio", "Tauro", "Virgo"];
@@ -395,47 +391,53 @@ function printQuotes(celebName) {
   });
 }
 
-document.getElementById("celebrity").addEventListener("click", (event) => {
-  printQuotes(event.target.text);
-});
+const celebrityOptions = document.getElementById("celebrity")
+if (celebrityOptions) {
+  celebrityOptions.addEventListener("click", (event) => {
+    printQuotes(event.target.text);
+  })
+}
 
 // Listener and print of stats
-document.getElementById("optionsStats").addEventListener("change", (event) => {
-  const stats = computeStats(
-    celebrities["celebrities"],
-    event.target.value,
-    zodiac
-  );
+const statsOptions = document.getElementById("optionsStats");
+if (statsOptions) {
+  statsOptions.addEventListener("change", (event) => {
+    const stats = computeStats(
+      celebrities["celebrities"],
+      event.target.value,
+      zodiac
+    );
 
-  let msg1;
-  const msg2 = [];
+    let msg1;
+    const msg2 = [];
 
-  if (event.target.value === "signStat") {
-    msg1 = " de tu signo";
-    for (const key in stats) {
-      if (stats.hasOwnProperty(key)) {
-        const value = stats[key];
-        msg2.push(" " + key + ": " + value + "%");
+    if (event.target.value === "signStat") {
+      msg1 = " de tu signo";
+      for (const key in stats) {
+        if (stats.hasOwnProperty(key)) {
+          const value = stats[key];
+          msg2.push(" " + key + ": " + value + "%");
+        }
+      }
+    } else if (event.target.value === "elementStat") {
+      msg1 = " del elemento al que pertenece tu signo";
+      for (const key in stats) {
+        if (stats.hasOwnProperty(key)) {
+          const value = stats[key];
+          msg2.push(" " + key + ": " + value + "%");
+        }
       }
     }
-  } else if (event.target.value === "elementStat") {
-    msg1 = " del elemento al que pertenece tu signo";
-    for (const key in stats) {
-      if (stats.hasOwnProperty(key)) {
-        const value = stats[key];
-        msg2.push(" " + key + ": " + value + "%");
-      }
-    }
-  }
 
-  divRes.innerText =
-    "De acuerdo a nuestra base de datos y lo que sabemos " +
-    msg1 +
-    ", estas son nuestras estadísticas: " +
-    msg2.toString();
-  document.getElementById("nameCeleb").innerText = "";
-  document.getElementById("DOB").innerText = "";
-});
+    divRes.innerText =
+      "De acuerdo a nuestra base de datos y lo que sabemos " +
+      msg1 +
+      ", estas son nuestras estadísticas: " +
+      msg2.toString();
+    document.getElementById("nameCeleb").innerText = "";
+    document.getElementById("DOB").innerText = "";
+  })
+}
 
 const goingOut = {
   getElements,

@@ -79,7 +79,7 @@
         <div class="carousel-inner">
           <div class="carousel-item active clearfix" data-bs-interval="8800">
             <h3 id="title1">Astrología Védica<br><b></b></h3>
-            <p id="textWelcome" class="col-md-6 float-md-start mb-3 ms-md-3">
+            <p class="col-5 float-md-start mb-3 ms-md-3" id="textWelcome">
               Tu carta astral es un mapa del cielo que representa el momento exacto en el que naciste. Más que
               predecir el destino o pronosticar los sucesos terrestres, se usa como una potente herramienta en
               el proceso individual de auto-conocimiento. <br>
@@ -87,19 +87,16 @@
               identidad;
               más allá de tu signo, se trata de tu energía, tu personalidad y lo que decides hacer con eso.
               <br>
-              <!-- <a type="button" class="btn btn-outline-light btn-lg download-btn goldButton"
-                href="#testimonialsSection"><i class=""></i>Testimonios</a> -->
             </p>
-            <a type="button" class="btn btn-dark btn-lg download-btn  aware" href="#form"><i class=""></i> Conócete
-            </a>
-            <img class="col-md-6 float-md-end mb-3 ms-md-3 carousel-img1 " src="images/mockup-manos-mujer.png"
+            <a type="button" class="btn btn-dark btn-lg download-btn aware" href="#form"> Conócete </a>
+            <img class="col-6 float-md-end mb-3 me-md-3 carousel-img1" src="images/mockup-manos-mujer.png"
               alt="manos mujer con App">
           </div>
           <div class="carousel-item clearfix" data-bs-interval="8800">
-            <img class="col-md-6 float-md-start mb-3 ms-md-3 carousel-img2" src="images/mockup-manos-hombre.png"
+            <img class="col-6 float-md-start mb-3 ms-md-3 carousel-img2" src="images/mockup-manos-hombre.png"
               alt="manos hombre con App">
             <h3 id="title2">¿Qué viene en tu lectura?<br><b></b></h3>
-            <p id="textWelcome2">
+            <p class="col-6 float-md-end mb-3 me-md-3" id="textWelcome2">
               Se dice que el <b> Nakshatra </b> es el lenguaje original de las estrellas. Se relaciona con dos aspectos,
               lo que representa
               a las estrellas fijas que son constantes, y la Luna/mente que siempre está cambiando. <br>
@@ -111,9 +108,9 @@
               combinación
               de cuerpo, mente y espíritu como un todo. <br>
             </p>
-            <a type="button" class="btn btn-dark btn-lg download-btn aware" href="#form"><i class=""></i> Conócete </a>
+            <a type="button" class="btn btn-dark btn-lg download-btn aware" href="#form"> Conócete </a>
             <!-- <a type="button" class="btn btn-outline-light btn-lg download-btn goldButton"
-                href="#testimonialsSection"><i class=""></i>Testimonios</a> -->
+                href="#testimonialsSection">Testimonios</a> -->
           </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#mainContent" data-bs-slide="prev">
@@ -223,7 +220,7 @@
   <section id="filterSort">
     <img class="bgSelector" src="images/bg2.png" alt="fondo de patrón astrologico">
     <div class="filterContent container">
-      <div class="row">
+      <div id="row-nav" class="row">
         <div class="col-12">
           <ul class="nav filter">
             <li class="nav-item nav-select" id="selector">
@@ -258,7 +255,9 @@
             </li>
           </ul>
         </div>
+      </div>
 
+      <div class="row" id="row-sort">
         <div id="celebrity" class="col-sm-12 col-md-12 col-lg-3">
           <img id="aiHands" class="handsImg col-12" src="images/manos.png" alt="manos hacia el cielo">
         </div>
@@ -435,25 +434,23 @@
 
     <p>© Copyright 2023 entiéndeme</p>
 
-
   </footer>
+
+
   <!-- Boostrap -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
 
-
-
+  <!-- JQuery -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous">
+    </script>
 
   <!-- Font Awesome -->
   <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"
-    integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc"
-    crossorigin="anonymous"></script>
-
-  <!-- JQuery -->
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js"
-    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-
+    integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous">
+    </script>
 
   <!-- JS -->
   <script src="js/main.js" type="module"></script>
