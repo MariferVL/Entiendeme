@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "src/index.html",
   "license": "MIT",
+  "type": "module",
   "scripts": {
     "htmlhint": "htmlhint src/*.html test/*.html",
     "eslint": "eslint --ext .js src/ test/",
@@ -10,7 +11,7 @@
     "test": "jest --verbose --coverage",
     "open-coverage-report": "opener ./coverage/lcov-report/index.html",
     "start": "serve src/",
-    "deploy": "gh-pages -d src"
+    "deploy": "gh-pages -d src" 
   },
   "jest": {
     "testEnvironment": "jsdom"
@@ -37,6 +38,7 @@
   "dependencies": {
     "@googlemaps/js-api-loader": "^1.15.1",
     "chart.js": "^4.2.1",
-    "jsdom": "^21.1.0"
+    "jsdom": "^21.1.0",
+    "node-fetch": "^2.6.9"
   }
 }

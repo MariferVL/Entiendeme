@@ -69,36 +69,35 @@ label,
   background-position: 50% 0;
   background-size: cover;
 }
-
-
+/* 
 #textWelcome {
-  width: 25rem;
+  width: 29rem;
+  position: absolute;
   text-align: justify;
   text-indent: 1.5rem;
-}
+} */
 
-#textWelcome2 {
-  width: 49rem;
+#textWelcome2, #textWelcome {
+  width: 34rem;
   text-align: justify;
   text-indent: 1.5rem;
+  padding: 1rem;
 }
 
 .carousel-img1 {
-  width: 33%;
+  width: 22%;
   transform: rotate(-5deg) scale(1.25);
-  position: relative;
-  left: 11%;
-
-
+  position: absolute;
+  right: 8rem;
+  top:23%;
 }
 
 .carousel-img2 {
-  width: 33%;
+  width: 22%;
   transform: rotate(-5deg) scale(1.25);
-  position: relative;
-  right: 40%;
+  position: absolute;
+  left: -1%;
   padding-top: 8%;
-
 }
 
 
@@ -135,7 +134,7 @@ option:hover {
 
 
 .nav-item {
-  padding: 0 18px;
+  padding: 0 0.7rem;
 }
 
 .nav-link,
@@ -179,6 +178,8 @@ option:hover {
 
 .aware {
   color: #D6AD60;
+  position: relative;
+  top: 38%;
 
 }
 
@@ -266,7 +267,7 @@ input[type=datetime-local] {
   margin: 0.22rem 0;
   box-sizing: border-box;
   padding: 0.625rem;
-  width: 55%;
+  width: 66%;
   font-size: 1.063rem;
   /* font-family: Raleway; */
   border: 1px solid #D6AD60;
@@ -365,6 +366,11 @@ input.invalid {
   margin: 6rem 0rem 40rem 2rem;
 }
 
+#msgUser {
+  text-align: center;
+  margin: 0 0 3rem -8rem;
+}
+
 #cards {
   margin-left: -19.5rem;
   padding: 0 !important;
@@ -439,11 +445,12 @@ input.invalid {
 #filterSort {
   overflow: hidden;
   position: relative;
-  height: 38rem;
+  top: 11rem;
+
 }
 
 .nav {
-  padding-top: 6%;
+  padding: 3rem 0 6rem;
 }
 
 .form-select:disabled,
@@ -505,15 +512,23 @@ option:checked {
   margin: 2.5rem;
 } */
 
-#celebrity {
-  background-color: white;
+#row-nav {
+  padding: 1rem 0 1rem;
 }
 
+#row-sort{
+  padding: 0 0 8rem;
+}
+
+#celebrity {
+  background-color: white;
+} 
+
 .handsImg {
-  width: 100%;
+  width: 88%;
   object-fit: cover;
   position: relative;
-  bottom: 1rem;
+  top: 8rem;
 }
 
 #displayResult {
@@ -531,33 +546,36 @@ option:checked {
 
 
 .quoteImg {
-  width: 100%;
+  width: 34rem;
   object-fit: cover;
-  padding-top: 2rem;
+  position: relative;
+  bottom: 4rem;
+  right: 3rem;
 }
 
 #astroIA {
-  width: 100%;
+  width: 88%;
   object-fit: cover;
+  position: relative;
+  top: 3rem;
 }
 
 .quoteContent {
   position: relative;
-  bottom: 10rem;
-  right: 5.3rem;
-  width: 36rem;
+  bottom: 15.6rem;
+  left: 3rem;
+  width: 22.6rem;
   font-size: small;
 }
 
-#mainResult {
-  padding: 0rem;
-  margin: 8rem;
+/* #mainResult {
+  margin: 7.05rem;
   position: relative;
-  top: -9rem;
-  left: 2.5rem;
-}
+  bottom: 12.8rem;
+  left: 1.7rem;
+} */
 
-#nameCeleb {
+/* #nameCeleb {
   margin-top: 1px;
   margin-bottom: 1px;
   position: relative;
@@ -571,7 +589,7 @@ option:checked {
   position: relative;
   bottom: 16.5rem;
   left: 2.2rem;
-}
+} */
 
 /* Testimonials Section */
 
@@ -605,6 +623,11 @@ h3 {
 }
 
 /* Press Section */
+
+#testimonialsSection, #press, #pricing, #footer{
+  position: relative;
+  top:11rem;
+}
 
 #press {
   background-color: #D6AD60;
@@ -719,10 +742,6 @@ h3 {
     width: 38rem;
   }
 
-  .carousel-img1 {
-    bottom: 0%;
-  }
-
   #filterSort {
     height: 55rem;
   }
@@ -815,6 +834,11 @@ h3 {
     margin-left: 0px;
     margin-right: 0px;
   }
+
+
+#regForm {
+  height: 39.211rem;
+}
 
 
   #asc {

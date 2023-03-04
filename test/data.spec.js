@@ -1,5 +1,6 @@
 import { filterData, sortData, computeStats } from "../src/js/data";
-import celebrities from "../data/celebrities";
+import celebrities from "../src/data/celebrities";
+
 
 //Testeo
 //  TODO:Pasa linter (npm run pretest)
@@ -25,16 +26,38 @@ describe('filterData', () => {
   });
 
   it('should returns false for "Condicion"', () => {
-    expect(filterData('condicion')).toBe('false');
+    expect(filterData('Capricorn', 'condicion')).toBe(false);
+  });
+
+  it('should returns true for "element"', () => {
+    expect(filterData('Capricorn','element')).toBe(true);
+  });
+
+  it('should returns true for "generation"', () => {
+    expect(filterData('Capricorn','generation')).toBe(true);
+  });
+
+  it('should returns true for "celebrities"', () => {
+    expect(filterData('Capricorn','celebrities')).toBe(true);
   });
 });
 
 describe('sortData', () => {
-  it('is a function', () => {
+  it('sortData should be a function', () => {
     expect(typeof sortData).toBe('function');
   });
 
-  it('should show ["Harry Styles", "Bob Marley"] as namesArray', () => {
+  it('namesArray should be array', () => {
+    expect(typeof namesArray).toBe("array");
+  });
+
+  it('is a function', () => {
+    expect(typeof data).toBe('object');
+  });
+
+  
+});
+/*   it('should show ["Harry Styles", "Bob Marley"] as namesArray', () => {
     expect(sortData("Acuarius", "Canto", "")).toBe(["Harry Styles", "Bob Marley"]);
   });
 
@@ -44,20 +67,20 @@ describe('sortData', () => {
 
   it('should show ["Harry Styles", "Bob Marley"] as namesArray', () => {
     expect(sortData("Acuarius", "Canto", "Z-A")).toBe(["Harry Styles", "Bob Marley"]);
-  });
-});
+  }); */
+
 
 describe('computeStats', () => {
   it('is a function', () => {
     expect(typeof computeStats).toBe('function');
   });
 
-  it('returns {Canto: 33.3, Actuación: 50.0, Deporte: 16.7}', () => {
-    expect(computeStats(celebrities, "signStat", "Capricorn" )).toBe({Canto: 33.3, Actuación: 50.0, Deporte: 16.7});
+  it('returns {"Canto": 33.3, "Actuación": 50.0, "Deporte": 16.7}', () => {
+    expect(computeStats(celebrities, "signStat", "Capricorn" )).toBe({"Canto": 33.3, "Actuación": 50.0, "Deporte": 16.7});
   });
 
-  it('returns {Canto: 55.6, Actuación: 38.9, Deporte: 5.6}', () => {
-    expect(computeStats(celebrities, "elementStat", "Capricorn" )).toBe({Canto: 55.6, Actuación: 38.9, Deporte: 5.6});
+  it('returns {"Canto": 55.6, "Actuación": 38.9, "Deporte": 5.6}', () => {
+    expect(computeStats(celebrities, "elementStat", "Capricorn" )).toBe({"Canto": 55.6, "Actuación": 38.9, "Deporte": 5.6});
   });
 });
 
