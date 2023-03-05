@@ -240,8 +240,6 @@ const dataAPI = async () => {
   createCards(wait);
 };
 
-
-
 /* END API SECTION */
 
 
