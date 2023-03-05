@@ -75,9 +75,6 @@
         </div>
       </nav>
 
-      <!-- Up Button -->
-      <button type="button" class="btn btn-floating" id="btn-back-to-top"><i
-          class="fas fa-arrow-alt-circle-up"></i></button>
       <div id="mainContent" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active clearfix" data-bs-interval="8800">
@@ -184,12 +181,12 @@
 
   <section id="results">
     <div class="container cards">
-      <div class="row align-items-end" id="cards">
+      <div class="row" id="cards">
         <h1 id="msgUser"></h1>
         <br>
-        <div class="flip-box col-lg-3 col-md-4 col-sm-6">
-          <div class="flip-box-inner">
-            <div class="flip-box-front">
+        <div class="flip-box col-lg-3 col-md-3 col-sm-12">
+          <div id="boxCard1" class="flip-box-inner">
+            <div  class="flip-box-front">
               <img class="back" src="images/carta.png" alt="reverso carta">
             </div>
             <div class="flip-box-back">
@@ -197,7 +194,7 @@
             </div>
           </div>
         </div>
-        <div class="flip-box col-lg-3 col-md-4 col-sm-6">
+        <div id="boxCard2" class="flip-box col-lg-3 col-md-3 col-sm-12">
           <div class="flip-box-inner">
             <div class="flip-box-front">
               <img class="back" src="images/carta.png" alt="reverso carta">
@@ -207,15 +204,15 @@
             </div>
           </div>
         </div>
-        <div class="flip-box col-lg-3 col-md-3 col-sm-6">
+        <div id="boxCard3" class="flip-box col-lg-3 col-md-3 col-sm-12">
           <div class="flip-box-inner">
             <div class="flip-box-front">
-              <img class="back" src="images/carta.png" alt="carta con resultados">
-              <a href="http://" id="typeAyur" target="_blank" rel="constitucion tipos de ayurveda">aqui</a>
-              <a href="http://" id="balanceAyur" target="_blank" rel="equilibrio de tipos de ayurveda">aqui</a>
+              <img class="back" src="images/carta.png" alt="reverso carta">
             </div>
             <div class="flip-box-back">
               <img id="card3" class="front" src="images/carta.png" alt="carta con resultados">
+              <a href="http://" id="typeAyur" target="_blank" rel="constitucion tipos de ayurveda">aqui</a>
+              <a href="http://" id="balanceAyur" target="_blank" rel="equilibrio de tipos de ayurveda">aqui</a>
             </div>
           </div>
         </div>
@@ -346,7 +343,7 @@
 
   <section id="pricing">
 
-    <div class="w-50 px-3 py-3 pt-md-4 pb-md-4 mx-auto text-center">
+    <div class="w-80 px-3 py-3 pt-md-4 pb-md-4 mx-auto text-center">
       <h1 class="font-weight-bold">Un <b>plan</b> <br>para la necesidad de cada <br><b>Nakshatra</b>.</h1>
       <p class="lead">Completos y asequibles planes para conocerte y conocer a tus seres queridos.</p>
     </div>
@@ -470,7 +467,9 @@
 
   <script src="https://unpkg.com/@googlemaps/js-api-loader@1.0.0/dist/index.min.js"></script>
 
-
+  <!-- Up Button -->
+  <button type="button" class="btn btn-floating" id="btn-back-to-top"><i
+      class="fas fa-arrow-alt-circle-up"></i></button>
 </body>
 
 </html>
