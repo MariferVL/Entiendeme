@@ -23,3 +23,22 @@
 //   .then((res) => res.text()) // res.json()
 //   .catch((error) => console.error("Error:", error))
 //   .then((response) => console.log("Success:", response.json())); */
+
+
+
+/* Llamada al JSON */
+
+/* const astroData = fetch("/data/astrology.json")
+  .then((response) => response.json())
+  .then((info) => {
+    return info.data;
+  })
+  .catch((error) => error);
+
+/* let zodiac;
+const printData = async () => {
+  const a = await astroData;
+  console.log("AstroData: " + astroData);
+  zodiac = a["zodiac"]["name"];
+  console.log("Zodiac dentro de astro " + zodiac);
+}; */
