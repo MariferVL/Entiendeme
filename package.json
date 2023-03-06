@@ -10,8 +10,7 @@
     "pretest": "npm run eslint && npm run htmlhint",
     "test": "jest --verbose --coverage",
     "open-coverage-report": "opener ./coverage/lcov-report/index.html",
-    "start": "serve src/",
-    "build": "build src/index.html -d build"
+    "start": "serve src/"
   },
   "jest": {
     "testEnvironment": "jsdom"
