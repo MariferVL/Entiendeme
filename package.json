@@ -11,7 +11,7 @@
     "test": "jest --verbose --coverage",
     "open-coverage-report": "opener ./coverage/lcov-report/index.html",
     "start": "serve src/",
-    "deploy": "gh-pages -d src" 
+    "build": "build src/index.html -d build"
   },
   "jest": {
     "testEnvironment": "jsdom"
