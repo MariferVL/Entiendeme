@@ -4,7 +4,6 @@ import { filterData, sortData, computeStats } from "./data.js";
 import celebrities from "../data/celebrities.js";
 // import fetch from "./node-fetch";
 
-
 //Get the button
 const mybutton = document.getElementById("btn-back-to-top");
 
@@ -14,9 +13,7 @@ window.onscroll = function () {
 };
 
 function scrollFunction() {
-  if (document.body.scrollTop > 20 ||
-    document.documentElement.scrollTop > 20
-  ) {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
     mybutton.style.display = "block";
   } else {
     mybutton.style.display = "none";
@@ -29,7 +26,6 @@ function backToTop() {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
 }
-
 
 /* FORM SECTION */
 
@@ -107,8 +103,8 @@ function validateForm() {
           } else {
             y[i].setCustomValidity(
               " ¡Ey!, ✋🏻⚠️ No tan rápido.\n Disfruta tu año, el " +
-              userYear +
-              " ya llegará. 😉"
+                userYear +
+                " ya llegará. 😉"
             );
             y[i].className += " invalid";
             valid = false;
@@ -116,8 +112,8 @@ function validateForm() {
         } else {
           y[i].setCustomValidity(
             "Wow 😲 ¿Vienes del futuro?\nEl año " +
-            userYear +
-            " todavía no llega. 😅"
+              userYear +
+              " todavía no llega. 😅"
           );
           y[i].className += " invalid";
           valid = false;
@@ -133,7 +129,6 @@ function validateForm() {
 
 const today = new Date().toLocaleString("sv-SE").replace(" ", "T").slice(0, 16);
 const dob = document.getElementById("DateOB").value;
-
 
 function fixStepIndicator(n) {
   let i;
@@ -197,9 +192,9 @@ async function getTimeZone() {
       o = Math.abs(offset);
     resolve(
       (offset < 0 ? "+" : "-") +
-      ("00" + Math.floor(o / 60)).slice(-2) +
-      ":" +
-      ("00" + (o % 60)).slice(-2)
+        ("00" + Math.floor(o / 60)).slice(-2) +
+        ":" +
+        ("00" + (o % 60)).slice(-2)
     );
   });
 
@@ -207,34 +202,53 @@ async function getTimeZone() {
   return result;
 }
 
-
 /* API SECTION */
 
-const url = "https://api.prokerala.com/v2/astrology/birth-details";
-const data = {
-  ayanamsa: "1",
-  coordinates: latLong,
-  datetime: dateTime + ":00" + getTimeZone(),
-  la: "en",
-};
+// const url = "https://api.prokerala.com/v2/astrology/birth-details";
+// const data = {
+//   ayanamsa: "1",
+//   coordinates: latLong,
+//   datetime: dateTime + ":00" + getTimeZone(),
+//   la: "en",
+// };
 
-const myHeaders = new Headers();
+// const myHeaders = new Headers();
 // myHeaders.append(
 //   "Authorization",
 //   "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI2MzljZWQ5OC1mYWNhLTQ3YTItOTk1ZC1jMGQwMzRmMjgyYTEiLCJqdGkiOiJjOWY1NzAxNmU5MTk4NWRjY2VhNzNhMzZiMWIyMjM1Zjc3ZjQ1YzYwYmZhZWJiMjgxN2Y1NTQyMTA2Yzk0M2ZjODY4ODVkNjRiMWUyMDQ3NSIsImlhdCI6MTY3NzAwMTYzNi43OTg1OSwibmJmIjoxNjc3MDAxNjM2Ljc5ODU5MywiZXhwIjoxNjc3MDA1MjM2Ljc5ODM3Niwic3ViIjoiMmQ3MDRmMDYtNjlhMC00OTdkLWI0YTQtOTE2OWZkZTk1YThlIiwic2NvcGVzIjpbXSwiY3JlZGl0c19yZW1haW5pbmciOjQ3MDAsInJhdGVfbGltaXRzIjpbeyJyYXRlIjo1LCJpbnRlcnZhbCI6NjB9XX0.HOmB6NTg6GaPYZXBgu-yej_FqF52KRvxgzSB0KcotnK4LaCOs-Rte4MHLjygwQNL6CUwCTDWQO6mJdg_cajNj9QGUPbvKb8jZAvSdIwpc_c-45r2q0J4BubLJWLl3KcDvE7sr_7JuKvZP7PhrPDv3j_PjEGjo0oc9fZqivJpXqtTXUI8gAnV5D7oAWN6FyJkQmVfgZ3WcF25RfJn2fSkM1zZQpuQ-Ej99_9_pcazaB6X-G-fLYhbm32k3jTtQx7hF0qvge5tsVtBSKT66izhcRqi_GbwLxh2SRYnn6KzCQJRxfVv4Oz-6OYokovkVztnHOpM1fh3nMczMPWzQ0a-bw"
 // );
 
-myHeaders.append("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIzOGQ2NzlhNy1mMzYyLTRmNDgtOTQ4ZS04YTk2YjI4ZjgyYTIiLCJqdGkiOiJjODBlMzIyY2I3N2VjZmVlNDJkOTIxNDRmMTFkYmUwYzc2ZDg5ZGU3MjMxOWZjNWQ5OGRlOWFhNTM2MWM0NGJjOTA3YzRjMmUxNTFkZGJlNCIsImlhdCI6MTY3ODA1ODY1Ni4xNDk5MTYsIm5iZiI6MTY3ODA1ODY1Ni4xNDk5MTgsImV4cCI6MTY3ODA2MjI1Ni4xNDk3ODUsInN1YiI6Ijk3ZTJiOTdmLTQyYjAtNGJmZi04ODE4LWQ2YWIzY2MyMmJkMCIsInNjb3BlcyI6W10sImNyZWRpdHNfcmVtYWluaW5nIjo0OTAwLCJyYXRlX2xpbWl0cyI6W3sicmF0ZSI6NSwiaW50ZXJ2YWwiOjYwfV19.WKzU3cXnmkiGmg8Ede_ufdJ6SOYsW7kSNzw6FOL9oOx3fIy5qYEW5nTgwVzuXhWhWgTcoZJRszRrgMg5A3-KYRdGE-1RNvUG7BUcSygok1DzEsHpgfWgZYPYgsmczOhz_jjZ0oWTHN-tN0Sj2fUe9QBI1oNfBi-gZRJIBjQfd68eZYjMq-JZJYFvqvGNaw6_oPIr8y-skduuGO51PGIksBp9r0h3pewY0R506qcaGAtGb_TrUDdvMk9rKZM5m7BS1qS3hg4vam-X9XH0mgBsHsNwGbs2S94USvj7Lk8k612UEWRzk8uR1Ne4TW2p_aPC0FNDWlmjq7T4y-ve46kpng");
+// myHeaders.append("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIzOGQ2NzlhNy1mMzYyLTRmNDgtOTQ4ZS04YTk2YjI4ZjgyYTIiLCJqdGkiOiJjODBlMzIyY2I3N2VjZmVlNDJkOTIxNDRmMTFkYmUwYzc2ZDg5ZGU3MjMxOWZjNWQ5OGRlOWFhNTM2MWM0NGJjOTA3YzRjMmUxNTFkZGJlNCIsImlhdCI6MTY3ODA1ODY1Ni4xNDk5MTYsIm5iZiI6MTY3ODA1ODY1Ni4xNDk5MTgsImV4cCI6MTY3ODA2MjI1Ni4xNDk3ODUsInN1YiI6Ijk3ZTJiOTdmLTQyYjAtNGJmZi04ODE4LWQ2YWIzY2MyMmJkMCIsInNjb3BlcyI6W10sImNyZWRpdHNfcmVtYWluaW5nIjo0OTAwLCJyYXRlX2xpbWl0cyI6W3sicmF0ZSI6NSwiaW50ZXJ2YWwiOjYwfV19.WKzU3cXnmkiGmg8Ede_ufdJ6SOYsW7kSNzw6FOL9oOx3fIy5qYEW5nTgwVzuXhWhWgTcoZJRszRrgMg5A3-KYRdGE-1RNvUG7BUcSygok1DzEsHpgfWgZYPYgsmczOhz_jjZ0oWTHN-tN0Sj2fUe9QBI1oNfBi-gZRJIBjQfd68eZYjMq-JZJYFvqvGNaw6_oPIr8y-skduuGO51PGIksBp9r0h3pewY0R506qcaGAtGb_TrUDdvMk9rKZM5m7BS1qS3hg4vam-X9XH0mgBsHsNwGbs2S94USvj7Lk8k612UEWRzk8uR1Ne4TW2p_aPC0FNDWlmjq7T4y-ve46kpng");
+// const requestOptions = {
+//   method: "GET",
+//   headers: myHeaders,
+//   redirect: "follow",
+// };
+
+const myHeaders = new Headers();
+myHeaders.append(
+  "Authorization",
+  "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIzOGQ2NzlhNy1mMzYyLTRmNDgtOTQ4ZS04YTk2YjI4ZjgyYTIiLCJqdGkiOiI1ZjQzMDNmNjJhOTExNTkzYTg0MjRjMTA0ZmZlNzAyZjg0NTYwYzE2OTdhNDI2NWQ4MzNlMzVhMzRhYTRmNjVkM2JmYWNmYjYwZTI1YmRmZiIsImlhdCI6MTY3ODE0NTMwNS4zNzc0ODksIm5iZiI6MTY3ODE0NTMwNS4zNzc0OTIsImV4cCI6MTY3ODE0ODkwNS4zNzcyOSwic3ViIjoiOTdlMmI5N2YtNDJiMC00YmZmLTg4MTgtZDZhYjNjYzIyYmQwIiwic2NvcGVzIjpbXSwiY3JlZGl0c19yZW1haW5pbmciOjQ5MDAsInJhdGVfbGltaXRzIjpbeyJyYXRlIjo1LCJpbnRlcnZhbCI6NjB9XX0.GlcUMNW8B1abLg854cp3DADpecppgRYeLwaNGbYOalWv_YJEm3rJuyMsYBBBIaBuJ9wAD34Yhpnk0dqJ46rAuS52WRjruUbl-PYmrpwz5f_BqxqE7lnQj8GVOpId2OQ-4E_1otB8cpa7lC0W8w-wIG4woB_nwZkTz-5B3GkN-b9Hqq8zitRcvfFGn7MaiJYezvQQ0SaNflhAkrPFORM4zImWD5-mtp9CHKymppwlq1UKaUDs0s9PauAbhtDIE5M1UL4Br0a5jdKLSOczK5ljxUsOoFjQEsHpEJH74niCXtOv-jJtRzGZryi4iO1CnghwVYPH4GGu9ivZxn2jKk-wCA"
+);
+
 const requestOptions = {
   method: "GET",
   headers: myHeaders,
   redirect: "follow",
 };
 
-const astroData = fetch(url + new URLSearchParams(data), requestOptions)
-  .then((res) => res.text()) // res.json()
-  .catch((error) => console.error("Error:", error))
-  .then((response) => console.log("Success:", response.json()));
+const astroData = fetch(
+  "https://api.prokerala.com/v2/astrology/birth-details?ayanamsa=1&datetime=1986-11-11T12:30:00-03:00&la=en&coordinates=-33.0153481,-71.5500276",
+  requestOptions
+)
+  .then((response) => response.text())
+  .then((result) => console.log(result))
+  .catch((error) => console.log("error", error));
+
+// const astroData = fetch(url + new URLSearchParams(data), requestOptions)
+//   .then((res) => res.text()) // res.json()
+//   .catch((error) => console.error("Error:", error))
+//   .then((response) => console.log("Success:", response.json()));
 
 const dataAPI = async () => {
   const wait = await astroData;
@@ -243,9 +257,8 @@ const dataAPI = async () => {
 
 /* END API SECTION */
 
-
 /* CARD SECTION */
-let zodiac
+let zodiac;
 // Create & print main results
 function createCards(data) {
   const button1 = document.getElementById("typeAyur");
@@ -260,7 +273,8 @@ function createCards(data) {
   const animal = data["additional_info"]["animal_sign"];
   const nadi = data["additional_info"]["nadi"];
 
-  document.getElementById("card1").src = "images/cards/card-" + nakshatra + ".png";
+  document.getElementById("card1").src =
+    "images/cards/card-" + nakshatra + ".png";
   document.getElementById("card1").setAttribute("class", "back front");
   document.getElementById("card2").src = "images/cards/card-" + animal + ".png";
   document.getElementById("card2").setAttribute("class", "back front");
@@ -277,7 +291,6 @@ function createCards(data) {
     button1.href = "https://indiaveda.com/p/constitucion-kapha";
     button2.href = "https://indiaveda.com/p/equilibra-kapha";
   }
-
 }
 
 /* FILTER SECTION */
@@ -296,7 +309,6 @@ if (selectOption) {
     }
   });
 }
-
 
 // Const of elements
 const earth = ["Capricornio", "Tauro", "Virgo"];
@@ -365,20 +377,15 @@ function removeElements(id) {
 
 // Get selected option from Categories
 function getCategory(sign) {
-
   const categoriesList = celebrities["celebrities"]
-    .filter(
-      (celebrity) => celebrity.sign.slice(0, 5) === sign.slice(0, 5)
-    )
-    .map(
-      (celebrity) => celebrity.category
-    )
+    .filter((celebrity) => celebrity.sign.slice(0, 5) === sign.slice(0, 5))
+    .map((celebrity) => celebrity.category);
 
   removeElements("sortBy");
 
   // Filter categories repetitions
-  const categoriesToPrint = [...new Set(categoriesList)]
-  //spread operator 
+  const categoriesToPrint = [...new Set(categoriesList)];
+  //spread operator
 
   // Create new options in select
   const sel = document.getElementById("sortBy");
@@ -447,11 +454,11 @@ function printQuotes(celebName) {
   });
 }
 
-const celebrityOptions = document.getElementById("celebrity")
+const celebrityOptions = document.getElementById("celebrity");
 if (celebrityOptions) {
   celebrityOptions.addEventListener("click", (event) => {
     printQuotes(event.target.text);
-  })
+  });
 }
 
 // Listener and print of stats
@@ -492,7 +499,7 @@ if (statsOptions) {
       msg2.toString();
     document.getElementById("nameCeleb").innerText = "";
     document.getElementById("DOB").innerText = "";
-  })
+  });
 }
 
 const goingOut = {
