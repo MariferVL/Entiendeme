@@ -212,38 +212,22 @@ async function getTimeZone() {
 //   la: "en",
 // };
 
-// const myHeaders = new Headers();
-// myHeaders.append(
-//   "Authorization",
-//   "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI2MzljZWQ5OC1mYWNhLTQ3YTItOTk1ZC1jMGQwMzRmMjgyYTEiLCJqdGkiOiJjOWY1NzAxNmU5MTk4NWRjY2VhNzNhMzZiMWIyMjM1Zjc3ZjQ1YzYwYmZhZWJiMjgxN2Y1NTQyMTA2Yzk0M2ZjODY4ODVkNjRiMWUyMDQ3NSIsImlhdCI6MTY3NzAwMTYzNi43OTg1OSwibmJmIjoxNjc3MDAxNjM2Ljc5ODU5MywiZXhwIjoxNjc3MDA1MjM2Ljc5ODM3Niwic3ViIjoiMmQ3MDRmMDYtNjlhMC00OTdkLWI0YTQtOTE2OWZkZTk1YThlIiwic2NvcGVzIjpbXSwiY3JlZGl0c19yZW1haW5pbmciOjQ3MDAsInJhdGVfbGltaXRzIjpbeyJyYXRlIjo1LCJpbnRlcnZhbCI6NjB9XX0.HOmB6NTg6GaPYZXBgu-yej_FqF52KRvxgzSB0KcotnK4LaCOs-Rte4MHLjygwQNL6CUwCTDWQO6mJdg_cajNj9QGUPbvKb8jZAvSdIwpc_c-45r2q0J4BubLJWLl3KcDvE7sr_7JuKvZP7PhrPDv3j_PjEGjo0oc9fZqivJpXqtTXUI8gAnV5D7oAWN6FyJkQmVfgZ3WcF25RfJn2fSkM1zZQpuQ-Ej99_9_pcazaB6X-G-fLYhbm32k3jTtQx7hF0qvge5tsVtBSKT66izhcRqi_GbwLxh2SRYnn6KzCQJRxfVv4Oz-6OYokovkVztnHOpM1fh3nMczMPWzQ0a-bw"
-// );
+var myHeaders = new Headers();
+myHeaders.append("Accept", "application/json");
+myHeaders.append("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJmZDg0MTM3MS05MTQzLTQ3ZjYtYTMzMS1hNGY4YmE3YTVkZGYiLCJqdGkiOiI0YWE4MTkzMjVmMTg3MDcwMDFjN2I1YTY3MGYwM2FjOTM0NjgxYjk2MmM5NWVhM2E2YmJmYTFkMWFlYzIzNzdmOGZiNGViNDlmMmViZmEwZiIsImlhdCI6MTY3ODE1NDgyNS44OTI3NDIsIm5iZiI6MTY3ODE1NDgyNS44OTI3NDUsImV4cCI6MTY3ODE1ODQyNS44OTI1MzEsInN1YiI6Ijk3ZTJiOTdmLTQyYjAtNGJmZi04ODE4LWQ2YWIzY2MyMmJkMCIsInNjb3BlcyI6W10sImNyZWRpdHNfcmVtYWluaW5nIjo0OTAwLCJyYXRlX2xpbWl0cyI6W3sicmF0ZSI6NSwiaW50ZXJ2YWwiOjYwfV19.STZa7GnjF7z71uM4D1kt7Elj8qw98WmrBeFqgFYoVO1tb_lUvBslrPBhmOgdWqwv4WOBTEg2eJWqRViQw3Y2zFEQMlHuqfFM5i9sPqiScHNDPQ88TdPU-M6xsNTlF3IpAB_JqR_zPG5UmzJyOx1ltWhtfnG12ftx3pmpL0MGBqDjpvzk8gGtJWAA2aYYKMe3GeCDv9sSKIZiujLoMw7gRhy06O2dGy4JNSwzgjn9Ra_xvj6CDaE_g9R8zRIE0JuJBS_F9gbmcuBvG8JpdKa63v_YwCRC915Z7Nh1AFgf1GEOOAH1vjBi2E4qpzviJQOgQGeWD7_HJZ2ArRuBcGHGWg");
 
-// myHeaders.append("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIzOGQ2NzlhNy1mMzYyLTRmNDgtOTQ4ZS04YTk2YjI4ZjgyYTIiLCJqdGkiOiJjODBlMzIyY2I3N2VjZmVlNDJkOTIxNDRmMTFkYmUwYzc2ZDg5ZGU3MjMxOWZjNWQ5OGRlOWFhNTM2MWM0NGJjOTA3YzRjMmUxNTFkZGJlNCIsImlhdCI6MTY3ODA1ODY1Ni4xNDk5MTYsIm5iZiI6MTY3ODA1ODY1Ni4xNDk5MTgsImV4cCI6MTY3ODA2MjI1Ni4xNDk3ODUsInN1YiI6Ijk3ZTJiOTdmLTQyYjAtNGJmZi04ODE4LWQ2YWIzY2MyMmJkMCIsInNjb3BlcyI6W10sImNyZWRpdHNfcmVtYWluaW5nIjo0OTAwLCJyYXRlX2xpbWl0cyI6W3sicmF0ZSI6NSwiaW50ZXJ2YWwiOjYwfV19.WKzU3cXnmkiGmg8Ede_ufdJ6SOYsW7kSNzw6FOL9oOx3fIy5qYEW5nTgwVzuXhWhWgTcoZJRszRrgMg5A3-KYRdGE-1RNvUG7BUcSygok1DzEsHpgfWgZYPYgsmczOhz_jjZ0oWTHN-tN0Sj2fUe9QBI1oNfBi-gZRJIBjQfd68eZYjMq-JZJYFvqvGNaw6_oPIr8y-skduuGO51PGIksBp9r0h3pewY0R506qcaGAtGb_TrUDdvMk9rKZM5m7BS1qS3hg4vam-X9XH0mgBsHsNwGbs2S94USvj7Lk8k612UEWRzk8uR1Ne4TW2p_aPC0FNDWlmjq7T4y-ve46kpng");
-// const requestOptions = {
-//   method: "GET",
-//   headers: myHeaders,
-//   redirect: "follow",
-// };
-
-const myHeaders = new Headers();
-myHeaders.append(
-  "Authorization",
-  "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIzOGQ2NzlhNy1mMzYyLTRmNDgtOTQ4ZS04YTk2YjI4ZjgyYTIiLCJqdGkiOiI1ZjQzMDNmNjJhOTExNTkzYTg0MjRjMTA0ZmZlNzAyZjg0NTYwYzE2OTdhNDI2NWQ4MzNlMzVhMzRhYTRmNjVkM2JmYWNmYjYwZTI1YmRmZiIsImlhdCI6MTY3ODE0NTMwNS4zNzc0ODksIm5iZiI6MTY3ODE0NTMwNS4zNzc0OTIsImV4cCI6MTY3ODE0ODkwNS4zNzcyOSwic3ViIjoiOTdlMmI5N2YtNDJiMC00YmZmLTg4MTgtZDZhYjNjYzIyYmQwIiwic2NvcGVzIjpbXSwiY3JlZGl0c19yZW1haW5pbmciOjQ5MDAsInJhdGVfbGltaXRzIjpbeyJyYXRlIjo1LCJpbnRlcnZhbCI6NjB9XX0.GlcUMNW8B1abLg854cp3DADpecppgRYeLwaNGbYOalWv_YJEm3rJuyMsYBBBIaBuJ9wAD34Yhpnk0dqJ46rAuS52WRjruUbl-PYmrpwz5f_BqxqE7lnQj8GVOpId2OQ-4E_1otB8cpa7lC0W8w-wIG4woB_nwZkTz-5B3GkN-b9Hqq8zitRcvfFGn7MaiJYezvQQ0SaNflhAkrPFORM4zImWD5-mtp9CHKymppwlq1UKaUDs0s9PauAbhtDIE5M1UL4Br0a5jdKLSOczK5ljxUsOoFjQEsHpEJH74niCXtOv-jJtRzGZryi4iO1CnghwVYPH4GGu9ivZxn2jKk-wCA"
-);
-
-const requestOptions = {
-  method: "GET",
+var requestOptions = {
+  method: 'GET',
   headers: myHeaders,
-  redirect: "follow",
+  redirect: 'follow'
 };
 
-const astroData = fetch(
-  "https://api.prokerala.com/v2/astrology/birth-details?ayanamsa=1&datetime=1986-11-11T12:30:00-03:00&la=en&coordinates=-33.0153481,-71.5500276",
-  requestOptions
-)
-  .then((response) => response.text())
-  .then((result) => console.log(result))
-  .catch((error) => console.log("error", error));
+const astroData = fetch("https://api.prokerala.com/v2/astrology/birth-details?ayanamsa=1&coordinates=-33.0055289,-71.5302556&datetime=1986-11-11T12:30:00-03:00&la=en", requestOptions)
+  .then(response => response.text())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
+
+
 
 // const astroData = fetch(url + new URLSearchParams(data), requestOptions)
 //   .then((res) => res.text()) // res.json()
