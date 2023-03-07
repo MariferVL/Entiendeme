@@ -30,15 +30,15 @@ describe('filterData', () => {
   });
 
   it('should returns true for "element"', () => {
-    expect(filterData('Capricorn','element')).toBe(true);
+    expect(filterData('Capricorn', 'element')).toBe(true);
   });
 
   it('should returns true for "generation"', () => {
-    expect(filterData('Capricorn','generation')).toBe(true);
+    expect(filterData('Capricorn', 'generation')).toBe(true);
   });
 
   it('should returns true for "celebrities"', () => {
-    expect(filterData('Capricorn','celebrities')).toBe(true);
+    expect(filterData('Capricorn', 'celebrities')).toBe(true);
   });
 });
 
@@ -55,7 +55,7 @@ describe('sortData', () => {
     expect(typeof data).toBe('object');
   });
 
-  
+
 });
 /*   it('should show ["Harry Styles", "Bob Marley"] as namesArray', () => {
     expect(sortData("Acuarius", "Canto", "")).toBe(["Harry Styles", "Bob Marley"]);
@@ -76,11 +76,11 @@ describe('computeStats', () => {
   });
 
   it('returns {"Canto": 33.3, "Actuación": 50.0, "Deporte": 16.7}', () => {
-    expect(computeStats(celebrities, "signStat", "Capricorn" )).toBe({"Canto": 33.3, "Actuación": 50.0, "Deporte": 16.7});
+    expect(computeStats(celebrities, "signStat", "Capricorn")).toBe({ "Canto": 33.3, "Actuación": 50.0, "Deporte": 16.7 });
   });
 
   it('returns {"Canto": 55.6, "Actuación": 38.9, "Deporte": 5.6}', () => {
-    expect(computeStats(celebrities, "elementStat", "Capricorn" )).toBe({"Canto": 55.6, "Actuación": 38.9, "Deporte": 5.6});
+    expect(computeStats(celebrities, "elementStat", "Capricorn")).toBe({ "Canto": 55.6, "Actuación": 38.9, "Deporte": 5.6 });
   });
 });
 
