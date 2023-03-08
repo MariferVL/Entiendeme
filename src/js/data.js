@@ -1,16 +1,9 @@
-import goingIn from "./main.js";
 import celebrities from "../data/celebrities.js";
 
 // Filter data by zodiac or generation
 function filterData(data, condition) {
   let valid = true;
-  if (condition === "element") {
-    goingIn.getElements(data);
-  } else if (condition === "generation") {
-    goingIn.getGeneration();
-  } else if (condition === "celebrities") {
-    goingIn.getCategory(data);
-  } else {
+  if (condition !== "element" && condition !== "generation" && condition !== "celebrities") {
     valid = false;
   }
   return valid;
@@ -19,6 +12,7 @@ function filterData(data, condition) {
 
 
 let namesFilter = [];
+
 // Sort data by celebrity type (singer or actor) and in ascending/descendig order.
 function sortData(data, sortBy, sortOrder) {
   const names = [];
@@ -42,7 +36,8 @@ function sortData(data, sortBy, sortOrder) {
     namesFilter = namesFilter.sort().reverse();
     namesArray = namesFilter;
   }  
-  goingIn.getCelebrities(namesArray);
+
+  return namesArray
 }
 
 
