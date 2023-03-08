@@ -53,12 +53,12 @@ describe('computeStats', () => {
     expect(typeof computeStats).toBe('function');
   });
 
-  /*  it('returns {"Canto": 33.3, "Actuación": 50.0, "Deporte": 16.7}', () => {
-     expect(computeStats("", "signStat", "Capricorn")).toBe({ "Canto": 33.3, "Actuación": 50.0, "Deporte": 16.7 });
-   });
- 
-   it('returns {"Canto": 55.6, "Actuación": 38.9, "Deporte": 5.6}', () => {
-     expect(computeStats("", "elementStat", "Capricorn")).toBe({ "Canto": 55.6, "Actuación": 38.9, "Deporte": 5.6 });
-   }); */
+  it('returns {"Canto": 33.3, "Actuación": 50.0, "Deporte": 16.7}', () => {
+    expect(computeStats("", "signStat", "Capricorn")).toBe({ "Canto": 33.3, "Actuación": 50.0, "Deporte": 16.7 });
+  });
+
+  it('returns {"Canto": 55.6, "Actuación": 38.9, "Deporte": 5.6}', () => {
+    expect(computeStats("", "elementStat", "Capricorn")).toBe({ "Canto": 55.6, "Actuación": 38.9, "Deporte": 5.6 });
+  });
 
 });

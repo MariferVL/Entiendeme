@@ -463,12 +463,3 @@ if (statsOptions) {
     document.getElementById("DOB").innerText = "";
   });
 }
-
-const goingOut = {
-  getElements,
-  getGeneration,
-  getCategory,
-  getCelebrities,
-};
-
-export default goingOut;
