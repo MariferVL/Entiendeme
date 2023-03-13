@@ -19,7 +19,7 @@ https://blog.hubspot.es/marketing/pruebas-usabilidad -->
  <br/>
  <br/>
 
-<img src="https://user-images.githubusercontent.com/99364311/217434247-2929504e-4c4a-4538-b6e0-672c338a3d7f.png" alt="Logo" width="220px">
+<img src="https://user-images.githubusercontent.com/120422565/224590435-f464a316-41c9-4bb6-826d-b2556d95c638.png" alt="Logo" width="220px">
 <br/>
  <br/>
  <br/>
@@ -196,13 +196,13 @@ Parte de este proceso implicó la aplicación de conocimiento del <b>DOM</b>, <b
   <summary><b>Hito 1</b></summary>
   <ul>
    <li>
-    - [ ] Pasa linter (npm run pretest)
+    - [x] Pasa linter (npm run pretest)
    </li>
     <li>
-    - [ ] Pasa tests (npm test)
+    - [x] Pasa tests (npm test)
    </li>
    <li> 
-    - [ ] Pruebas unitarias cubren un mínimo del 70% de statements, functions y lines y branches
+    - [x] Pruebas unitarias cubren un mínimo del 70% de statements, functions y lines y branches
    </li>
     <li>
     - [x] Incluye Definición del producto clara e informativa en README
@@ -214,22 +214,22 @@ Parte de este proceso implicó la aplicación de conocimiento del <b>DOM</b>, <b
     - [x] Incluye sketch de la solución (prototipo de baja fidelidad) en README
    </li>
     <li>
-    - [ ] Incluye Diseño de la Interfaz de Usuario (prototipo de alta fidelidad) en README
+    - [x] Incluye Diseño de la Interfaz de Usuario (prototipo de alta fidelidad) en README
    </li>
     <li>
-    - [ ] Incluye el listado de problemas que detectaste a través de tests de usabilidad en el README
+    - [] Incluye el listado de problemas que detectaste a través de tests de usabilidad en el README
     </li>
     <li>
-    - [ ] UI: Muestra lista y/o tabla con datos y/o indicadores
+    - [x] UI: Muestra lista y/o tabla con datos y/o indicadores
    </li>
     <li>
-    - [ ] UI: Permite ordenar data por uno o más campos (asc y desc)
+    - [x] UI: Permite ordenar data por uno o más campos (asc y desc)
     </li>
     <li>
     - [x] UI: Permite filtrar data en base a una condición
     </li>
     <li>
-    - [ ] UI: Es responsive
+    - [x] UI: Es responsive
     </li>
   </ul>  
 </details>
@@ -241,7 +241,7 @@ Parte de este proceso implicó la aplicación de conocimiento del <b>DOM</b>, <b
 <li> Como asesor quiero saber el signo zodiacal de mis clientes para entender sus necesidades de compra. </li>
 <li> Como astróloga quiero saber el porcentaje de personas de signos aire menores de 50 años. </li>
 
-### Prototipo de baja fidelidad
+### Prototipo de baja y alta fidelidad
 
 <div align="center">
 <img height="350" alt="prototipo-papel" src="https://user-images.githubusercontent.com/120422565/215957059-41f0126f-18a8-419d-a811-45aeac0a3100.png">
@@ -249,6 +249,8 @@ Parte de este proceso implicó la aplicación de conocimiento del <b>DOM</b>, <b
 <br/>
 <img width="400" alt="prototipo-baja-fidelidad2" src="https://user-images.githubusercontent.com/120422565/215957529-49b7e0f2-6151-43ea-9ef5-a352df42f41b.png">
 <img width="400" alt="prototipo-baja-fidelidad" src="https://user-images.githubusercontent.com/120422565/215957538-142e916a-c2bb-4b4f-bd45-b40fa29760a5.png">
+<br/>
+<img width="400" alt="prototipo-alta-fidelidad2" src="https://user-images.githubusercontent.com/120422565/224590701-85411b95-80e5-454f-a74e-0cbcb8cb8a1b.png">
 </div>
 
 ### Pruebas de API en Postman
@@ -260,8 +262,6 @@ Parte de este proceso implicó la aplicación de conocimiento del <b>DOM</b>, <b
 
 
  <br/>
-<p align="left"><a href="#volver">Volver</a></p>
- <br/>
  
  ### Código
 <div align="center">
@@ -270,12 +270,23 @@ Parte de este proceso implicó la aplicación de conocimiento del <b>DOM</b>, <b
 <img width="400" alt="data-postman" src="https://user-images.githubusercontent.com/99364311/219038183-0fbce798-50a6-4611-a630-6e2a1b892858.png">
 </div>
 
+<br/>
+<p align="left"><a href="#volver">Volver</a></p>
+ <br/>
+
 ## 4. Producto
 
 Durante milenios, la humanidad ha estado empleando la astrología y la carta astral como una forma de adivinar el futuro y registrar el paso del tiempo. Una carta astral es un mapa que muestra la alineación planetaria en el momento exacto en el que naciste, así que nunca dos cartas son iguales. 
 Al elaborar el mapa de la ubicación de los planetas y signos zodiacales en las casas astrológicas al momento de tu nacimiento, puedes tener una mayor comprensión de quién eres.
+ <br/>
+<div align="center">
+<img width="500" alt="producto-inicial" src="https://user-images.githubusercontent.com/120422565/224591457-effa6c69-d833-4838-8376-8a7429b3d527.png">
+<img width="500" alt="producto-funcion" src="https://user-images.githubusercontent.com/120422565/224591374-53f0e908-2c97-490b-95df-c429d65e6db0.png">
+</div>
 
+<br/>
 <p align="left"><a href="#volver">Volver</a></p>
+ <br/>
 
 ## 5. Demo
 
